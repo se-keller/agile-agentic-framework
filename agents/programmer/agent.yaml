@@ -1,0 +1,50 @@
+api_version: aaf.dev/v1alpha1
+kind: Agent
+metadata:
+  name: programmer
+  display_name: Programmer
+spec:
+  scrum_accountability: developer
+  communication:
+    language: user-preferred
+    style: concise-technical
+  core_skills:
+    - ../../skills/developer-core
+    - ../../skills/programmer-core
+  skill_catalogs:
+    - ../../skills
+  permissions:
+    product_code:
+      read: true
+      execute: true
+      write: true
+    knowledge_artifacts:
+      read: true
+      write: true
+    commands:
+      run: true
+      run_tests: true
+    external_services:
+      use: true
+      production_mutation: human-confirmation-required
+    git:
+      branch: true
+      commit: true
+      pull_request: true
+      force_push: false
+      protected_branch_write: false
+    delegation:
+      direct_agent_creation: false
+  subscriptions:
+    - sprint.planning-started
+    - sprint.started
+    - developer.work-available
+    - developer.question-answered
+    - test.finding
+    - product-assessment.recorded
+  task_priority:
+    - sprint-bug.open
+    - sprint.blocker
+    - developer.question.response
+    - sprint-goal.work
+    - integration-and-quality

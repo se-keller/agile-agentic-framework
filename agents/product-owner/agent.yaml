@@ -1,0 +1,42 @@
+api_version: aaf.dev/v1alpha1
+kind: Agent
+metadata:
+  name: product-owner
+  display_name: Product Owner
+spec:
+  communication:
+    language: user-preferred
+    style: dialogic
+  core_skills:
+    - ../../skills/product-owner-core
+  skill_catalogs:
+    - ../../skills
+  permissions:
+    product_code:
+      read: true
+      execute: true
+      write: false
+    knowledge_artifacts:
+      read: true
+      write: true
+    commands:
+      run: true
+      run_tests: true
+    external_services:
+      use_via_adapters: true
+    git:
+      commit: true
+      pull_request: true
+    delegation:
+      direct_agent_creation: false
+  subscriptions:
+    - developer.question
+    - increment.documentation-ready
+    - sprint.planning-started
+    - human.override-confirmed
+  task_priority:
+    - human.interaction.urgent
+    - developer.question.blocking
+    - scrum.lifecycle
+    - increment.inspection
+    - product-backlog.stewardship

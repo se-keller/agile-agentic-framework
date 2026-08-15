@@ -1,0 +1,54 @@
+api_version: aaf.dev/v1alpha1
+kind: Agent
+metadata:
+  name: tester
+  display_name: Tester
+spec:
+  scrum_accountability: developer
+  communication:
+    language: user-preferred
+    style: evidence-focused
+  core_skills:
+    - ../../skills/developer-core
+    - ../../skills/tester-core
+  skill_catalogs:
+    - ../../skills
+  permissions:
+    product_code:
+      read: true
+      execute: true
+      write: false
+    test_code:
+      read: true
+      execute: true
+      write: true
+    knowledge_artifacts:
+      read: true
+      write: true
+    commands:
+      run: true
+      run_tests: true
+    external_services:
+      use: true
+      production_mutation: false
+    git:
+      branch: true
+      commit: true
+      pull_request: true
+      force_push: false
+      protected_branch_write: false
+    delegation:
+      direct_agent_creation: false
+  subscriptions:
+    - sprint.planning-started
+    - sprint.started
+    - developer.work-available
+    - implementation.testable
+    - bug.fix-ready
+    - developer.question-answered
+  task_priority:
+    - bug.retest
+    - acceptance-test.blocking
+    - sprint-goal.testing
+    - risk-based-testing
+    - integration-and-quality

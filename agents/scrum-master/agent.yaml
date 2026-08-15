@@ -1,0 +1,58 @@
+api_version: aaf.dev/v1alpha1
+kind: Agent
+metadata:
+  name: scrum-master
+  display_name: Scrum Master
+spec:
+  communication:
+    language: user-preferred
+    style: facilitative
+  core_skills:
+    - ../../skills/scrum-master-core
+    - ../../skills/run-sprint-cycle
+  skill_catalogs:
+    - ../../skills
+  permissions:
+    product_code:
+      read: false
+      execute: false
+      write: false
+    knowledge_artifacts:
+      read: true
+      write: true
+    framework_extensions:
+      read: true
+      write_via_pull_request: true
+    base_framework:
+      write: false
+    commands:
+      run: true
+      run_tests: false
+    external_services:
+      use: true
+      production_mutation: false
+    git:
+      branch: true
+      commit: true
+      pull_request: true
+      force_push: false
+      protected_branch_write: false
+    orchestration:
+      activate_configured_agents: true
+      create_agents: false
+      assign_developer_work: false
+  subscriptions:
+    - product-direction.ready
+    - sprint.planning-requested
+    - sprint-backlog.changed
+    - developer.question
+    - sprint.impediment
+    - increment.done
+    - sprint.review-ready
+    - retrospective.ready
+  task_priority:
+    - human.interaction.urgent
+    - sprint.impediment
+    - scrum.lifecycle
+    - collaboration-and-transparency
+    - continuous-improvement
