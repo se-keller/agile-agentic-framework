@@ -19,3 +19,4 @@ When product direction and at least one ready PBI exist, hand lifecycle control 
 - Keep `.aafe` skill folders minimal. Do not create `agents/` or `agents/openai.yaml` unless a concrete runtime integration explicitly requires that metadata.
 - Keep Product Vision and the current Product Goal under `artefacts/product-backlog/` with its index and available PBI items.
 - During Planning, move selected PBI files from `artefacts/product-backlog/items/` into the Sprint's `sprint-backlog/`. Keep Done PBIs and resolved Bugs there; return unfinished work to the Product Backlog and preserve a return link in the Sprint Backlog index.
+- Store the agreed Sprint Goal inside the Sprint Backlog as `sprint-backlog/sprint-goal.md`.

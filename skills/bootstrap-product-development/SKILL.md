@@ -35,4 +35,5 @@ Create one workspace per product. Do not create a separate product merely for a 
 - Store Product Vision at `artefacts/product-backlog/product-vision.md` and the current Product Goal at `artefacts/product-backlog/current-product-goal.md`.
 - Keep stable PBI identifiers even when their filename slug changes. Freeze a PBI filename and move the authoritative artifact from `product-backlog/items/` into the selected Sprint's `sprint-backlog/` during Planning.
 - Keep Done PBIs and resolved Bugs in the completed Sprint Backlog. Move unfinished work back to `product-backlog/items/` for Product Owner ordering and preserve its return in the Sprint Backlog index.
+- Store each agreed Sprint Goal inside its Sprint Backlog as `sprint-backlog/sprint-goal.md`.
 - Create Sprint directories only after Sprint Planning has established a Sprint Goal. Freeze their directory names when the Sprint begins.
