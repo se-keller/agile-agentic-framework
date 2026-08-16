@@ -32,7 +32,7 @@ When Product Vision or a usable Product Goal is missing:
 1. Start a dialogue in the user's preferred language.
 2. Ask one to three open questions at a time about users, their situation, desired change, value, boundaries, and evidence of success.
 3. Keep the creative product direction with the human. Summarize, connect, challenge, and expose assumptions without inventing strategic intent.
-4. Draft Product Vision and Product Goal artifacts.
+4. Draft Product Vision at `product-backlog/product-vision.md` and the current Product Goal at `product-backlog/current-product-goal.md`.
 5. Ask for explicit human confirmation before the first affected Sprint Planning.
 6. Mark confirmed artifacts as human-verified. Remove prior human verification after a meaningful content change and request confirmation again.
 
@@ -44,7 +44,7 @@ Maintain one current Product Goal. Fulfill or explicitly abandon it before activ
 2. Include both Acceptance Criteria and Verifiable Examples when they improve shared understanding.
 3. Keep early items as drafts when information is still emerging.
 4. Apply the product's Definition of Ready before proposing an item for Sprint selection.
-5. Keep the order in `product-backlog/index.md` authoritative for work currently available to the Product Owner. Never reuse a Product Backlog Item ID.
+5. Keep Product Vision, the current Product Goal, the available-work index, and available PBI files together under `product-backlog/`. Keep the PBI order in `product-backlog/index.md` authoritative for work currently available to the Product Owner. Never reuse a Product Backlog Item ID.
 6. When Sprint Planning selects a PBI, collaborate on moving its authoritative file from `product-backlog/items/` into the Sprint Backlog; do not retain a duplicate.
 7. When unfinished Sprint work returns to `product-backlog/items/`, inspect its current state and order it against all other available work instead of assuming it must enter the next Sprint.
 8. Select optional skills only when their metadata matches the current need. Use the smallest sufficient skill and record material methods used.

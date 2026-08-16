@@ -8,8 +8,8 @@ updated: "{{GENERATED_DATE}}"
 
 ## Product direction
 
-- [Product Vision](product-vision.md)
-- [Current Product Goal](current-product-goal.md)
+- [Product Vision](product-backlog/product-vision.md)
+- [Current Product Goal](product-backlog/current-product-goal.md)
 - [Product Backlog](product-backlog/index.md)
 
 ## Shared quality agreements

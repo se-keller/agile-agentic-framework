@@ -21,7 +21,7 @@ python3 skills/bootstrap-product-development/scripts/bootstrap.py "My Product" -
 
 This creates `product-development-my-product/` with a human and agent entry point, a `product-code/` area, initial OKF artifacts, a Product Backlog, Sprint and Increment Documentation areas, and a `.aafe/` extension layer. Keep product knowledge and product-specific framework changes there; do not modify this base framework for one product's needs.
 
-PBI files begin under `artefacts/product-backlog/items/`. Sprint Planning moves selected PBI files into the active Sprint's `sprint-backlog/`. Done PBIs and resolved Bugs remain there as the completed Sprint record; unfinished work is moved back to the Product Backlog for Product Owner ordering.
+Product Vision and the current Product Goal live under `artefacts/product-backlog/` with its index. PBI files begin under `artefacts/product-backlog/items/`. Sprint Planning moves selected PBI files into the active Sprint's `sprint-backlog/`. Done PBIs and resolved Bugs remain there as the completed Sprint record; unfinished work is moved back to the Product Backlog for Product Owner ordering.
 
 ## Test and improve the framework
 

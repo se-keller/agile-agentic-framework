@@ -23,7 +23,7 @@ The Scrum Master brings the Product Owner and configured Developers into Sprint 
 - `.aafe/`: explicit product-specific additions and overrides to the base framework.
 - `AGENTS.md`: operating instructions for agents working in this workspace.
 
-PBI files begin in `artefacts/product-backlog/items/`. Planning moves selected files into the Sprint's `sprint-backlog/`. Done PBIs and resolved Bugs remain there; unfinished work returns to the Product Backlog for reordering.
+Product Vision and the current Product Goal live in `artefacts/product-backlog/`. PBI files begin in `artefacts/product-backlog/items/`. Planning moves selected files into the Sprint's `sprint-backlog/`. Done PBIs and resolved Bugs remain there; unfinished work returns to the Product Backlog for reordering.
 
 Additional agent roles and skills become available when they are added to the base framework or explicitly declared under `.aafe/`. Product-specific stakeholder agents should reuse `stakeholder-core` and give all product input through the Product Owner.
 
