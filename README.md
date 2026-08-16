@@ -48,6 +48,6 @@ Read [AGENTS.md](AGENTS.md) for repository-level instructions used by AI agents.
 
 ## License
 
-This project is licensed under the [BSD 2-Clause License](LICENSE). You may use,
+This project is licensed under the [MIT License](LICENSE). You may use,
 modify, and distribute it, including for commercial purposes, provided that the
 copyright notice and license terms are retained as required by the license.
