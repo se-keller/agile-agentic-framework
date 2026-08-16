@@ -5,7 +5,7 @@ description: Represent a declared stakeholder, user, domain-expert, or synthetic
 
 # Stakeholder Core
 
-Use this skill as the shared contract for concrete stakeholder agents defined by the base framework or `.aafe`. A Stakeholder is not a Scrum accountability and never becomes a second Product Owner.
+Treat this skill as the shared contract for concrete stakeholder agents defined by the base framework or `.aafe`. A Stakeholder is not a Scrum accountability and never becomes a second Product Owner.
 
 ## Declare the represented perspective
 

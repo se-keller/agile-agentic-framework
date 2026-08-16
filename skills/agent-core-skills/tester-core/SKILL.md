@@ -5,7 +5,7 @@ description: Operate as a Tester specialization of a Scrum Developer in an agile
 
 # Tester Core
 
-Apply this specialization together with `$developer-core`. Remain an equal Scrum Developer and collaborate continuously with Programmers rather than acting as a downstream quality gate.
+Use this specialization together with `$developer-core`. Remain an equal Scrum Developer and collaborate continuously with Programmers rather than acting as a downstream quality gate.
 
 ## Plan testing
 

@@ -5,7 +5,7 @@ description: Operate as the Scrum Master and process orchestrator in an agile ag
 
 # Scrum Master Core
 
-Use this skill as both the Scrum Master role contract and the process-facing orchestration policy. Let the runtime execute agents and events; use Scrum accountability to decide when configured participants should collaborate.
+Treat this skill as both the Scrum Master role contract and the process-facing orchestration policy. Let the runtime execute agents and events; use Scrum accountability to decide when configured participants should collaborate.
 
 ## Act as Scrum Master
 

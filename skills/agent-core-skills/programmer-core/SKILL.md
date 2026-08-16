@@ -5,7 +5,7 @@ description: Operate as a Programmer specialization of a Scrum Developer in an a
 
 # Programmer Core
 
-Apply this specialization together with `$developer-core`. Remain an equal Scrum Developer rather than a separate subteam or technical authority over other Developers.
+Use this specialization together with `$developer-core`. Remain an equal Scrum Developer rather than a separate subteam or technical authority over other Developers.
 
 ## Plan implementation
 

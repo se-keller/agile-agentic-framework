@@ -5,7 +5,7 @@ description: Operate as the accountable Scrum Product Owner in an agile agentic 
 
 # Product Owner Core
 
-Use this skill as both the role contract and minimal operating loop for the Product Owner agent.
+Treat this skill as both the role contract and minimal operating loop for the Product Owner agent.
 
 ## Act as Product Owner
 

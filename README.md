@@ -5,11 +5,12 @@ This repository defines runtime-neutral agent roles and a shared skill catalog f
 ## Structure
 
 - `agents/`: one runtime-neutral manifest per agent.
-- `skills/`: all skills, including mandatory agent core skills and cross-role capabilities.
+- `skills/agent-core-skills/`: mandatory role contracts and role specializations.
+- `skills/`: process, cross-role, and other optional skills such as bootstrap, Sprint cycle, and OKF.
 
 A skill needs only `skills/<skill-name>/SKILL.md`. Add scripts, references, or assets only when they are used. Runtime-specific UI metadata such as `agents/openai.yaml` is intentionally omitted unless a concrete integration requires it.
 
-The Product Owner is defined by `agents/product-owner/agent.yaml`. Programmer and Tester agents combine the shared Scrum Developer contract in `skills/developer-core/` with their specialization in `skills/programmer-core/` or `skills/tester-core/`. The Scrum Master combines `skills/scrum-master-core/` with `skills/run-sprint-cycle/` to orchestrate the configured agents without assigning their work. Product-specific stakeholder agents can reuse `skills/stakeholder-core/` while remaining outside the Scrum Team. All agents can discover shared capabilities such as `skills/okf/`.
+The Product Owner is defined by `agents/product-owner/agent.yaml`. Programmer and Tester agents combine the shared Scrum Developer contract in `skills/agent-core-skills/developer-core/` with their specialization in `skills/agent-core-skills/programmer-core/` or `skills/agent-core-skills/tester-core/`. The Scrum Master combines `skills/agent-core-skills/scrum-master-core/` with `skills/run-sprint-cycle/` to orchestrate the configured agents without assigning their work. Product-specific stakeholder agents can reuse `skills/agent-core-skills/stakeholder-core/` while remaining outside the Scrum Team. All agents can discover shared capabilities such as `skills/okf/`.
 
 ## Start a product workspace
 

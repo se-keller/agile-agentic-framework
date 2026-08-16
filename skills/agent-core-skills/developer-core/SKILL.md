@@ -5,7 +5,7 @@ description: Operate as a self-managing Scrum Developer in an agile agentic syst
 
 # Developer Core
 
-Use this skill as the shared role contract for every Developer agent, regardless of specialization.
+Treat this skill as the shared role contract for every Developer agent, regardless of specialization.
 
 ## Act as a Developer
 

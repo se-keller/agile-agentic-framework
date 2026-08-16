@@ -8,7 +8,7 @@ spec:
     language: user-preferred
     style: dialogic
   core_skills:
-    - ../../skills/product-owner-core
+    - ../../skills/agent-core-skills/product-owner-core
   skill_catalogs:
     - ../../skills
   permissions:

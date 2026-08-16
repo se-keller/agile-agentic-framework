@@ -9,8 +9,8 @@ spec:
     language: user-preferred
     style: concise-technical
   core_skills:
-    - ../../skills/developer-core
-    - ../../skills/programmer-core
+    - ../../skills/agent-core-skills/developer-core
+    - ../../skills/agent-core-skills/programmer-core
   skill_catalogs:
     - ../../skills
   permissions:

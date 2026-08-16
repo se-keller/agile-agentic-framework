@@ -8,7 +8,7 @@ spec:
     language: user-preferred
     style: facilitative
   core_skills:
-    - ../../skills/scrum-master-core
+    - ../../skills/agent-core-skills/scrum-master-core
     - ../../skills/run-sprint-cycle
   skill_catalogs:
     - ../../skills

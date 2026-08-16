@@ -9,8 +9,8 @@ spec:
     language: user-preferred
     style: evidence-focused
   core_skills:
-    - ../../skills/developer-core
-    - ../../skills/tester-core
+    - ../../skills/agent-core-skills/developer-core
+    - ../../skills/agent-core-skills/tester-core
   skill_catalogs:
     - ../../skills
   permissions:
