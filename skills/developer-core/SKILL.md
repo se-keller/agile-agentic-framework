@@ -32,7 +32,8 @@ Use this skill as the shared role contract for every Developer agent, regardless
 3. Let the Product Owner explain problem, value, desired outcome, constraints, and Acceptance Criteria.
 4. Keep estimates, implementation approach, sequencing, integration strategy, testing approach, and technical risk decisions with Developers.
 5. Create the Sprint Backlog and `developer-plan.md` in the Sprint directory.
-6. Make the plan sufficient to begin while expecting it to evolve as more is learned.
+6. Move selected PBI artifacts from `product-backlog/items/` into the Sprint's `sprint-backlog/`, preserving their IDs and frozen filenames and updating affected links.
+7. Make the plan sufficient to begin while expecting it to evolve as more is learned.
 
 ## Work toward the Sprint Goal
 
@@ -59,7 +60,8 @@ Do not let one Developer specialization unilaterally declare work Done.
 6. Address defects before Done. Under the Zero Bug Policy, never reclassify a known unresolved bug as a limitation merely to complete the Increment.
 7. Incorporate an agreed small change and repeat affected checks when it remains compatible with the Sprint Goal; otherwise create clear input for a follow-up Product Backlog Item.
 8. After the Product Owner assessment is recorded, let the Developers collectively determine whether every Definition of Done criterion is met.
-9. Signal `increment.done` only when the complete check is positive. Work that does not meet the Definition of Done returns to the Product Backlog and is not part of the Increment.
+9. Signal `increment.done` only when the complete check is positive. Keep Done PBI and resolved Bug artifacts in the Sprint Backlog.
+10. Before Sprint completion, move every unfinished PBI, Bug, or other work artifact back to `product-backlog/items/`, preserve its identity and history, and let the Product Owner order it. Work that does not meet the Definition of Done is not part of the Increment.
 
 The Product Owner assessment provides product feedback but is not approval or rejection. Release and demonstration decisions remain separate from Done.
 

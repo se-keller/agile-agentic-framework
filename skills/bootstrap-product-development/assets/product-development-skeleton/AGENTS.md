@@ -16,3 +16,5 @@ When product direction and at least one ready PBI exist, hand lifecycle control 
 - Allow only agents with Product Code write permission to modify `product-code/`.
 - Put product-specific framework changes under `.aafe/`; do not modify the base framework.
 - Treat same-name agent or skill collisions as errors unless `.aafe/aafe.yaml` explicitly declares an override.
+- Keep `.aafe` skill folders minimal. Do not create `agents/` or `agents/openai.yaml` unless a concrete runtime integration explicitly requires that metadata.
+- During Planning, move selected PBI files from `artefacts/product-backlog/items/` into the Sprint's `sprint-backlog/`. Keep Done PBIs and resolved Bugs there; return unfinished work to the Product Backlog and preserve a return link in the Sprint Backlog index.

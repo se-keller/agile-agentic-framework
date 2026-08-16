@@ -57,6 +57,8 @@ On a Programmer's fix-ready signal:
 5. Set `bug_state: resolved` only when the expected behavior passes and relevant regression checks show no new bug.
 6. If the retest fails or reveals another bug, keep or return it to `open`, place it at the top of the Sprint Backlog, and signal `test.finding` again.
 
+If a Sprint ends before a Bug is resolved, move the Bug artifact back to `product-backlog/items/` with its identity and evidence intact. Record the return in the Sprint Backlog index and let the Product Owner decide its Product Backlog order. Never leave an open Bug file in a completed Sprint Backlog.
+
 ## Contribute to Done
 
 - Provide acceptance-test, manual-test, risk-based-test, defect, and retest evidence for the collective Definition of Done check.

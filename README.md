@@ -7,6 +7,8 @@ This repository defines runtime-neutral agent roles and a shared skill catalog f
 - `agents/`: one runtime-neutral manifest per agent.
 - `skills/`: all skills, including mandatory agent core skills and cross-role capabilities.
 
+A skill needs only `skills/<skill-name>/SKILL.md`. Add scripts, references, or assets only when they are used. Runtime-specific UI metadata such as `agents/openai.yaml` is intentionally omitted unless a concrete integration requires it.
+
 The Product Owner is defined by `agents/product-owner/agent.yaml`. Programmer and Tester agents combine the shared Scrum Developer contract in `skills/developer-core/` with their specialization in `skills/programmer-core/` or `skills/tester-core/`. The Scrum Master combines `skills/scrum-master-core/` with `skills/run-sprint-cycle/` to orchestrate the configured agents without assigning their work. Product-specific stakeholder agents can reuse `skills/stakeholder-core/` while remaining outside the Scrum Team. All agents can discover shared capabilities such as `skills/okf/`.
 
 ## Start a product workspace
@@ -18,6 +20,8 @@ python3 skills/bootstrap-product-development/scripts/bootstrap.py "My Product" -
 ```
 
 This creates `product-development-my-product/` with a human and agent entry point, a `product-code/` area, initial OKF artifacts, a Product Backlog, Sprint and Increment Documentation areas, and a `.aafe/` extension layer. Keep product knowledge and product-specific framework changes there; do not modify this base framework for one product's needs.
+
+PBI files begin under `artefacts/product-backlog/items/`. Sprint Planning moves selected PBI files into the active Sprint's `sprint-backlog/`. Done PBIs and resolved Bugs remain there as the completed Sprint record; unfinished work is moved back to the Product Backlog for Product Owner ordering.
 
 ## Test and improve the framework
 

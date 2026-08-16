@@ -10,6 +10,7 @@ This repository defines a small, runtime-neutral Scrum-oriented agent framework.
 - Put every skill below `skills/<skill-name>/`, including mandatory core skills.
 - Reference mandatory skills through `core_skills` in the agent manifest.
 - Do not organize the skill catalog by agent role; more than one role may use a skill.
+- Keep skill folders minimal: `SKILL.md` plus only resources the skill actually needs. Do not create `agents/` or `agents/openai.yaml` unless a concrete runtime integration explicitly requires that metadata.
 
 ## Knowledge artifacts
 
