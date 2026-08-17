@@ -19,12 +19,13 @@ Create one workspace per product. Do not create a separate product merely for a 
 
 4. Never overwrite an existing target. Resolve the collision with the user.
 5. If the parent is not already inside a Git worktree, let the script initialize a Git repository. Use `--no-git` only when the user explicitly does not want this.
-6. Show the generated `README.md` as the human entry point and use the generated `AGENTS.md` as the agent entry point.
+6. Show the generated `README.md` as the human entry point. Use the generated `AGENTS.md` as the single, self-contained agent entry point; `CLAUDE.md` only redirects there. Do not read `README.md` as an agent.
 7. Validate the generated `artefacts/` bundle with the shared `$okf` skill.
 8. Start or hand off to the Product Owner. Let it inspect existing artifacts and Product Code before it continues discovery with open questions.
 
 ## Preserve boundaries
 
+- Keep `AGENTS.md` the only file an agent must read to start, and keep `README.md` human-facing. Do not reintroduce shared content into both; every duplicated line is paid again on each agent activation.
 - Keep the base framework unchanged for product-specific needs.
 - Put product-specific agents and skills under `.aafe/agents/` and `.aafe/skills/`.
 - Keep each product-specific skill folder minimal: `SKILL.md` plus only required resources. Omit `agents/` and `agents/openai.yaml` unless a concrete runtime integration requires them.

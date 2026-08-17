@@ -2,13 +2,15 @@
 
 This workspace contains Product Code, product knowledge, Scrum artifacts, and product-specific extensions for the Agile Agentic Framework.
 
+This file is for you, the human. Agents read `AGENTS.md` instead; you do not need to.
+
 ## Start here
 
 Start with the **Product Owner**. The base framework also provides a **Scrum Master**, **Programmer**, and **Tester**. Tell your agent runtime:
 
 > Start the Product Owner for this product. Inspect the existing artifacts and Product Code first, then continue product discovery with me.
 
-The Product Owner will resume from existing knowledge when possible. If Product Vision, Product Goal, or sufficient Product Backlog Items are missing, it will ask a few open questions at a time. You provide the creative direction; the Product Owner helps clarify users, problems, value, desired outcomes, boundaries, assumptions, and evidence of success.
+The Product Owner resumes from existing knowledge when possible. If Product Vision, Product Goal, or sufficient Product Backlog Items are missing, it asks a few open questions at a time. You provide the creative direction; the Product Owner helps clarify users, problems, value, desired outcomes, boundaries, assumptions, and evidence of success.
 
 When the Product Goal and at least one ready PBI exist, continue with:
 
@@ -23,8 +25,6 @@ The Scrum Master brings the Product Owner and configured Developers into Sprint 
 - `.aafe/`: explicit product-specific additions and overrides to the base framework.
 - `AGENTS.md`: operating instructions for agents working in this workspace.
 
-Product Vision and the current Product Goal live in `artefacts/product-backlog/`. PBI files begin in `artefacts/product-backlog/items/`. Planning stores the Sprint Goal at `sprint-backlog/sprint-goal.md` and moves selected PBI files beside it. Done PBIs and resolved Bugs remain there; unfinished work returns to the Product Backlog for reordering.
+Product Vision and the current Product Goal live in `artefacts/product-backlog/`, alongside the backlog index and available PBI files. Each Sprint gets a directory under `artefacts/sprints/`.
 
-Additional agent roles and skills become available when they are added to the base framework or explicitly declared under `.aafe/`. Product-specific stakeholder agents should reuse `stakeholder-core` and give all product input through the Product Owner.
-
-A product-specific skill normally contains only `.aafe/skills/<skill-name>/SKILL.md`. Add resource folders only when used; omit `agents/` and `agents/openai.yaml` unless a concrete runtime integration requires them.
+Additional agent roles and skills become available when they are added to the base framework or explicitly declared under `.aafe/`.
