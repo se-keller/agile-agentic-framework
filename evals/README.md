@@ -86,4 +86,7 @@ Lower resource use counts as an improvement only after the candidate passes the 
 
 ## Initial suite
 
-[Critical behavior](critical-behavior.md) contains the first cross-cutting regression cases. Add a case when a defect, framework trial, or proposed change reveals a behavior important enough to protect. Keep each case traceable to its source contract and avoid asserting one exact wording when several correct responses are possible.
+- [Critical behavior](critical-behavior.md) covers cross-cutting role, lifecycle, and knowledge-artifact boundaries.
+- [Product Owner progressive loading](product-owner-progressive-loading.md) protects role quality while detailed workflows are loaded only for matching events.
+
+Add a case when a defect, framework trial, or proposed change reveals a behavior important enough to protect. Keep each case traceable to its source contract and avoid asserting one exact wording when several correct responses are possible.
