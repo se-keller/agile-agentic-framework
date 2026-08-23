@@ -1,5 +1,7 @@
 # Welcome to {{PRODUCT_NAME}}
 
+This README is the entry point for people using or developing this product. AI agents use `AGENTS.md` as their self-contained workspace entry point and load relevant skills as needed; they do not need this README as operating input.
+
 This workspace contains Product Code, product knowledge, Scrum artifacts, and product-specific extensions for the Agile Agentic Framework.
 
 ## Start here
@@ -21,7 +23,7 @@ The Scrum Master brings the Product Owner and configured Developers into Sprint 
 - `product-code/`: the product's source code and code-level documentation.
 - `artefacts/`: OKF product knowledge, Scrum artifacts, and Increment Documentation.
 - `.aafe/`: explicit product-specific additions and overrides to the base framework.
-- `AGENTS.md`: operating instructions for agents working in this workspace.
+- `AGENTS.md`: the separate, self-contained operating entry point for AI agents.
 
 Product Vision and the current Product Goal live in `artefacts/product-backlog/`. PBI files begin in `artefacts/product-backlog/items/`. Planning stores the Sprint Goal at `sprint-backlog/sprint-goal.md` and moves selected PBI files beside it. Done PBIs and resolved Bugs remain there; unfinished work returns to the Product Backlog for reordering.
 

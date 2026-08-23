@@ -1,6 +1,8 @@
 # Product workspace instructions
 
-Read `README.md` before acting. Use the configured Agile Agentic Framework as the base and apply only additions and explicit overrides declared in `.aafe/aafe.yaml`.
+This is the self-contained entry point for AI agents working in this product workspace. Do not read `README.md` for operating instructions; it is the human entry point.
+
+Use the configured Agile Agentic Framework as the base and apply only additions and explicit overrides declared in `.aafe/aafe.yaml`.
 
 ## Entry point
 
@@ -17,6 +19,7 @@ When product direction and at least one ready PBI exist, hand lifecycle control 
 - Put product-specific framework changes under `.aafe/`; do not modify the base framework.
 - Treat same-name agent or skill collisions as errors unless `.aafe/aafe.yaml` explicitly declares an override.
 - Keep `.aafe` skill folders minimal. Do not create `agents/` or `agents/openai.yaml` unless a concrete runtime integration explicitly requires that metadata.
+- Make additional roles and skills available only through the base framework or explicit `.aafe` declarations. Product-specific stakeholder agents reuse `stakeholder-core` and provide product input through the Product Owner.
 - Keep Product Vision and the current Product Goal under `artefacts/product-backlog/` with its index and available PBI items.
 - During Planning, move selected PBI files from `artefacts/product-backlog/items/` into the Sprint's `sprint-backlog/`. Keep Done PBIs and resolved Bugs there; return unfinished work to the Product Backlog and preserve a return link in the Sprint Backlog index.
 - Store the agreed Sprint Goal inside the Sprint Backlog as `sprint-backlog/sprint-goal.md`.

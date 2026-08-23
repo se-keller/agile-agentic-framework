@@ -1,5 +1,7 @@
 # Agile Agentic Framework
 
+This README is the entry point for people who use or develop the framework. AI agents use `AGENTS.md` as their self-contained repository entry point and load relevant skills as needed; they do not need this README as operating input.
+
 This repository defines runtime-neutral agent roles and a shared skill catalog for an agentic Scrum system.
 
 ## Structure
@@ -34,6 +36,8 @@ Framework development and product development may alternate during a trial, but 
 
 Validate and version each repository independently so a product experiment cannot silently change the base framework.
 
+Behavioral changes to agent manifests, skills, and agent instructions are checked with the lightweight, runtime-neutral evaluations under [`evals/`](evals/README.md). Evaluation cases stay separate from the productive instructions they test. Change authors provide the relevant evidence, critical behavior is reviewed independently when practical, and the human maintainer remains responsible for the merge decision. Resource savings count as improvements only when the candidate continues to pass the same quality criteria as the unchanged baseline.
+
 ## Validation
 
 Install the validator's single dependency and validate an OKF knowledge bundle:
@@ -44,7 +48,7 @@ python3 -m venv .venv
 .venv/bin/python skills/okf/scripts/validate_okf.py path/to/bundle
 ```
 
-Read [AGENTS.md](AGENTS.md) for repository-level instructions used by AI agents.
+AI-agent operating instructions are maintained separately in [AGENTS.md](AGENTS.md). People may inspect that file when reviewing or developing agent behavior, but it is not required for ordinary framework use.
 
 ## License
 
