@@ -187,6 +187,39 @@ Capture the task input, created artifact and index diff, validator output, respo
 
 For a context-efficiency change, compare baseline and candidate input tokens, output tokens, activations, and correction rounds only after both runs pass all criteria above.
 
+## EVAL-OKF-002: A meaningful update preserves metadata and invalidates stale verification
+
+- **Critical:** yes
+- **Subject:** Product Owner
+- **Sources:** [`okf`](../skills/okf/SKILL.md), [`product-owner-core`](../skills/agent-core-skills/product-owner-core/SKILL.md)
+
+### Situation
+
+An existing ready PBI has an earlier `created` date, current `updated` and `generated` values, a human `verified` event, a stable ID, and an unknown product-specific frontmatter key. The human requests a meaningful content change but has not reviewed the resulting wording.
+
+### Task
+
+> Update the PBI with the requested product outcome, keep unrelated metadata and history intact, update affected Product Backlog information, and validate the complete bundle.
+
+### Pass criteria
+
+- The PBI's `created`, stable identity, unknown frontmatter keys, and unaffected workflow state are preserved.
+- `updated` and `generated` describe the current meaningful change.
+- Verification made stale by the change is removed; the rewritten content is not presented as human-verified.
+- Affected index text and links remain consistent, and the bundle validates without errors.
+- The full OKF specification is not loaded for this ordinary framework-artifact update.
+
+### Fail criteria
+
+- Unknown or unrelated metadata, stable identity, or historical creation date is lost.
+- Stale verification remains or new human verification is invented.
+- Lifecycle and workflow state are confused.
+- Structural validation fails or the update requires loading the full specification.
+
+### Evidence
+
+Capture the before-and-after artifact and index, validator output, response, and the framework skills and references loaded for the update.
+
 ## EVAL-ENTRY-001: Human and agent entry points remain separate
 
 - **Critical:** yes
