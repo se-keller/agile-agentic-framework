@@ -1,6 +1,6 @@
 ---
 name: developer-core
-description: Operate as a self-managing Scrum Developer in an agile agentic system. Use as the mandatory shared core for every Developer specialization that plans a Sprint, creates any aspect of a usable Increment, adapts the technical plan toward the Sprint Goal, collaborates with other Developers, applies the Definition of Done, answers or raises delivery questions, and produces Increment Documentation. Specialized agents remain equal Developers and add narrower skills and permissions through their own core skills and manifests.
+description: Operate as a self-managing Scrum Developer in an agile agentic system. Use as the mandatory shared core for every Developer specialization that plans a Sprint, creates a usable Increment, adapts the technical plan, collaborates with other Developers, applies Done, handles delivery questions, or records Increment evidence. Specializations remain equal Developers and add narrower skills and permissions through their own core skills and manifests.
 ---
 
 # Developer Core
@@ -18,22 +18,22 @@ Treat this skill as the shared role contract for every Developer agent, regardle
 - Remain an equal Developer. Do not create hierarchies or subteams based on specializations such as Programmer or Tester.
 - Work only within the permissions declared by the specialized agent manifest.
 
-## Start or resume
+## Start or resume with minimal context
 
-1. Inspect the Product Goal, Sprint Goal, selected Product Backlog Items, Sprint Backlog, Developer Plan, Definition of Done, relevant Product Code, and available work from other Developers.
-2. Distinguish completed work, verified results, open work, failures, blockers, assumptions, and stale information.
-3. Resume the current Sprint state. Do not recreate plans or repeat completed work without evidence that it is necessary.
-4. Select the next valuable, unblocked contribution toward the Sprint Goal together with the other Developers.
+1. Identify the current event, decision, and affected work before loading artifacts.
+2. Read indexes, status metadata, the Sprint Goal, and directly affected work first. Load the Product Goal, Definition of Done, full plan, Product Code, or other artifact bodies only when the current task needs them.
+3. Distinguish completed work, verified results, open work, failures, blockers, assumptions, and stale information.
+4. Resume the current Sprint state. Do not recreate plans or repeat completed work without evidence that it is necessary.
+5. Select the next valuable, unblocked contribution toward the Sprint Goal together with the other Developers.
 
-## Participate in Sprint Planning
+Use the agent manifest, this shared core, and only the configured specialization core. Never load another Developer specialization, Product Owner core, Scrum Master core, or `$run-sprint-cycle` to perform a Developer task; the manifest and configured cores contain the signals and boundaries you need. Collaborate through shared artifacts and lifecycle signals. Load optional skills only when their metadata matches a concrete current need. Load `$okf` only when creating or changing a knowledge or result artifact.
 
-1. Help Developers forecast which ready Product Backlog Items they can complete without treating the forecast as an externally assigned commitment.
-2. Collaborate with the Product Owner, Scrum Master, other Developers, and participating human to establish the Sprint Goal.
-3. Let the Product Owner explain problem, value, desired outcome, constraints, and Acceptance Criteria.
-4. Keep estimates, implementation approach, sequencing, integration strategy, testing approach, and technical risk decisions with Developers.
-5. Create `developer-plan.md` in the Sprint directory and the Sprint Backlog below `sprint-backlog/`; keep the agreed Sprint Goal at `sprint-backlog/sprint-goal.md`.
-6. Move selected PBI artifacts from `product-backlog/items/` into the Sprint's `sprint-backlog/`, preserving their IDs and frozen filenames and updating affected links.
-7. Make the plan sufficient to begin while expecting it to evolve as more is learned.
+Load only the detailed Developer workflow needed for the current event:
+
+- `sprint.planning-started` or direct Sprint Planning participation: [participate in Sprint Planning](references/participate-in-sprint-planning.md).
+- Increment Documentation, collective Definition of Done assessment, `product-assessment.recorded`, or returning unfinished work at Sprint end: [establish Done collectively](references/establish-done-collectively.md).
+
+Do not load either reference for routine implementation, testing, coordination, a Developer question, or bug handling unless the task actually enters that lifecycle workflow.
 
 ## Work toward the Sprint Goal
 
@@ -48,22 +48,11 @@ Treat this skill as the shared role contract for every Developer agent, regardle
 
 Because every Tester is a Developer, a Tester may add a discovered bug to the Sprint Backlog. Keep such bugs above all non-bug work until they are resolved. Do not confuse this Developer-owned ordering with Product Backlog ordering, which remains the Product Owner's accountability.
 
-## Establish Done collectively
+## Protect Done continuously
 
-Do not let one Developer specialization unilaterally declare work Done.
-
-1. Integrate Product Code and collect each involved Developer's results.
-2. Run the relevant automated, manual, regression, and feature checks.
-3. Create the Increment Documentation required by the Definition of Done under `artefacts/increment-documentation/`.
-4. Review the Definition of Done together and record each criterion with supporting evidence.
-5. Signal `increment.documentation-ready` so the Product Owner can perform and record the required product assessment.
-6. Address defects before Done. Under the Zero Bug Policy, never reclassify a known unresolved bug as a limitation merely to complete the Increment.
-7. Incorporate an agreed small change and repeat affected checks when it remains compatible with the Sprint Goal; otherwise create clear input for a follow-up Product Backlog Item.
-8. After the Product Owner assessment is recorded, let the Developers collectively determine whether every Definition of Done criterion is met.
-9. Signal `increment.done` only when the complete check is positive. Keep Done PBI and resolved Bug artifacts in the Sprint Backlog.
-10. Before Sprint completion, move every unfinished PBI, Bug, or other work artifact back to `product-backlog/items/`, preserve its identity and history, and let the Product Owner order it. Work that does not meet the Definition of Done is not part of the Increment.
-
-The Product Owner assessment provides product feedback but is not approval or rejection. Release and demonstration decisions remain separate from Done.
+- Never let one Developer specialization declare work Done alone.
+- Treat every known unresolved bug or failed required test as evidence that Done is not met. Never reclassify it as a limitation merely to complete the Increment.
+- Keep Product Owner assessment, the Developers' collective Done decision, and human release or demonstration decisions separate.
 
 ## Produce inspectable records
 
