@@ -90,5 +90,6 @@ Lower resource use counts as an improvement only after the candidate passes the 
 - [Product Owner progressive loading](product-owner-progressive-loading.md) protects role quality while detailed workflows are loaded only for matching events.
 - [Developer progressive loading](developer-progressive-loading.md) protects shared Programmer and Tester behavior while Developer lifecycle workflows load only for matching events.
 - [OKF progressive loading](okf-progressive-loading.md) keeps routine knowledge-artifact work on the compact profile while preserving explicit access to advanced normative details.
+- [Sprint-cycle progressive loading](sprint-cycle-progressive-loading.md) protects lifecycle state, signals, and Scrum boundaries while each event loads only its matching workflow.
 
 Add a case when a defect, framework trial, or proposed change reveals a behavior important enough to protect. Keep each case traceable to its source contract and avoid asserting one exact wording when several correct responses are possible.

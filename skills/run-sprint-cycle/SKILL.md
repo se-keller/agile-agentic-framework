@@ -7,83 +7,36 @@ description: Run one inspectable, event-driven Sprint through Sprint Planning, i
 
 Apply this process skill with `$scrum-master-core`. Treat the event-driven duration as an explicit framework adaptation: the official Scrum Guide defines fixed-length Sprints, while this workflow initially uses completion events to support autonomous agent execution.
 
-## Check readiness
+## Keep lifecycle state explicit
 
-Start Sprint Planning only when all conditions are visible:
+Advance only one inspectable state at a time:
 
-- a human-confirmed Product Vision and current Product Goal exist;
-- the Product Backlog is ordered by the Product Owner;
-- at least one PBI satisfies the Definition of Ready;
-- the Definition of Done exists;
-- a Product Owner and at least one configured Developer are available; and
-- no other Sprint is active.
+1. Start Planning only after an explicit request and visible readiness, with no active Sprint.
+2. Start one Sprint only after its Goal, selection, moved PBI files, indexes, and initial Developer Plan are inspectable.
+3. Keep the Sprint active while Developers deliver, test, adapt, and resolve impediments.
+4. Treat delivery as complete only after the required Done and artifact evidence exists and unfinished work has returned to the Product Backlog.
+5. Run Sprint Review, then Sprint Retrospective.
+6. Complete or cancel the current Sprint, return control to Product Backlog stewardship, and stop. Never start another Sprint merely because ready work exists.
 
-If a condition is missing, activate the accountable agent to address it. Do not manufacture product direction or technical capacity as Scrum Master.
+Inspect indexes, status metadata, lifecycle signals, and directly referenced artifacts before loading full bodies. Use `$okf` only when creating or changing knowledge or result artifacts.
 
-## Run Sprint Planning
+Use the Scrum Master manifest, `$scrum-master-core`, and this process skill. Read another role's manifest to activate it, but do not load that role's core skill to decide or perform its work. Let configured agents apply their own contracts and report their results.
 
-1. Activate the Product Owner and all configured Developers through `sprint.planning-started`.
-2. Let the Product Owner explain why the next work is valuable and present the highest-ordered ready PBIs.
-3. Let Developers forecast at least one PBI and as many additional PBIs as they collectively judge feasible.
-4. Collaborate as the Scrum Team, with the human where available, to establish one Sprint Goal.
-5. Let Developers create the technical plan and testing approach.
-6. Create `sprint-NNNN-short-goal-slug/` only after the Sprint Goal is established. Freeze the directory name when the Sprint starts.
-7. Store `developer-plan.md` in the Sprint directory. Store the Sprint Goal at `sprint-backlog/sprint-goal.md` beside `sprint-backlog/index.md` and the selected work artifacts. Use OKF frontmatter for concept artifacts and maintain `created` and `updated` dates.
-8. Move each selected PBI artifact from `product-backlog/items/` into the Sprint's `sprint-backlog/`. Preserve its stable ID and frozen filename, update affected links and workflow fields, and never duplicate the authoritative artifact.
-9. Remove selected PBIs from the available Product Backlog order and link them from the Sprint Backlog index.
-10. Signal `sprint.started` when the Sprint Goal, selection, moved PBIs, and initial Developer Plan are inspectable.
+Load only the detailed workflow matching the current event:
 
-## Run the delivery loop
+- `product-direction.ready`, `sprint.planning-requested`, readiness checking, or `sprint.planning-started`: [plan a Sprint](references/plan-sprint.md).
+- `sprint.started`, `sprint-backlog.changed`, `developer.question`, or `sprint.impediment`: [coordinate delivery](references/coordinate-delivery.md).
+- `increment.done`, `product-assessment.recorded`, or an explicit delivery-completion decision: [determine delivery completion](references/determine-delivery-completion.md).
+- `sprint.review-ready`, Sprint Review, `retrospective.ready`, Sprint Retrospective, cancellation, or Sprint completion: [close a Sprint](references/close-sprint.md).
 
-1. Signal `developer.work-available`; let Developers pull and coordinate their own work.
-2. Observe Sprint Backlog state, questions, test results, bugs, fixes, retests, Increment Documentation, and Product Owner assessments.
-3. Keep completed PBI and Bug artifacts in the Sprint Backlog as history. Change their workflow state instead of deleting them.
-4. Put every open Sprint bug above non-bug work. Let a Programmer fix it and a Tester independently retest it before normal Sprint work resumes.
-5. Route product-intent questions to the Product Owner and keep technical decisions with Developers.
-6. Allow explicit Sprint Backlog adaptation. Developers may add technical work; scope changes involving PBIs require collaboration with the Product Owner and must protect the Sprint Goal.
-7. When scope is removed or the Sprint ends with unfinished work, move each unfinished PBI, Bug, or other work artifact back to `product-backlog/items/`, preserve its ID and history, and record the return and rationale in the Sprint Backlog index. Let the Product Owner order returned work.
-8. If work stalls, expose the impediment and coordinate a decision. Never spin indefinitely or mark blocked work Done.
+Do not load multiple references in advance. Load the next one only when a real lifecycle transition occurs.
 
-## Determine delivery completion
+## Preserve lifecycle boundaries
 
-Do not literally empty the Sprint Backlog. Delivery is complete only when:
-
-- every PBI file remaining in the Sprint Backlog meets the Definition of Done;
-- every Bug file remaining in the Sprint Backlog is resolved and independently retested;
-- all required tests pass without known regression;
-- Increment Documentation and Product Owner assessments are recorded;
-- no active Sprint Backlog work remains;
-- every unfinished work artifact has been moved back to the Product Backlog and ordered by the Product Owner; and
-- every removal or return is explicitly recorded with its rationale and current Product Backlog link.
-
-At Sprint completion, physical location is an inspectable convention: work files still inside the completed Sprint Backlog are Done or resolved; unfinished files are back in the Product Backlog. Git history and the Sprint Backlog index preserve every move.
-
-Developers determine Done collectively. The Scrum Master only verifies that the required state and evidence are present. The Sprint may continue with one or many PBIs, and explicit scope adaptation may change the active set.
-
-If the Product Owner determines that the Sprint Goal has become obsolete, facilitate cancellation and preserve the Sprint record. Do not cancel a Sprint on behalf of the Product Owner.
-
-## Run Sprint Review
-
-1. Activate the Product Owner, Developers, human, and configured stakeholder agents.
-2. Let Developers demonstrate usable Increments using the Increment Documentation.
-3. Inspect outcomes, Product Goal progress, environment changes, feedback, and next opportunities together.
-4. Let the Product Owner create and reorder follow-up PBIs. Stakeholders provide feedback but do not make product decisions.
-5. Record material review results in `sprint-review.md` within the Sprint directory.
-6. Never use the Sprint Review as a Done, release, or acceptance gate.
-
-## Run Sprint Retrospective
-
-1. Activate the Scrum Team after the Sprint Review.
-2. Inspect evidence about quality, flow, tools, interactions, role boundaries, agent behavior, skills, rules, templates, formats, and process.
-3. Select a small number of concrete improvements with a clear expected effect.
-4. Store the result under `artefacts/retrospectives/` and link it to the Sprint.
-5. Apply product-specific framework improvements only through a human-reviewed Pull Request against `.aafe/`.
-6. Put Product Code or product-scope improvements in the appropriate backlog rather than `.aafe/`.
-
-## Complete the Sprint
-
-1. Update the Sprint index with completion or cancellation state and links to Sprint Goal, Developer Plan, Sprint Backlog, Increment Documentation, Sprint Review, and Retrospective.
-2. Verify that every work artifact remaining in the Sprint Backlog is Done or resolved and every unfinished artifact has returned to the Product Backlog with an inspectable rationale.
-3. Record whether the Sprint Goal was achieved. A completed Sprint may reveal that more Product Backlog work is needed; never rewrite that outcome as success.
-4. Signal `sprint.completed` only after Review and Retrospective records exist.
-5. Return control to Product Backlog stewardship before planning another Sprint.
+- Never assign Developer work, order the Product Backlog, choose product value, make technical decisions, or determine Done.
+- An open Bug or failed required test blocks delivery completion; never relabel it as a limitation to advance the lifecycle.
+- Keep Done or resolved work in the completed Sprint Backlog. Return unfinished work to the Product Backlog with identity, evidence, link, and rationale intact.
+- Only the Product Owner may determine that the Sprint Goal is obsolete; facilitate but never initiate cancellation on its behalf.
+- Never use Sprint Review as a Done, release, or acceptance gate.
+- Never rewrite Sprint completion as Sprint Goal achievement.
+- After `sprint.completed`, emit no Planning or Sprint-start signal without a separate request.
