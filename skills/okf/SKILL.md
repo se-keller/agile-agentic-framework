@@ -34,22 +34,22 @@ This profile is complete and authoritative for every product and result artifact
 - Express relationships with ordinary Markdown links. Use bundle-relative links beginning with `/` when they remain correct across expected file moves; relative links are also valid. Preserve link context in prose.
 - Do not treat a missing link target as malformed OKF, but keep framework links current when artifacts move.
 
-## Use advanced OKF features only on explicit request
+## Route advanced features explicitly
 
-Only when the task explicitly requires `sources` or per-claim attribution, `stale_after`, an `Attested Computation`, or external bundle exchange or migration, consult the relevant sections of [the bundled OKF v0.2 specification](references/SPEC.md). Never load the full specification by default.
+Do not inspect a reference or full specification for ordinary framework artifacts. Only when the task explicitly requires `sources` or per-claim attribution, credibility signals, `stale_after`, an Attested Computation, external bundle exchange, migration, or version conformance, load `$okf-advanced` in addition to this skill.
 
 ## Validate
 
-Install the validator dependency once:
+Resolve the following `scripts/` paths relative to this `SKILL.md`, independent of the current working directory. Install the validator dependency once:
 
 ```bash
-python -m pip install -r scripts/requirements.txt
+python -m pip install -r <okf-skill-dir>/scripts/requirements.txt
 ```
 
 Run:
 
 ```bash
-python scripts/validate_okf.py <bundle-root>
+python <okf-skill-dir>/scripts/validate_okf.py <bundle-root>
 ```
 
 Validate the affected bundle before committing. Treat success as structural evidence only; it does not prove that the knowledge is strategically correct, complete, or ready for a Sprint.
