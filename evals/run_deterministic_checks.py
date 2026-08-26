@@ -76,11 +76,22 @@ def check_bootstrap() -> None:
                 raise RuntimeError(f"Unresolved placeholder in {path.relative_to(workspace)}")
 
 
+def check_documentation() -> None:
+    documentation = ROOT / "docs"
+    if documentation.is_dir():
+        run(
+            sys.executable,
+            "skills/okf/scripts/validate_okf.py",
+            str(documentation),
+        )
+
+
 def main() -> int:
     run("git", "diff", "HEAD", "--check")
     check_yaml()
     check_local_links()
     check_bootstrap()
+    check_documentation()
     print("OK: diff, YAML, links, bootstrap, placeholders, and OKF validation")
     return 0
 

@@ -14,6 +14,7 @@ Choose the smallest set that covers the changed behavior:
 | `AGENTS.md`, `agent.yaml`, or `SKILL.md` | Deterministic commit checks and every directly affected candidate evaluation |
 | Shared role boundary, permission, Done rule, or Sprint lifecycle | Affected critical candidate cases plus one end-to-end integration case |
 | Claimed token, cost, latency, or activation reduction | Paired baseline and candidate runs that pass the same quality criteria, plus the claimed measurements |
+| Human documentation | Deterministic documentation validation and review of affected concepts; update them or record why they are unaffected |
 | Editorial change with no semantic effect | Review of the diff; no behavioral run is required |
 | Framework release or major milestone | All critical evaluations and relevant deterministic checks |
 
@@ -28,6 +29,8 @@ Keep feedback proportional to the decision being made:
 3. **Release gate:** run the complete critical suite in fresh contexts and obtain independent review.
 
 Do not multiply runs merely to produce more evidence. Repeat only a failed, blocked, inconclusive, or demonstrably variable case. Preserve the last green report so unaffected results can be reused. A required `failed`, `blocked`, or `inconclusive` result blocks the corresponding gate; never commit by relabeling an unexecuted case as passed.
+
+The deterministic commit check validates the human documentation as an OKF bundle and checks its local links. For semantic framework changes, use [`docs/index.md`](../docs/index.md) to identify affected explanations. The documentation remains non-normative and must not be added to an agent's operating context.
 
 ## Responsibilities
 

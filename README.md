@@ -4,6 +4,8 @@ This README is the entry point for people who use or develop the framework. AI a
 
 This repository defines runtime-neutral agent roles and a shared skill catalog for an agentic Scrum system.
 
+For an illustrated guide to framework use, architecture, agentic principles, lifecycle, extensions, evaluations, and design rationale, start with the [OKF documentation bundle](docs/index.md). The documentation is for people and is not operating input for agents.
+
 ## Structure
 
 - `agents/`: one runtime-neutral manifest per agent.

@@ -28,6 +28,12 @@ Use the shared [`okf` skill](skills/okf/SKILL.md) whenever an agent creates or c
 
 Framework control files such as `AGENTS.md` and `SKILL.md` follow their own contracts and are not part of an OKF knowledge bundle.
 
+## Human documentation
+
+The English OKF bundle under [`docs/`](docs/index.md) explains framework use, architecture, agentic principles, and design rationale for people. It is descriptive and non-normative: agents must never require it as operating input or use it instead of `AGENTS.md`, manifests, or skills.
+
+For a semantic framework change, review the documentation map and update every affected concept, or record why it is unaffected in the evaluation report. Keep this lightweight: the commit check validates the documentation bundle and links, while human review determines semantic accuracy.
+
 ## Product Owner boundary
 
 The Product Owner may read and run Product Code for Increment inspection but must never modify Product Code or prescribe technical solutions.
