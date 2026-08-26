@@ -10,14 +10,24 @@ Choose the smallest set that covers the changed behavior:
 
 | Change | Required evidence |
 |---|---|
-| Script, validator, or workspace template | Relevant deterministic checks and a focused smoke test |
-| `AGENTS.md`, `agent.yaml`, or `SKILL.md` | Every affected behavioral evaluation |
-| Shared role boundary, permission, Done rule, or Sprint lifecycle | All critical behavioral evaluations |
+| Script, validator, or workspace template | Deterministic commit checks and a focused candidate smoke test |
+| `AGENTS.md`, `agent.yaml`, or `SKILL.md` | Deterministic commit checks and every directly affected candidate evaluation |
+| Shared role boundary, permission, Done rule, or Sprint lifecycle | Affected critical candidate cases plus one end-to-end integration case |
 | Claimed token, cost, latency, or activation reduction | Paired baseline and candidate runs that pass the same quality criteria, plus the claimed measurements |
 | Editorial change with no semantic effect | Review of the diff; no behavioral run is required |
 | Framework release or major milestone | All critical evaluations and relevant deterministic checks |
 
-Run a baseline from the unchanged target commit before a candidate when the change claims an improvement or may subtly alter behavior. Change one coherent concern at a time, then repeat the same evaluations with the same runtime, model, settings, task, and fixture.
+Use the latest accepted report as the baseline for ordinary commits. Re-run an unchanged baseline only for a runtime or model comparison, a claimed efficiency improvement, or when the selected comparison has no accepted reference result. A new or revised evaluation requires review and one calibrated candidate run, not an automatic replay of the entire unchanged baseline. When a paired comparison is required, use the same runtime, model, settings, task, and fixture.
+
+## Cost-aware gates
+
+Keep feedback proportional to the decision being made:
+
+1. **Commit gate:** run `python evals/run_deterministic_checks.py`, then only candidate behavioral cases directly affected by the diff. A semantic change needs at least one fresh behavioral run.
+2. **Integration gate:** for a shared boundary or lifecycle change, add one focused end-to-end case that crosses the changed boundary. Prefer one real trace over repeating unrelated role cases.
+3. **Release gate:** run the complete critical suite in fresh contexts and obtain independent review.
+
+Do not multiply runs merely to produce more evidence. Repeat only a failed, blocked, inconclusive, or demonstrably variable case. Preserve the last green report so unaffected results can be reused. A required `failed`, `blocked`, or `inconclusive` result blocks the corresponding gate; never commit by relabeling an unexecuted case as passed.
 
 ## Responsibilities
 
@@ -46,8 +56,8 @@ Reimplementing a proposal does not by itself prove safety or quality; the recons
 2. Give the subject agent only the sections named **Situation** and **Task**. Do not expose the pass and fail criteria as additional instructions.
 3. Preserve the agent response, file diff, commands or tests executed, and relevant lifecycle signals.
 4. Apply the case's criteria and record `passed`, `failed`, `blocked`, or `inconclusive`. Never report an unexecuted case as passed.
-5. Repeat the run with the candidate change under the same conditions.
-6. For a critical case, any candidate failure blocks acceptance. Repeat a critical or variable case in fresh contexts when one run is not representative; document the number of runs.
+5. Run the candidate once in a fresh context. Run a paired baseline only when the selected gate requires it.
+6. For a critical case, any candidate failure blocks acceptance. Repeat only when the first run is blocked, inconclusive, or not representative, and document why.
 
 Deterministic checks establish structural facts. Human or independent-agent review assesses semantic behavior. Neither kind of evidence substitutes for the other.
 

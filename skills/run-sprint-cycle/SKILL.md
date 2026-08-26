@@ -20,7 +20,7 @@ Advance only one inspectable state at a time:
 
 Inspect indexes, status metadata, lifecycle signals, and directly referenced artifacts before loading full bodies. Use `$okf` only when creating or changing knowledge or result artifacts.
 
-Use the Scrum Master manifest, `$scrum-master-core`, and this process skill. Read another role's manifest to activate it, but do not load that role's core skill to decide or perform its work. Let configured agents apply their own contracts and report their results.
+Use the Scrum Master manifest, `$scrum-master-core`, and this process skill. Read another role's manifest to request it as a separate runtime agent, but do not load that role's core skill to decide or perform its work. Keep each returned agent identifier and let configured agents apply their own contracts and report their results.
 
 Load only the detailed workflow matching the current event:
 
@@ -34,6 +34,7 @@ Do not load multiple references in advance. Load the next one only when a real l
 ## Preserve lifecycle boundaries
 
 - Never assign Developer work, order the Product Backlog, choose product value, make technical decisions, or determine Done.
+- Never continue a lifecycle transition by simulating an unavailable role in the host.
 - An open Bug or failed required test blocks delivery completion; never relabel it as a limitation to advance the lifecycle.
 - Keep Done or resolved work in the completed Sprint Backlog. Return unfinished work to the Product Backlog with identity, evidence, link, and rationale intact.
 - Only the Product Owner may determine that the Sprint Goal is obsolete; facilitate but never initiate cancellation on its behalf.

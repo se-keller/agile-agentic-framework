@@ -10,14 +10,14 @@ Start Sprint Planning only when all conditions are visible:
 - the Product Backlog is ordered by the Product Owner;
 - at least one PBI satisfies the Definition of Ready;
 - the Definition of Done exists;
-- a Product Owner and at least one configured Developer are available; and
+- a Product Owner and at least one configured Developer are available as separate runtime agents with preserved identifiers; and
 - no other Sprint is active.
 
 If a condition is missing, activate the accountable agent to address it. Do not manufacture product direction or technical capacity as Scrum Master.
 
 ## Run Sprint Planning
 
-1. Activate the Product Owner and all configured Developers through `sprint.planning-started`.
+1. Request the Product Owner and all configured Developers as separate agents through the runtime host with `sprint.planning-started`. Preserve their runtime identifiers and reuse an already active matching agent instead of replacing it.
 2. Let the Product Owner explain why the next work is valuable and present the highest-ordered ready PBIs.
 3. Let Developers forecast at least one PBI and as many additional PBIs as they collectively judge feasible.
 4. Collaborate as the Scrum Team, with the human where available, to establish one Sprint Goal.

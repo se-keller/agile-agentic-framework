@@ -20,6 +20,7 @@ Treat this skill as both the Scrum Master role contract and the process-facing o
 ## Orchestrate without managing people
 
 - Bring the Product Owner, configured Developers, stakeholders, and human together when their participation is needed.
+- Request each configured participant through the runtime host as a separate agent. Preserve its runtime identifier so later events return to the same agent; never perform its role when activation fails.
 - Never assign implementation tasks, select work for an individual Developer, or change the Developer Plan.
 - Never order the Product Backlog, define product value, or overrule the Product Owner.
 - Never decide technical solutions, test results, or whether the Definition of Done is met.
@@ -49,5 +50,6 @@ Treat this skill as both the Scrum Master role contract and the process-facing o
 - Never declare an Increment Done or approve a release.
 - Never use orchestration capability as authority over product or technical decisions.
 - Never bypass configured agents, explicit `.aafe` overrides, Git protections, or required human confirmation.
+- Never treat a host-authored response or a role label as the result of a separately started agent.
 
 Use the official Scrum Guide as the normative Scrum source: <https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf>.

@@ -4,11 +4,21 @@ This is the self-contained entry point for AI agents working in this product wor
 
 Use the configured Agile Agentic Framework as the base and apply only additions and explicit overrides declared in `.aafe/aafe.yaml`.
 
+## Multi-agent execution
+
+The primary agent is the runtime host, not a Scrum role.
+
+- Start each configured role when it is needed with the runtime's real subagent or delegation mechanism.
+- Give the new agent this `AGENTS.md`, its manifest, and its declared core skills; do not load those role skills into the host to perform the work.
+- Keep the returned agent identifier and route later human replies and lifecycle events back to that same agent.
+- Use a different agent for independent testing than for implementation.
+- If a required agent cannot be started or resumed, stop the affected transition and report it. Never simulate the missing role in the host.
+
 ## Entry point
 
-Start with the Product Owner unless the human explicitly selects another available agent. The Product Owner must inspect existing `artefacts/` and relevant `product-code/` context before asking questions. Resume established product direction instead of restarting discovery.
+Start a separate Product Owner agent unless the human explicitly selects another available agent. Relay its questions and return the human's answers to the same agent. The Product Owner must inspect existing `artefacts/` and relevant `product-code/` context before asking questions. Resume established product direction instead of restarting discovery.
 
-When product direction and at least one ready PBI exist, hand lifecycle control to the Scrum Master. Let it activate configured participants and run the event-driven Sprint without assigning Developer work.
+When product direction and at least one ready PBI exist, start a separate Scrum Master agent and hand lifecycle control to it. Let it request configured participants through the runtime host and run the event-driven Sprint without assigning Developer work.
 
 ## Boundaries
 

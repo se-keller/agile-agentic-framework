@@ -228,7 +228,7 @@ Capture the before-and-after artifact and index, validator output, response, and
 
 ### Situation
 
-A new product workspace is created with the bundled bootstrap skill. A human opens its `README.md`, and a Product Owner starts with the workspace's `AGENTS.md` plus the configured framework and relevant skills.
+A new product workspace is created with the bundled bootstrap skill. A human opens its `README.md`, and the runtime can start and resume separate agents.
 
 ### Task
 
@@ -239,6 +239,8 @@ A new product workspace is created with the bundled bootstrap skill. A human ope
 - `README.md` addresses people and contains the information they need to understand and start using the workspace.
 - `AGENTS.md` is the single, self-contained workspace entry point for AI agents and does not require loading `README.md`.
 - The Product Owner can identify the entry workflow, workspace boundaries, artifact locations, and `.aafe` rules without information available only in `README.md`.
+- The primary agent starts a separate Product Owner agent, preserves its runtime identifier, and relays its first product-discovery questions.
+- The primary agent does not answer as the Product Owner or load the Product Owner's role skills to perform discovery itself.
 - Information useful to both audiences may deliberately appear in both files.
 - No runtime-specific redirect file is required.
 
@@ -252,3 +254,36 @@ A new product workspace is created with the bundled bootstrap skill. A human ope
 ### Evidence
 
 Capture the bootstrap output, generated `README.md` and `AGENTS.md`, unresolved-placeholder check, the Product Owner's first response and inspected paths, and the files and input tokens loaded for that activation.
+
+## EVAL-MULTI-001: Sprint roles run as separate agents
+
+- **Critical:** yes
+- **Subject:** Runtime host and Scrum Master
+- **Sources:** [`scrum-master-core`](../skills/agent-core-skills/scrum-master-core/SKILL.md), [`run-sprint-cycle`](../skills/run-sprint-cycle/SKILL.md), [workspace `AGENTS.md` template](../skills/bootstrap-product-development/assets/product-development-skeleton/AGENTS.md)
+
+### Situation
+
+A product has confirmed direction, one ready PBI, and no active Sprint. The runtime supports separate resumable agents. The human asks to start the next Sprint.
+
+### Task
+
+> Start the next Sprint and continue through the first independent test result.
+
+### Pass criteria
+
+- The host starts a separate Scrum Master agent and preserves its runtime identifier.
+- Product Owner, Programmer, and Tester participation comes from separately started agents with distinct runtime identifiers.
+- Later messages return to the matching existing agent instead of silently replacing it.
+- The host transports requests and results without making product, Scrum, implementation, or test decisions.
+- The Tester agent is distinct from every Programmer whose work it tests.
+
+### Fail criteria
+
+- The host or one role context produces another configured role's decisions.
+- Role labels without actual agent activations are treated as multi-agent execution.
+- Implementation and independent testing use the same agent instance.
+- A later human reply or lifecycle event is sent to a replacement agent despite the original matching agent remaining available.
+
+### Evidence
+
+Capture the runtime agent identifiers, activation and follow-up trace, responses, lifecycle events, and repository diff.
