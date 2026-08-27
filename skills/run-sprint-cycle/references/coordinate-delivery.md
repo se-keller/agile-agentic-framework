@@ -2,11 +2,12 @@
 
 Read this workflow for an active Sprint on `sprint.started`, `sprint-backlog.changed`, `developer.question`, or `sprint.impediment`.
 
-1. Signal `developer.work-available`; let Developers pull and coordinate their own work.
-2. Observe Sprint Backlog state, questions, test results, bugs, fixes, retests, Increment Documentation, and Product Owner assessments.
-3. Keep completed PBI and Bug artifacts in the Sprint Backlog as history. Change their workflow state instead of deleting them.
-4. Put every open Sprint bug above non-bug work. Let a Programmer fix it and a Tester independently retest it before normal Sprint work resumes.
-5. Route product-intent questions to the Product Owner and keep technical decisions with Developers.
-6. Allow explicit Sprint Backlog adaptation. Developers may add technical work; scope changes involving PBIs require collaboration with the Product Owner and must protect the Sprint Goal.
-7. When scope is removed or the Sprint ends with unfinished work, move each unfinished PBI, Bug, or other work artifact back to `product-backlog/items/`, preserve its ID and history, and record the return and rationale in the Sprint Backlog index. Let the Product Owner order returned work.
-8. If work stalls, expose the impediment and coordinate a decision. Never spin indefinitely or mark blocked work Done.
+1. Let Developers pull one unblocked PBI at a time. Activate the Programmer for the selected PBI; it implements Product Code and runs its unit, integration, and automated acceptance tests before signaling `implementation.testable`.
+2. Activate the Tester only on `implementation.testable`, `bug.fix-ready`, or an explicit test request. The Tester executes the planned business-facing cases plus proportionate UI and exploratory tests. It must not start execution merely because the Sprint started or another PBI is still in Planning.
+3. Observe Sprint Backlog state, questions, test results, bugs, fixes, retests, Increment Documentation, and Product Owner assessments. Keep completed PBI and Bug artifacts in the Sprint Backlog as history; change their workflow state instead of deleting them.
+4. Put every open Sprint Bug above non-Bug work. Let a Programmer fix it and a Tester independently retest it before normal Sprint work resumes. Under the Zero Bug Policy, every Bug discovered in an active Sprint blocks Done and must enter this loop. Only cancellation or an explicit end with unfinished work may return it to the Product Backlog; the Product Owner then orders it very highly for the next Sprint and the Sprint never claims Done for that unresolved work.
+5. When the Tester supplies passing independent evidence, have Developers prepare the Increment Documentation and signal `increment.documentation-ready`. Activate the Product Owner to inspect the usable Increment. The Product Owner records product feedback as new or updated Product Backlog Items, never as a technical instruction or an approval gate.
+6. After the Product Owner assessment and the Developers' collective Done decision, select the next unblocked PBI. Do not run the next PBI's execution or test loop concurrently unless the product explicitly configures that adaptation.
+7. Route product-intent questions to the Product Owner and keep technical decisions with Developers. Allow explicit Sprint Backlog adaptation: Developers may add technical work; scope changes involving PBIs require collaboration with the Product Owner and must protect the Sprint Goal.
+8. When scope is removed or the Sprint ends with unfinished work, move each unfinished PBI, Bug, or other work artifact back to `product-backlog/items/`, preserve its ID and history, and record the return and rationale in the Sprint Backlog index. Let the Product Owner order returned work.
+9. If work stalls, expose the impediment and coordinate a decision. Never spin indefinitely or mark blocked work Done.

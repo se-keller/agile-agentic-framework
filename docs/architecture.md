@@ -4,8 +4,8 @@ title: Architecture
 description: The layers, components, dependencies, and runtime interaction model of AAF.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-26"
-generated: { by: "process:framework-documentation", at: "2026-08-26T14:57:16+02:00" }
+updated: "2026-08-27"
+generated: { by: "codex/gpt-5.6", at: "2026-08-27T00:00:00+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -103,6 +103,8 @@ AAF uses a control plane and a knowledge/work plane:
 - The **knowledge/work plane** consists of OKF artifacts, Product Code, tests, Sprint Backlogs, plans, and evidence.
 
 The control plane determines who may act and when. The knowledge/work plane records what is known and what changed. The documentation bundle sits outside both planes and describes them for people.
+
+Lifecycle events are handoffs, not broadcasts. In Sprint Planning, the Product Owner presents and clarifies one PBI; the Tester contributes business-facing cases; the Programmer plans implementation; and the Tester reviews testability. During delivery, the Programmer hands a testable slice to the Tester, then passing evidence to the Product Owner for inspection. This sequencing preserves independent perspectives without allowing premature execution.
 
 ## Runtime neutrality
 

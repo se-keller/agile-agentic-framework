@@ -18,7 +18,7 @@ The primary agent is the runtime host, not a Scrum role.
 
 Start a separate Product Owner agent unless the human explicitly selects another available agent. Relay its questions and return the human's answers to the same agent. The Product Owner must inspect existing `artefacts/` and relevant `product-code/` context before asking questions. Resume established product direction instead of restarting discovery.
 
-When product direction and at least one ready PBI exist, start a separate Scrum Master agent and hand lifecycle control to it. Let it request configured participants through the runtime host and run the event-driven Sprint without assigning Developer work.
+When product direction and at least one ready PBI exist, start a separate Scrum Master agent and hand lifecycle control to it. Let it request configured participants through the runtime host just in time: first the Product Owner, then the Programmer and Tester for each PBI planning handoff, then the Programmer for implementation, the Tester only after a testable handoff, and the Product Owner for Increment inspection. It runs the event-driven Sprint without assigning Developer work or proposing the Sprint Goal.
 
 ## Boundaries
 

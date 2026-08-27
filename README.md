@@ -26,7 +26,7 @@ python3 skills/bootstrap-product-development/scripts/bootstrap.py "My Product" -
 
 This creates `product-development-my-product/` with a human and agent entry point, a `product-code/` area, initial OKF artifacts, a Product Backlog, Sprint and Increment Documentation areas, and a `.aafe/` extension layer. Keep product knowledge and product-specific framework changes there; do not modify this base framework for one product's needs.
 
-Product Vision and the current Product Goal live under `artefacts/product-backlog/` with its index. PBI files begin under `artefacts/product-backlog/items/`. Sprint Planning stores the Sprint Goal at `sprint-backlog/sprint-goal.md` and moves selected PBI files beside it. Done PBIs and resolved Bugs remain there as the completed Sprint record; unfinished work is moved back to the Product Backlog for Product Owner ordering.
+Product Vision and the current Product Goal live under `artefacts/product-backlog/` with its index. For a new Product Vision, the Product Owner offers Roman Pichler's simple and extended Product Vision Board, guides the human through it field by field, and then uses the confirmed board to establish the next Product Goal. PBI files begin under `artefacts/product-backlog/items/`. Sprint Planning stores the Sprint Goal at `sprint-backlog/sprint-goal.md` and moves selected PBI files beside it. Done PBIs and resolved Bugs remain there as the completed Sprint record; unfinished work is moved back to the Product Backlog for Product Owner ordering.
 
 ## Test and improve the framework
 
@@ -54,6 +54,6 @@ AI-agent operating instructions are maintained separately in [AGENTS.md](AGENTS.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). You may use,
-modify, and distribute it, including for commercial purposes, provided that the
-copyright notice and license terms are retained as required by the license.
+Except for the material identified below, this project is licensed under the [MIT License](LICENSE). You may use, modify, and distribute it, including for commercial purposes, provided that the copyright notice and license terms are retained as required by the license.
+
+The adapted Product Vision Board material in [`skills/product-vision-board/SKILL.md`](skills/product-vision-board/SKILL.md) is based on the [Product Vision Board](https://www.romanpichler.com/blog/the-product-vision-board/) by Roman Pichler and is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA 4.0). Generated Product Vision Board artifacts carry their own attribution and license notice.

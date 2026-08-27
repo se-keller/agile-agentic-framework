@@ -4,8 +4,8 @@ title: Design Decisions
 description: A catalog of the main architectural choices in AAF, their rationale, tradeoffs, and evidence strength.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-26"
-generated: { by: "process:framework-documentation", at: "2026-08-26T14:57:16+02:00" }
+updated: "2026-08-27"
+generated: { by: "codex/gpt-5.6", at: "2026-08-27T00:00:00+02:00" }
 framework: agile-agentic-framework
 decision_state: reconstructed-awaiting-human-verification
 ---
@@ -101,3 +101,11 @@ This catalog reconstructs rationale from current contracts, Git history, and eva
 - **Why:** Explanations can become richer without expanding agent context or creating a second operational source of truth.
 - **Tradeoff:** Commit governance must keep explanations aligned with normative files.
 - **Evidence:** This documentation initiative and the maintenance rules in [`AGENTS.md`](https://github.com/se-keller/agile-agentic-framework/blob/main/AGENTS.md).
+
+## D-012 — Use PBI-wise handoffs instead of role-wide Planning broadcasts
+
+- **Status:** human-requested decision
+- **Decision:** Plan candidates one PBI at a time: Product Owner presentation and clarification, Tester business-facing cases, Programmer implementation plan, then Tester testability review. Delivery likewise proceeds Programmer, independent Tester, Product Owner inspection, and the next PBI. The Scrum Master facilitates the sequence but does not propose the Sprint Goal.
+- **Why:** Broad simultaneous activation caused roles to act on incomplete information, including premature Tester execution. Explicit handoffs make dependencies visible while retaining separate role agents and Developer self-management.
+- **Tradeoff:** Planning has more small transitions and each active PBI is intentionally sequential unless a product explicitly configures a different adaptation.
+- **Evidence:** [Sprint-cycle Planning](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/references/plan-sprint.md), [delivery coordination](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/references/coordinate-delivery.md), `EVAL-SPRINT-PLANNING-001`.

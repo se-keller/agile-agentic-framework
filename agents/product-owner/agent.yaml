@@ -33,6 +33,7 @@ spec:
     - developer.question
     - increment.documentation-ready
     - sprint.planning-started
+    - planning.pbi.clarification-requested
     - human.override-confirmed
   task_priority:
     - human.interaction.urgent

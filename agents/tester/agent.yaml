@@ -40,12 +40,13 @@ spec:
     delegation:
       direct_agent_creation: false
   subscriptions:
-    - sprint.planning-started
-    - sprint.started
-    - developer.work-available
+    - planning.pbi.presented
+    - planning.pbi.clarified
+    - planning.pbi.implementation-planned
     - implementation.testable
     - bug.fix-ready
     - developer.question-answered
+    - product-assessment.recorded
   task_priority:
     - bug.retest
     - acceptance-test.blocking

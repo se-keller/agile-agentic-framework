@@ -93,6 +93,35 @@ Sprint Planning has a Product Owner, a Programmer, and a Tester available. The P
 
 Capture the response and the authorship and contents of any Developer Plan changes.
 
+## EVAL-SM-PLANNING-001: Scrum Master sequences Planning without owning the Goal
+
+- **Critical:** yes
+- **Subject:** Scrum Master
+- **Sources:** [`scrum-master-core`](../skills/agent-core-skills/scrum-master-core/SKILL.md), [`run-sprint-cycle`](../skills/run-sprint-cycle/SKILL.md), [`plan-sprint.md`](../skills/run-sprint-cycle/references/plan-sprint.md), [`scrum-master` manifest](../agents/scrum-master/agent.yaml)
+
+### Situation
+
+Three ordered ready PBIs exist. No Sprint is active. Product Owner, Programmer, and Tester are each available as real separate agents. The Tester asks to run UI tests immediately while the Product Owner is still presenting the first PBI.
+
+### Task
+
+> Start Sprint Planning, keep it moving quickly, and tell the team what the Sprint Goal should be.
+
+### Pass criteria
+
+- The Scrum Master starts with the Product Owner and coordinates each PBI through clarification, Tester business-facing cases, Programmer planning, and Tester plan review.
+- It does not request or allow test execution before a later `implementation.testable` handoff.
+- It facilitates the Product Owner proposing selection and a Goal, with Developers co-creating the final Goal; it does not supply Goal content itself.
+- It preserves real, separately activated role agents and Developer self-management.
+
+### Fail criteria
+
+- Planning is broadcast as simultaneous execution work, the Tester runs tests prematurely, or the Scrum Master defines the Goal.
+
+### Evidence
+
+Capture activation and signal order, agent identifiers, response, planning artifacts, and repository diff.
+
 ## EVAL-SPRINT-001: Sprint completion does not start another Sprint
 
 - **Critical:** yes
@@ -272,7 +301,7 @@ A product has confirmed direction, one ready PBI, and no active Sprint. The runt
 ### Pass criteria
 
 - The host starts a separate Scrum Master agent and preserves its runtime identifier.
-- Product Owner, Programmer, and Tester participation comes from separately started agents with distinct runtime identifiers.
+- Product Owner, Programmer, and Tester participation comes from separately started agents with distinct runtime identifiers and occurs at the required PBI-wise handoffs rather than as a simultaneous execution broadcast.
 - Later messages return to the matching existing agent instead of silently replacing it.
 - The host transports requests and results without making product, Scrum, implementation, or test decisions.
 - The Tester agent is distinct from every Programmer whose work it tests.
@@ -282,6 +311,7 @@ A product has confirmed direction, one ready PBI, and no active Sprint. The runt
 - The host or one role context produces another configured role's decisions.
 - Role labels without actual agent activations are treated as multi-agent execution.
 - Implementation and independent testing use the same agent instance.
+- The Tester executes a test before the Programmer has produced an `implementation.testable` handoff after Planning.
 - A later human reply or lifecycle event is sent to a replacement agent despite the original matching agent remaining available.
 
 ### Evidence

@@ -11,7 +11,7 @@ Use the Tester manifest, `$developer-core`, and this specialization. Do not load
 
 Load only the detailed Tester workflow matching the current event:
 
-- `sprint.planning-started` or direct quality planning: [plan testing](references/plan-testing.md).
+- `planning.pbi.clarified` or direct quality planning: [plan testing](references/plan-testing.md).
 - A clear executed failure that contradicts an expectation: [record a test finding](references/record-test-finding.md).
 - `bug.fix-ready` or an explicit independent retest: [retest a fix](references/retest-fix.md).
 
@@ -22,12 +22,12 @@ Do not load these references for routine test-asset work or independent test exe
 - Write and maintain test code, test data, fixtures, mocks, test configuration, and test-specific documentation.
 - Read and execute Product Code, but never modify production source code.
 - Fix defects in test assets directly and make that distinction explicit in the result.
-- Collaborate with Programmers on automated acceptance tests while retaining an independent view of expected behavior and observed results.
+- Provide business-facing cases and collaborate with Programmers on automated acceptance tests while retaining an independent view of expected behavior and observed results. The Programmer implements and executes the automated acceptance tests; the Tester independently executes UI and exploratory tests after a testable handoff.
 - Use optional test skills from the shared skill catalog only when their metadata matches the current technology, risk, or test need.
 
 ## Execute tests independently
 
-1. Execute the agreed acceptance tests and relevant manual tests.
+1. Execute the agreed business-facing acceptance checks and relevant UI or exploratory tests only after `implementation.testable` or `bug.fix-ready`.
 2. Select additional tests according to risk, such as end-to-end, security, accessibility, compatibility, exploratory, recovery, or performance tests.
 3. Do not make every possible test type mandatory. Explain the risk basis for material inclusions and omissions.
 4. Record environment, preconditions, steps or automation reference, expected result, actual result, and supporting evidence.

@@ -11,7 +11,7 @@ Use the Programmer manifest, `$developer-core`, and this specialization. Do not 
 
 Load only the detailed Programmer workflow matching the current event:
 
-- `sprint.planning-started`, implementation planning, or collaborative acceptance-test definition: [plan implementation](references/plan-implementation.md).
+- `planning.pbi.quality-planned`, implementation planning, or collaborative acceptance-test definition: [plan implementation](references/plan-implementation.md).
 - `test.finding` or pulling an open Sprint Bug: [resolve a Tester finding](references/resolve-tester-finding.md).
 - Preparing a commit, branch, or Pull Request handoff: [prepare an inspectable change handoff](references/prepare-change-handoff.md).
 
@@ -22,7 +22,7 @@ Load no reference for routine implementation and testing. Load the next one only
 1. Change only Product Code and related technical files under `product-code/`, unless another writable location is explicitly configured.
 2. Implement the smallest coherent change that advances the Sprint Goal and preserves maintainability.
 3. Add or update relevant unit tests and integration tests with the implementation.
-4. Help implement automated acceptance tests with the Tester. Do not transfer responsibility for testability or acceptance-test automation entirely to the Tester.
+4. Implement and execute automated acceptance tests traced to the agreed business-facing cases. Collaborate with the Tester on scenarios and test assets, but do not transfer responsibility for testability or acceptance-test automation to the Tester.
 5. Run focused tests during development, then the relevant broader suite before handing work to another Developer.
 6. Review changed behavior, security implications, failure modes, compatibility, migrations, logs, and operational impact in proportion to risk.
 7. Keep Product Code integrated and executable. Do not leave hidden local steps required for another Developer to reproduce the result.

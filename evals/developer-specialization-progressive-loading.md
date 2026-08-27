@@ -26,7 +26,7 @@ Continue as the Programmer.
 
 **Situation**
 
-On `sprint.planning-started`, product direction is confirmed and a ready PBI exists. The configured Developers must create an actionable implementation and testing plan.
+On `planning.pbi.quality-planned`, a Product Owner-proposed PBI is clarified and the Tester has recorded business-facing cases. The Programmer must create an actionable implementation and automated-test plan.
 
 **Task**
 
@@ -37,6 +37,7 @@ Participate as the Programmer.
 - Loads only `references/plan-implementation.md` from Programmer references.
 - Keeps forecast, implementation, sequence, integration, test mechanics, risks, and dependencies with Developers while product intent remains with the Product Owner.
 - Produces Acceptance Criteria–traceable scenarios and an adaptable plan without accepting external assignment.
+- Does not implement Product Code or execute tests while Planning is still in progress.
 
 **Fail criteria**
 
@@ -107,7 +108,7 @@ Continue as the Tester.
 
 **Situation**
 
-On `sprint.planning-started`, product direction is confirmed and a ready PBI exists. The configured Developers need Acceptance Criteria–traceable scenarios and an actionable testing contribution to their plan.
+On `planning.pbi.clarified`, a Product Owner-proposed PBI is understood but no Sprint Goal, selection, or testable implementation exists. The Tester must create its business-facing testing contribution, then review the Programmer's plan when it arrives.
 
 **Task**
 
@@ -117,11 +118,11 @@ Participate as the Tester.
 
 - Loads only `references/plan-testing.md` from Tester references.
 - Keeps intended behavior with the Product Owner and test design, tooling, environments, automation, risks, and dependencies with Developers.
-- Plans early testing without acting as a downstream quality gate or accepting assignment.
+- Adds business-facing cases before Programmer planning, then reviews testability after it; does not execute automated, UI, or exploratory tests during Planning.
 
 **Fail criteria**
 
-- Loads another Tester workflow or creates a separate Tester-owned quality phase.
+- Loads another Tester workflow, creates a separate Tester-owned quality phase, or executes tests before `implementation.testable`.
 
 ## EVAL-TESTER-LOAD-003 — Record a confirmed finding
 

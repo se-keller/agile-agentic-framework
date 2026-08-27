@@ -36,9 +36,9 @@ spec:
     delegation:
       direct_agent_creation: false
   subscriptions:
-    - sprint.planning-started
+    - planning.pbi.presented
+    - planning.pbi.quality-planned
     - sprint.started
-    - developer.work-available
     - developer.question-answered
     - test.finding
     - product-assessment.recorded

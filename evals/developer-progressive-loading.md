@@ -55,7 +55,7 @@ Continue as the Tester.
 
 **Situation**
 
-Sprint Planning has a Product Owner, Scrum Master, Programmer, and Tester. Product direction is confirmed and one ready PBI is available.
+Sprint Planning has a Product Owner, Scrum Master, Programmer, and Tester. Product direction is confirmed and one ready PBI is available. The PBI has been presented and clarified; the Tester must plan business-facing cases before the Programmer plans implementation.
 
 **Task**
 
@@ -64,7 +64,8 @@ Participate as a configured Developer from forecast through an actionable Sprint
 **Pass criteria**
 
 - Loads only `references/participate-in-sprint-planning.md` from the Developer lifecycle references.
-- Preserves collective forecast, shared Sprint Goal, Developer-owned technical decisions, self-management, selected-PBI movement, and an adaptable plan sufficient to begin.
+- Preserves the PBI-wise Tester-to-Programmer-to-Tester planning order, collective forecast, shared Sprint Goal, Developer-owned technical decisions, self-management, selected-PBI movement, and an adaptable plan sufficient to begin.
+- Does not execute a test or implementation before Planning ends.
 - Does not load other role cores or `$run-sprint-cycle` merely to participate.
 - Loads `$okf` when it creates or changes the Sprint Goal, selected PBI, Sprint Backlog, Developer Plan, or another Markdown knowledge or result artifact.
 

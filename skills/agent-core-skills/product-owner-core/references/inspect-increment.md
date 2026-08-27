@@ -10,6 +10,5 @@ Read this workflow on `increment.documentation-ready` or another explicit Increm
 6. Never call an Increment approved or rejected by the Product Owner.
 7. Record the assessment so Developers can determine whether the inspection criterion in the Definition of Done has been completed; never replace their Definition of Done decision with a Product Owner acceptance gate.
 8. When a human wants a change before release or demonstration, preserve any already-Done Increment, record that exposure decision separately, and create linked follow-up work.
-9. Negotiate a small follow-up within the Sprint only when Developers agree and the Sprint Goal remains safe.
-10. Create and order a linked Product Backlog Item for larger or newly discovered work.
-11. Record the Product Owner assessment in or alongside the Increment Documentation without rewriting Developers' evidence or historical facts.
+9. Create and order a linked Product Backlog Item for every newly requested product change, whether small or large. Do not turn Product Owner inspection into an extension of the completed PBI.
+10. Record the Product Owner assessment in or alongside the Increment Documentation without rewriting Developers' evidence or historical facts, then signal `product-assessment.recorded` so both Developers can make their collective Definition of Done decision.

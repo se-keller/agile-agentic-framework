@@ -4,8 +4,8 @@ title: Framework Guide
 description: A human-oriented guide to starting and operating a product with AAF.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-26"
-generated: { by: "process:framework-documentation", at: "2026-08-26T14:57:16+02:00" }
+updated: "2026-08-27"
+generated: { by: "codex/gpt-5.6", at: "2026-08-27T00:00:00+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -37,7 +37,7 @@ Then ask the runtime to start the Product Owner:
 
 > Start the Product Owner for this product. Inspect the existing artifacts and Product Code first, then continue product discovery with me.
 
-The runtime host starts a real Product Owner agent and relays its questions. Later answers return to that same agent instance.
+The runtime host starts a real Product Owner agent and relays its questions. Later answers return to that same agent instance. For a new Product Vision, the Product Owner briefly explains the simple and extended Product Vision Board, lets you choose, and guides you through one field at a time. English field names remain visible with translations when you work in another language. The completed board records what is confirmed, assumed, or still needs validation; it then guides the next concrete Product Goal.
 
 ## Typical interaction
 
@@ -52,25 +52,28 @@ sequenceDiagram
 
     Human->>Host: Start product discovery
     Host->>PO: Activate with workspace and role contract
-    PO->>Host: Ask open product questions
+    PO->>Host: Offer board variants and ask focused questions
     Host->>Human: Relay questions
-    Human->>Host: Confirm direction and Product Goal
+    Human->>Host: Confirm board, then Product Goal
     Host->>PO: Resume the same Product Owner agent
     PO-->>Host: product-direction.ready
     Host->>SM: Route signal and activate Scrum Master
-    SM->>Host: Request Planning participants
-    Host->>PO: Planning event
-    Host->>P: Planning event
-    Host->>T: Planning event
+    SM->>Host: Request PO for Planning
+    Host->>PO: Present one PBI
+    Host->>P: Ask understanding questions, then plan implementation
+    Host->>T: Ask questions, plan business tests, review plan
+    PO->>Host: Propose selection and Sprint Goal
+    Host->>P: Implement first PBI and run automated tests
     P->>Host: implementation.testable
     Host->>T: Route testable implementation
     T-->>Host: Test evidence or test.finding
     Host->>P: Route finding to the same Developer agent
+    Host->>PO: Route passing Increment for product inspection
     SM->>Host: Reviewable lifecycle state
     Host->>Human: Relay state and product feedback request
 ```
 
-The arrows show responsibility and host-mediated message flow, not direct authority. The Scrum Master facilitates; it does not assign technical work. Developers pull and coordinate work themselves.
+The arrows show responsibility and host-mediated message flow, not direct authority. Each handoff activates or resumes only the needed role. The Scrum Master facilitates; it neither assigns technical work nor proposes the Sprint Goal. Developers pull and coordinate work themselves.
 
 ## What to inspect during a run
 
@@ -96,6 +99,8 @@ Change the base repository only for a runtime-neutral defect or reusable improve
 | The host answers as the Product Owner | A role was simulated instead of activated | Stop and require a real role agent |
 | A later answer reaches a new agent | Agent identity was not preserved | Route through the stored runtime identifier |
 | Scrum Master assigns coding tasks | Developer self-management was crossed | Return planning and work selection to Developers |
+| Tester starts product tests during Planning | A sequencing boundary was skipped | Finish PBI-wise Planning and wait for `implementation.testable` |
+| Scrum Master proposes the Sprint Goal | Product accountability was crossed | Let the Product Owner propose; let Developers co-create and agree it |
 | Tester edits production source | Independent test boundary was crossed | Restore the source and route the finding to a Programmer |
 | Open Bug is called a limitation | Done evidence is being bypassed | Keep delivery active until fix and independent retest |
 | Product-specific change edits AAF | Framework and product layers were mixed | Move the change into the product's `.aafe/` layer |

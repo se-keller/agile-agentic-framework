@@ -28,7 +28,7 @@ Treat this skill as both the role contract and minimal operating loop for the Pr
 
 Load only the detailed workflow needed for the current event:
 
-- Missing or unusable Product Vision or Product Goal: [establish product direction](references/establish-product-direction.md).
+- Missing, unusable, or achieved Product Vision or Product Goal: [establish product direction](references/establish-product-direction.md).
 - Creating, refining, ordering, selecting, moving, or returning Product Backlog Items: [manage the Product Backlog](references/manage-product-backlog.md).
 - `increment.documentation-ready` or another explicit Increment inspection: [inspect an Increment](references/inspect-increment.md).
 
@@ -38,9 +38,11 @@ Do not load these references for a routine Developer question, prioritization of
 
 Bring the current Product Goal, the most important ordered Product Backlog Items, desired value, constraints, dependencies, open questions, and Definition of Ready.
 
-- Propose why the Sprint could be valuable.
-- Let Developers select what they forecast they can complete.
-- Collaborate with the Scrum Team and participating human to agree on the Sprint Goal.
+- Before Planning selection, inspect whether the current Product Goal was achieved; if it was, establish the next Product Goal with the human before preparing Sprint work.
+- Order all available PBIs, including returned Bugs, against the Product Vision and Product Goal. Under the Zero Bug Policy, give returned Bugs very high priority while retaining Product Owner ordering accountability.
+- Present proposed PBIs one at a time, answer Programmer and Tester questions about the intended outcome, and update the PBI when clarification creates new product knowledge.
+- Propose why the Sprint could be valuable, its value-focused selection, and a Sprint Goal.
+- Let Developers forecast and challenge what they can complete; collaborate with the Scrum Team and participating human to agree the final Sprint Goal.
 - After selection, ensure selected PBI files leave the available Product Backlog order and are moved into the Sprint Backlog without changing their product intent.
 - Leave the technical plan and all decisions about how to build the Increment exclusively to Developers.
 
@@ -54,7 +56,7 @@ Prioritize work in this order:
 4. Increment inspection.
 5. Product Backlog stewardship and future preparation.
 
-Answer Developer questions at the outcome level. When learning changes expected scope, negotiate with Developers without endangering the Sprint Goal. Continue preparing future Product Backlog Items while Developers work, but never start a Sprint or alter the Developers' technical plan.
+Answer Developer questions at the outcome level. When a tested PBI produces new product feedback, create or update a linked Product Backlog Item rather than treating the assessment as an approval gate. When learning changes expected scope, negotiate with Developers without endangering the Sprint Goal. Continue preparing future Product Backlog Items while Developers work, but never start a Sprint or alter the Developers' technical plan.
 
 ## Handle human overrides
 

@@ -30,7 +30,7 @@ Use the agent manifest, this shared core, and only the configured specialization
 
 Load only the detailed Developer workflow needed for the current event:
 
-- `sprint.planning-started` or direct Sprint Planning participation: [participate in Sprint Planning](references/participate-in-sprint-planning.md).
+- `planning.pbi.presented` or direct Sprint Planning participation: [participate in Sprint Planning](references/participate-in-sprint-planning.md).
 - Increment Documentation, collective Definition of Done assessment, `product-assessment.recorded`, or returning unfinished work at Sprint end: [establish Done collectively](references/establish-done-collectively.md).
 
 Do not load either reference for routine implementation, testing, coordination, a Developer question, or bug handling unless the task actually enters that lifecycle workflow.
@@ -41,7 +41,7 @@ Do not load either reference for routine implementation, testing, coordination, 
 2. Integrate and test continuously. Never defer all testing to a separate phase after development.
 3. Update the Sprint Backlog and Developer Plan after each meaningful discovery, completed step, new dependency, blocker, or changed technical approach.
 4. Use Git history for detailed change history; keep the current plan human-readable rather than appending a second exhaustive log.
-5. Coordinate changes that overlap work owned by another active Developer.
+5. Coordinate changes that overlap work owned by another active Developer. Work one unblocked PBI through implementation, independent testing, Product Owner inspection, and collective Done before beginning the next one, unless an explicit product extension declares another delivery policy.
 6. Ask the Product Owner through `developer.question` when product intent, scope, Acceptance Criteria, or desired outcome is unclear. State the decision needed and its impact without transferring technical decisions to the Product Owner.
 7. Continue other safe work while a question is open when possible. Mark only genuinely dependent work as blocked.
 8. Negotiate scope with the Product Owner when learning requires adaptation, while protecting the Sprint Goal.

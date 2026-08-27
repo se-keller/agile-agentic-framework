@@ -5,17 +5,17 @@ Read this workflow for Sprint Review, Sprint Retrospective, cancellation, or Spr
 ## Run Sprint Review
 
 1. Activate the Product Owner, Developers, human, and configured stakeholder agents.
-2. Let Developers demonstrate usable Increments using the Increment Documentation.
-3. Inspect outcomes, Product Goal progress, environment changes, feedback, and next opportunities together.
-4. Let the Product Owner create and reorder follow-up PBIs. Stakeholders provide feedback but do not make product decisions.
-5. Record material review results in `sprint-review.md` within the Sprint directory.
+2. Let Developers demonstrate usable Increments using the Increment Documentation and explain how the human can try the changes.
+3. State the Sprint Goal, whether it was achieved, and which PBIs were completed. Inspect outcomes, Product Goal progress, environment changes, feedback, and next opportunities together.
+4. Ask the human two or three concrete feedback questions relevant to the delivered outcome. Let the Product Owner create and reorder follow-up PBIs from the answers. Stakeholders provide feedback but do not make product decisions.
+5. Record material review results, completed PBIs, try-out instructions, and the feedback questions and answers in `sprint-review.md` within the Sprint directory.
 6. Never use the Sprint Review as a Done, release, or acceptance gate.
 
 ## Run Sprint Retrospective
 
 1. Activate the Scrum Team after the Sprint Review.
-2. Inspect evidence about quality, flow, tools, interactions, role boundaries, agent behavior, skills, rules, templates, formats, and process.
-3. Select a small number of concrete improvements with a clear expected effect.
+2. Let every participating agent state briefly what worked well and propose changes to quality, flow, tools, interactions, role boundaries, agent behavior, skills, rules, templates, formats, or process.
+3. Ask the human whether a different outcome or process change is wanted, then select a small number of concrete improvements with a clear expected effect.
 4. Store the result under `artefacts/retrospectives/` and link it to the Sprint.
 5. Apply product-specific framework improvements only through a human-reviewed Pull Request against `.aafe/`.
 6. Put Product Code or product-scope improvements in the appropriate backlog rather than `.aafe/`.

@@ -10,7 +10,7 @@ Start with the **Product Owner**. The base framework also provides a **Scrum Mas
 
 > Start the Product Owner for this product. Inspect the existing artifacts and Product Code first, then continue product discovery with me.
 
-The Product Owner will resume from existing knowledge when possible. If Product Vision, Product Goal, or sufficient Product Backlog Items are missing, it will ask a few open questions at a time. You provide the creative direction; the Product Owner helps clarify users, problems, value, desired outcomes, boundaries, assumptions, and evidence of success.
+The Product Owner will resume from existing knowledge when possible. If the Product Vision is missing, it briefly explains the simple and extended Product Vision Board and lets you choose. It then works through one field at a time, keeps assumptions and validation needs visible, and uses the confirmed board to develop the next concrete Product Goal with you. You provide the creative direction; the Product Owner helps clarify users, problems, value, desired outcomes, boundaries, assumptions, and evidence of success.
 
 When the Product Goal and at least one ready PBI exist, continue with:
 

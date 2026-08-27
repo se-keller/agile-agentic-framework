@@ -44,6 +44,7 @@ spec:
   subscriptions:
     - product-direction.ready
     - sprint.planning-requested
+    - planning.pbi.plan-reviewed
     - sprint-backlog.changed
     - developer.question
     - sprint.impediment

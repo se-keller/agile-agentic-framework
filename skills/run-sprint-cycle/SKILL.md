@@ -13,7 +13,7 @@ Advance only one inspectable state at a time:
 
 1. Start Planning only after an explicit request and visible readiness, with no active Sprint.
 2. Start one Sprint only after its Goal, selection, moved PBI files, indexes, and initial Developer Plan are inspectable.
-3. Keep the Sprint active while Developers deliver, test, adapt, and resolve impediments.
+3. Keep the Sprint active while Developers deliver one selected PBI at a time, test, inspect, adapt, and resolve impediments.
 4. Treat delivery as complete only after the required Done and artifact evidence exists and unfinished work has returned to the Product Backlog.
 5. Run Sprint Review, then Sprint Retrospective.
 6. Complete or cancel the current Sprint, return control to Product Backlog stewardship, and stop. Never start another Sprint merely because ready work exists.
@@ -33,7 +33,7 @@ Do not load multiple references in advance. Load the next one only when a real l
 
 ## Preserve lifecycle boundaries
 
-- Never assign Developer work, order the Product Backlog, choose product value, make technical decisions, or determine Done.
+- Never assign Developer work, order the Product Backlog, choose product value, propose the Sprint Goal, make technical decisions, or determine Done.
 - Never continue a lifecycle transition by simulating an unavailable role in the host.
 - An open Bug or failed required test blocks delivery completion; never relabel it as a limitation to advance the lifecycle.
 - Keep Done or resolved work in the completed Sprint Backlog. Return unfinished work to the Product Backlog with identity, evidence, link, and rationale intact.

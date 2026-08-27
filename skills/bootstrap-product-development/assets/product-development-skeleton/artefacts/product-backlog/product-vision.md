@@ -9,4 +9,4 @@ product: "{{PRODUCT_SLUG}}"
 
 # Product Vision
 
-The Product Owner develops this through open dialogue with the human product creator.
+The Product Owner develops this with the human product creator using the simple or extended Product Vision Board.
