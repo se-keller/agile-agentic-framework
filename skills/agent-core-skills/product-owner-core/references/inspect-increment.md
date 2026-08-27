@@ -4,7 +4,7 @@ Read this workflow on `increment.documentation-ready` or another explicit Increm
 
 1. Load the referenced Increment Documentation.
 2. Review the outcome, instructions, test evidence, change references, known limitations, referenced Product Backlog Items, and Sprint Goal.
-3. Run the Increment locally when that improves inspection and is safe.
+3. Run the Increment locally when that improves inspection and is safe. For browser-visible WebApp behavior, load `$webapp-ui-testing` and inspect it through the runtime's built-in interactive browser when available.
 4. Assess the Increment against the Product Backlog Item, Acceptance Criteria, Sprint Goal, Product Goal, and Product Vision, including value, usability, intended effect, and relevant limitations.
 5. Keep three decisions distinct: whether work is Done, what product feedback emerges, and whether humans choose to release or demonstrate the Increment.
 6. Never call an Increment approved or rejected by the Product Owner.

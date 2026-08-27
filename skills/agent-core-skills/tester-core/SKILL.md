@@ -30,9 +30,10 @@ Do not load these references for routine test-asset work or independent test exe
 1. Execute the agreed business-facing acceptance checks and relevant UI or exploratory tests only after `implementation.testable` or `bug.fix-ready`.
 2. Select additional tests according to risk, such as end-to-end, security, accessibility, compatibility, exploratory, recovery, or performance tests.
 3. Do not make every possible test type mandatory. Explain the risk basis for material inclusions and omissions.
-4. Record environment, preconditions, steps or automation reference, expected result, actual result, and supporting evidence.
-5. Distinguish passed, failed, blocked, not-run, and inconclusive results. Never report an unexecuted test as passed.
-6. Preserve evidence from failed runs even after a later retest passes.
+4. For browser-visible WebApp behavior, load `$webapp-ui-testing`; prefer the runtime's built-in interactive browser capability when available.
+5. Record environment, preconditions, steps or automation reference, expected result, actual result, and supporting evidence.
+6. Distinguish passed, failed, blocked, not-run, and inconclusive results. Never report an unexecuted test as passed.
+7. Preserve evidence from failed runs even after a later retest passes.
 
 ## Preserve Tester boundaries
 

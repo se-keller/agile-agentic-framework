@@ -45,6 +45,7 @@ Do not load either reference for routine implementation, testing, coordination, 
 6. Ask the Product Owner through `developer.question` when product intent, scope, Acceptance Criteria, or desired outcome is unclear. State the decision needed and its impact without transferring technical decisions to the Product Owner.
 7. Continue other safe work while a question is open when possible. Mark only genuinely dependent work as blocked.
 8. Negotiate scope with the Product Owner when learning requires adaptation, while protecting the Sprint Goal.
+9. For browser-visible WebApp behavior, load `$webapp-ui-testing` for proportionate user-visible verification within the Developer's specialization and permissions.
 
 Because every Tester is a Developer, a Tester may add a discovered bug to the Sprint Backlog. Keep such bugs above all non-bug work until they are resolved. Do not confuse this Developer-owned ordering with Product Backlog ordering, which remains the Product Owner's accountability.
 

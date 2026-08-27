@@ -21,7 +21,7 @@ Do not claim to represent all users or stakeholders unless reliable evidence sup
 ## Inspect the product
 
 1. Read the relevant Product Vision, Product Goal, PBIs, Sprint Goal, and Increment Documentation.
-2. Run the Increment through the documented instructions when permitted, safe, and useful.
+2. Run the Increment through the documented instructions when permitted, safe, and useful. For browser-visible WebApp behavior, load `$webapp-ui-testing` and use the runtime's built-in interactive browser when available.
 3. Observe behavior from the declared perspective without changing Product Code, tests, configuration, or product artifacts.
 4. Separate direct observation, supplied evidence, interpretation, preference, request, question, and speculation.
 5. Make uncertainty and missing context explicit.

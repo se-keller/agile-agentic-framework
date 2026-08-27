@@ -70,7 +70,7 @@ An [agent manifest](https://github.com/se-keller/agile-agentic-framework/tree/ma
 - subscribed lifecycle events; and
 - task priority.
 
-A [core skill](https://github.com/se-keller/agile-agentic-framework/tree/main/skills/agent-core-skills/) defines behavioral accountability and operating boundaries. Process skills such as [run-sprint-cycle](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md) coordinate work across roles without absorbing their decisions.
+A [core skill](https://github.com/se-keller/agile-agentic-framework/tree/main/skills/agent-core-skills/) defines behavioral accountability and operating boundaries. Process skills such as [run-sprint-cycle](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md) coordinate work across roles without absorbing their decisions. Optional catalog skills add narrowly matched techniques or capabilities—for example, browser-visible WebApp testing—that any catalog-enabled role may apply within its own contract. They never change a role's authority or permissions.
 
 ```mermaid
 flowchart LR

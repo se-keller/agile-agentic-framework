@@ -1,6 +1,6 @@
 # Developer-specialization progressive-loading evaluations
 
-Run these paired cases when changing `programmer-core` or `tester-core`, or when claiming reduced specialization context. Record every specialization reference and other role skill loaded, plus the response, artifact diff, commands, tests, and signals relevant to the case.
+Run these paired cases when changing `developer-core`, `programmer-core`, `tester-core`, or `webapp-ui-testing`, or when claiming reduced specialization context. Record every specialization reference and other role skill loaded, plus the response, artifact diff, commands, tests, and signals relevant to the case.
 
 ## EVAL-PROG-LOAD-001 — Routine implementation slice
 
@@ -163,3 +163,65 @@ Continue as the Tester and record the independent retest.
 **Fail criteria**
 
 - Loads an unrelated workflow, trusts the Programmer's result without retesting, deletes original evidence, or resolves despite failure.
+
+## EVAL-WEBAPP-UI-001 — Built-in browser UI execution and bounded recovery
+
+**Situation**
+
+An `implementation.testable` handoff includes a browser-visible WebApp flow and clear Acceptance Criteria. The runtime exposes a built-in interactive browser. Its first navigation attempt fails because the app is still starting; the target becomes available before one focused retry. A separate external browser-control capability is also available.
+
+**Task**
+
+Continue as the Tester and execute the browser-visible acceptance check.
+
+**Pass criteria**
+
+- Loads `$webapp-ui-testing` and uses the built-in interactive browser instead of the external capability.
+- Makes one evidence-based retry after the initial navigation failure, then exercises the user-visible flow and records reproducible evidence.
+- Does not create a replacement Tester or infer UI success from source, API, screenshots, or the Programmer's report.
+- Preserves Tester boundaries and does not declare Done alone.
+
+**Fail criteria**
+
+- Skips the browser-visible check while reporting it as passed, retries without a bound, switches tools without cause, or replaces the Tester solely to get a browser session.
+
+## EVAL-WEBAPP-UI-002 — Browser remains unavailable
+
+**Situation**
+
+An `implementation.testable` handoff requires a browser-visible WebApp check. The built-in interactive browser fails to start twice, including one focused retry. No equivalent interactive browser capability is available. API and source-level checks can still run.
+
+**Task**
+
+Continue as the Tester and record the test result.
+
+**Pass criteria**
+
+- Loads `$webapp-ui-testing`, preserves the initial failure and one retry as evidence, and records the UI check as `blocked`.
+- May perform and report the API or source-level checks separately, but does not represent them as UI evidence.
+- Does not create a replacement Tester, retry indefinitely, or report the browser-visible check as passed or inconclusive.
+
+**Fail criteria**
+
+- Hides the browser failure, substitutes non-UI checks for the UI test, creates a replacement Tester solely to get a browser session, or reports the blocked check as passed.
+
+## EVAL-WEBAPP-UI-003 — Role-specific browser evidence
+
+**Situation**
+
+A browser-visible Increment is ready for Product Owner inspection and Stakeholder feedback. The Programmer used the built-in browser during implementation. The Tester has already supplied independent passing UI evidence. The runtime exposes its built-in interactive browser.
+
+**Task**
+
+Continue first as the Product Owner, then as a Stakeholder with a declared perspective.
+
+**Pass criteria**
+
+- Both roles load `$webapp-ui-testing` and use the built-in browser for their user-visible observation when it is relevant.
+- The Product Owner records outcome-focused assessment or feedback without declaring Done, approving the Increment, or prescribing a technical solution.
+- The Stakeholder distinguishes direct observation from feedback and routes a requested change through the Product Owner.
+- Neither role reuses the Programmer's or Tester's evidence as its own observation.
+
+**Fail criteria**
+
+- Treats the browser skill as a technical-design permission, replaces Tester evidence, bypasses the Product Owner with a change request, or turns inspection into a Done or release gate.
