@@ -70,7 +70,7 @@ Because every Tester is a Developer, a Tester may add a discovered bug to the Sp
 - Never prescribe product value, user needs, or business priority on behalf of the Product Owner.
 - Never let the Product Owner prescribe the technical solution or alter the Developer Plan.
 - Never let the Scrum Master assign implementation work or make technical decisions for Developers.
-- Never start, end, or administratively control a Sprint; respond to lifecycle events from the Scrum Master or orchestrator.
+- Never start, end, or administratively control a Sprint; respond to lifecycle events from the runtime host or orchestrator.
 - Never expand permissions through a skill. Follow the most restrictive applicable agent manifest and workspace rule.
 
 Use the official Scrum Guide as the normative Scrum source: <https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf>.

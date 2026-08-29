@@ -4,8 +4,8 @@ title: Agentic Architecture and Design Principles
 description: How established agent architecture patterns relate to AAF, including what the framework implements, adapts, delegates to runtimes, or deliberately does not claim.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-26"
-generated: { by: "process:framework-documentation", at: "2026-08-26T21:43:08+02:00" }
+updated: "2026-08-28"
+generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
 framework: agile-agentic-framework
 sources:
   - id: react
@@ -90,8 +90,8 @@ flowchart TB
 |---|---|---|---|
 | Tool-grounded action loops | ReAct | Inspect state, act through permitted tools, evaluate observable results | Adapted |
 | Explicit planning and replanning | Plan-and-Solve | Sprint Goal, Developer Plan, and adaptation after meaningful evidence | Adapted |
-| Role-specialized collaboration | CAMEL, MetaGPT, AutoGen | Real PO, Scrum Master, Programmer, and Tester agents with separate contracts | Direct |
-| Event-driven durable orchestration | Conversational agents, graph workflows | Lifecycle events, preserved agent identifiers, inspectable transitions | Contract; runtime executes |
+| Role-specialized collaboration | CAMEL, MetaGPT, AutoGen | Real role agents, selectable interaction transport, and on-demand Scrum Master facilitation | Direct |
+| Event-driven durable orchestration | Conversational agents, graph workflows | Host-owned lifecycle routing, preserved role identifiers, inspectable transitions | Contract; runtime executes |
 | Externalized memory and context control | MemGPT | OKF artifacts, indexes, resumable state, progressive loading | Adapted |
 | Critique and iterative correction | Reflexion, Self-Refine | Independent tests, product inspection, bug-fix-retest loops, Retrospective | Structural adaptation |
 | Human oversight and authority | Human-in-the-loop governance | Product direction, overrides, review feedback, risky-action confirmation | Direct |
@@ -123,11 +123,11 @@ This is not a claim that every agent uses the Plan-and-Solve prompting technique
 
 CAMEL studies role-playing communication, MetaGPT encodes role-specific operating procedures, and AutoGen models configurable conversations among tool-using agents.[^camel][^metagpt][^autogen] AAF realizes this pattern with separate runtime agents, manifests, core skills, permissions, and accountabilities.
 
-The [workspace host contract](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/bootstrap-product-development/assets/product-development-skeleton/AGENTS.md) requires real delegation and stable agent identifiers. The [manifests](https://github.com/se-keller/agile-agentic-framework/tree/main/agents/) enforce separation of duties: for example, the Product Owner cannot write Product Code, and the Tester cannot modify production source. Collaboration must not collapse independent perspectives into one simulated context.
+The [workspace host contract](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/bootstrap-product-development/assets/product-development-skeleton/AGENTS.md) requires real delegation and stable agent identifiers. The [interaction skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/manage-role-interaction/SKILL.md) lets the human choose host presentation, transparent proxy, or native direct handoff when the runtime supports it. These modes change transport, not the role boundaries enforced by manifests. Collaboration must not collapse independent perspectives into one simulated context.
 
 ## 4. Event-driven durable orchestration
 
-Modern graph runtimes make control flow, persistence, interruption, and resumption explicit.[^langgraph] AAF defines the portable protocol rather than a vendor graph: subscriptions and lifecycle signals route work, while the host preserves each runtime agent identifier. The [Sprint-cycle router](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md) and its event-specific references form a state-machine-like workflow.
+Modern graph runtimes make control flow, persistence, interruption, and resumption explicit.[^langgraph] AAF defines the portable protocol rather than a vendor graph: the infrastructure-only host applies the [Sprint-cycle router](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md), preserves each runtime agent identifier, and emits transitions only after inspecting evidence. Scrum Master facilitation remains a separate on-demand role judgment.
 
 AAF does not itself provide the process engine. A compatible runtime must create, resume, and route real agents; if it cannot, the transition stops instead of being simulated.
 
@@ -135,7 +135,7 @@ AAF does not itself provide the process engine. A compatible runtime must create
 
 MemGPT motivates tiered memory for work that exceeds one context window.[^memgpt] AAF uses a simpler filesystem form: durable OKF artifacts, indexes, code, test evidence, and lifecycle state remain inspectable across conversations. Agents load indexes and directly relevant state first, then one event-specific workflow when needed.
 
-This is **not** an automatic Sprint-boundary conversation reset. Within a run, AAF deliberately resumes the same role agent where continuity matters. The durable source of shared truth is the workspace, not an assumption that chat history is permanent.
+This is **not** an automatic Sprint-boundary conversation reset. Within a run, AAF deliberately resumes the same role agent where continuity matters and keeps only one user-facing conversational owner at a time. The durable source of shared truth is the workspace, not an assumption that chat history or a native handoff remains permanent.
 
 ## 6. Independent critique and iterative correction
 
@@ -164,7 +164,7 @@ AAF makes the human the source of creative product direction, prioritizes urgent
 
 Trustworthy agent systems need explicit responsibility and risk controls, not only capable prompts.[^nist-ai-rmf] AAF declares permissions in each `agent.yaml`; skills may narrow behavior but cannot expand those permissions. Independent evidence is stronger because the Tester cannot silently repair production code and the Product Owner cannot implement the outcome it later inspects.
 
-The host also fails closed: when a required role cannot be started or resumed, it stops that lifecycle transition. Missing required evidence blocks Done rather than inviting a plausible host-authored substitute.
+The host also fails closed: when a required role cannot be started or resumed, it stops that lifecycle transition. It offers only verified interaction capabilities and never silently presents proxying as direct handoff. Missing required evidence blocks Done rather than inviting a plausible host-authored substitute.
 
 ## 9. Structured artifacts and validation guardrails
 

@@ -4,8 +4,8 @@ title: Glossary
 description: Definitions of the central Scrum, agentic, runtime, and repository terms used by AAF.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-26"
-generated: { by: "process:framework-documentation", at: "2026-08-26T14:57:16+02:00" }
+updated: "2026-08-28"
+generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -17,8 +17,12 @@ framework: agile-agentic-framework
 | Agent manifest | Runtime-neutral YAML declaring identity, core skills, permissions, subscriptions, and priority. |
 | Core skill | Mandatory behavioral contract for a role or Developer specialization. |
 | Detailed workflow | A reference loaded only for a matching lifecycle event or task. |
-| Runtime host | The primary context that activates agents, stores their identifiers, and transports messages without acting as a Scrum role. |
+| Runtime host | The primary infrastructure context that negotiates interaction transport, activates agents, stores their identifiers, routes messages, and executes mechanical lifecycle transitions without acting as a Scrum role. |
 | Agent identifier | Runtime-returned identity used to resume the same agent context. |
+| Interaction mode | Session-scoped choice controlling whether the host presents role results, transparently proxies role dialogue, or performs a supported direct handoff. |
+| Conversational owner | The one active role agent permitted to ask the human a blocking question and receive the next role-directed reply. |
+| Transparent proxy | Host transport that visibly attributes and forwards a role's intended user-facing payload without material rewriting, then returns the human reply unchanged to the same role ID. |
+| Direct handoff | Native runtime transfer of the same visible conversation to a role agent and later back to the host; a label, proxy, or separate task is not equivalent. |
 | Role simulation | Producing multiple role-labeled answers in one context without real agent activation; prohibited by AAF. |
 | Product workspace | Separate repository containing one product's code, OKF artifacts, and `.aafe` extensions. |
 | `.aafe` | Explicit product-local additions and overrides to the base framework. |

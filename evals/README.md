@@ -20,6 +20,8 @@ Choose the smallest set that covers the changed behavior:
 
 Use the latest accepted report as the baseline for ordinary commits. Re-run an unchanged baseline only for a runtime or model comparison, a claimed efficiency improvement, or when the selected comparison has no accepted reference result. A new or revised evaluation requires review and one calibrated candidate run, not an automatic replay of the entire unchanged baseline. When a paired comparison is required, use the same runtime, model, settings, task, and fixture.
 
+Capability-conditional positive cases are required only when the candidate or selected runtime claims that capability. When a capability such as same-conversation direct handoff is unavailable, run the corresponding fail-closed gating case and record the positive case as not applicable, never as passed, blocked, or inconclusive.
+
 ## Cost-aware gates
 
 Keep feedback proportional to the decision being made:

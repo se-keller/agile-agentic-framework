@@ -4,8 +4,8 @@ title: Building an Agent Framework
 description: Lessons from AAF for people designing their own multi-agent framework.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-26"
-generated: { by: "process:framework-documentation", at: "2026-08-26T14:57:16+02:00" }
+updated: "2026-08-28"
+generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -23,7 +23,7 @@ Define which decisions must remain independent. Ask:
 - Who controls process without controlling domain decisions?
 - Which decisions require a human?
 
-Create separate agents only where different authority, context, tools, or evidence justifies the boundary.
+Create separate agents only where different authority, context, tools, evidence, or independent facilitation justifies the boundary. A deterministic router is infrastructure rather than a role; a Scrum Master becomes a separate agent when coaching, impediment handling, facilitation, or improvement needs judgment.
 
 ## 2. Separate configuration from behavior
 
@@ -46,10 +46,12 @@ A multi-agent design needs more than role prompts. Specify that the runtime must
 - return a stable identifier;
 - resume the same context;
 - route events and human replies;
+- advertise supported user-interaction modes and preserve one active conversational owner;
+- execute deterministic lifecycle mechanics without absorbing role judgment;
 - expose activation failure; and
 - prevent the host from impersonating the missing role.
 
-Without these properties, a framework may look multi-agent while remaining one model context with role labels.
+Without these properties, a framework may look multi-agent while remaining one model context with role labels. Treat native direct handoff as an optional capability: host-mediated and transparent-proxy modes can remain portable, but a runtime must never claim a handoff it cannot perform.
 
 ## 4. Give every role least authority
 

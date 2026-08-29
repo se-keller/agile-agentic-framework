@@ -21,8 +21,9 @@ Create one workspace per product. Do not create a separate product merely for a 
 5. If the parent is not already inside a Git worktree, let the script initialize a Git repository. Use `--no-git` only when the user explicitly does not want this.
 6. Show the generated `README.md` as the human entry point and use the generated `AGENTS.md` as the single, self-contained agent entry point. Do not load `README.md` as agent operating input.
 7. Validate the generated `artefacts/` bundle with the shared `$okf` skill.
-8. Using the runtime's real subagent or delegation mechanism, start a separate Product Owner agent. Give it the workspace `AGENTS.md`, the Product Owner manifest and its declared core skills, and let it inspect existing artifacts and Product Code before continuing discovery with open questions.
-9. Preserve the returned Product Owner agent identifier and route the human's later replies back to that same agent. If a separate agent cannot be started or resumed, stop after bootstrap instead of acting as the Product Owner.
+8. Apply `$manage-role-interaction`, inspect the runtime's actual conversation capabilities, and let the human select a supported interaction mode for the session unless they already selected one.
+9. Using the runtime's real subagent or delegation mechanism, start a separate Product Owner agent. Give it the workspace `AGENTS.md`, the Product Owner manifest and its declared core skills, and let it inspect existing artifacts and Product Code before continuing discovery with open questions.
+10. Preserve the returned Product Owner agent identifier and route the human dialogue according to the selected interaction mode. If a separate agent cannot be started or resumed, stop after bootstrap instead of acting as the Product Owner.
 
 ## Preserve boundaries
 

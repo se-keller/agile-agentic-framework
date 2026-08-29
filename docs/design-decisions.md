@@ -4,8 +4,8 @@ title: Design Decisions
 description: A catalog of the main architectural choices in AAF, their rationale, tradeoffs, and evidence strength.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-27"
-generated: { by: "codex/gpt-5.6", at: "2026-08-27T00:00:00+02:00" }
+updated: "2026-08-28"
+generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
 framework: agile-agentic-framework
 decision_state: reconstructed-awaiting-human-verification
 ---
@@ -22,12 +22,12 @@ This catalog reconstructs rationale from current contracts, Git history, and eva
 - **Tradeoff:** The runtime must map abstract capabilities to native mechanisms, and unsupported capabilities must fail closed.
 - **Evidence:** [`AGENTS.md`](https://github.com/se-keller/agile-agentic-framework/blob/main/AGENTS.md), [agent manifests](https://github.com/se-keller/agile-agentic-framework/tree/main/agents/), commit `df3451e`.
 
-## D-002 — Make the host transport-only
+## D-002 — Keep the host infrastructure-only
 
 - **Status:** explicit decision
-- **Decision:** The primary context activates and routes real agents but performs no configured Scrum role.
+- **Decision:** The primary context negotiates interaction transport, activates and routes real agents, and performs evidence-backed lifecycle mechanics, but no configured Scrum role.
 - **Why:** One context cannot provide credible independence between product, implementation, testing, and facilitation decisions.
-- **Tradeoff:** More agent activations and explicit routing are required.
+- **Tradeoff:** The host needs explicit process contracts and must distinguish deterministic transition checks from role judgment.
 - **Evidence:** [`AGENTS.md`](https://github.com/se-keller/agile-agentic-framework/blob/main/AGENTS.md), [workspace template](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/bootstrap-product-development/assets/product-development-skeleton/AGENTS.md), `EVAL-MULTI-001`.
 
 ## D-003 — Split static manifests from behavioral skills
@@ -76,7 +76,7 @@ This catalog reconstructs rationale from current contracts, Git history, and eva
 - **Decision:** Advance Sprints through inspectable readiness and completion events instead of a calendar timebox.
 - **Why:** Autonomous agent execution needs resumable transition boundaries and may not map cleanly to wall-clock ceremonies.
 - **Tradeoff:** This differs from the Scrum Guide's fixed-length Sprint and must remain clearly labeled as an adaptation.
-- **Evidence:** [Sprint-cycle skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md).
+- **Evidence:** [Sprint-cycle skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md), executed by the infrastructure-only host.
 
 ## D-009 — Enforce Zero Bug and collective Done
 
@@ -105,7 +105,23 @@ This catalog reconstructs rationale from current contracts, Git history, and eva
 ## D-012 — Use PBI-wise handoffs instead of role-wide Planning broadcasts
 
 - **Status:** human-requested decision
-- **Decision:** Plan candidates one PBI at a time: Product Owner presentation and clarification, Tester business-facing cases, Programmer implementation plan, then Tester testability review. Delivery likewise proceeds Programmer, independent Tester, Product Owner inspection, and the next PBI. The Scrum Master facilitates the sequence but does not propose the Sprint Goal.
+- **Decision:** Plan candidates one PBI at a time: Product Owner presentation and clarification, Tester business-facing cases, Programmer implementation plan, then Tester testability review. Delivery likewise proceeds Programmer, independent Tester, Product Owner inspection, and the next PBI. The host routes the sequence; an on-demand Scrum Master facilitates Planning but does not propose the Sprint Goal or own transitions.
 - **Why:** Broad simultaneous activation caused roles to act on incomplete information, including premature Tester execution. Explicit handoffs make dependencies visible while retaining separate role agents and Developer self-management.
 - **Tradeoff:** Planning has more small transitions and each active PBI is intentionally sequential unless a product explicitly configures a different adaptation.
 - **Evidence:** [Sprint-cycle Planning](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/references/plan-sprint.md), [delivery coordination](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/references/coordinate-delivery.md), `EVAL-SPRINT-PLANNING-001`.
+
+## D-013 — Let the human choose a capability-gated interaction mode
+
+- **Status:** human-requested decision
+- **Decision:** At the start of each runtime session, offer only supported `host`, `transparent-proxy`, and `direct-handoff` modes and let the human select or later change the mode.
+- **Why:** Dialog-heavy role work, especially Product Owner discovery, should feel direct without making a same-conversation handoff a portability requirement.
+- **Tradeoff:** Runtimes expose different choices, and unsupported direct handoff must fail closed rather than being approximated silently.
+- **Evidence:** [interaction skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/manage-role-interaction/SKILL.md), workspace host contract, `EVAL-INTERACTION-001`, and `EVAL-INTERACTION-002`.
+
+## D-014 — Use the Scrum Master on demand, not as the lifecycle engine
+
+- **Status:** human-requested decision
+- **Decision:** The runtime host owns deterministic state checks, agent routing, and lifecycle signals. A stable Scrum Master agent is activated for Planning facilitation, impediments, Scrum deviations, Review support when needed, Retrospective, and improvement.
+- **Why:** Runtime mechanics do not require independent Scrum judgment, while coaching, facilitation, impediment handling, and effectiveness improvement do.
+- **Tradeoff:** The boundary between a mechanical transition and facilitative judgment must remain explicit and evaluated.
+- **Evidence:** [Scrum Master core](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/agent-core-skills/scrum-master-core/SKILL.md), [Sprint-cycle skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md), `EVAL-SM-PLANNING-001`, and `EVAL-MULTI-001`.

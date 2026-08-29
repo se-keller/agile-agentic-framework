@@ -18,8 +18,9 @@ This repository defines a small, runtime-neutral Scrum-oriented agent framework.
 ## Multi-agent execution
 
 - For product work, start each configured role when it is needed through the runtime's real subagent or delegation mechanism.
-- Keep the primary agent as the host: preserve each returned agent identifier and route later human replies and lifecycle events to that same agent.
+- Keep the primary agent as the host: apply the configured interaction mode, preserve each returned agent identifier, route later human replies to that same agent, and execute only mechanical lifecycle transitions through the host process skills.
 - Never perform a configured role's work in the host or simulate several roles in one agent context.
+- Keep lifecycle routing separate from Scrum Master facilitation. Activate the Scrum Master only when an event, impediment, deviation, or improvement needs that accountability.
 - If the runtime cannot start or resume a required agent, stop that transition and report it.
 
 ## Knowledge artifacts

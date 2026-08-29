@@ -4,8 +4,8 @@ title: Evaluation Strategy
 description: How AAF balances deterministic checks, behavioral evidence, integration confidence, and evaluation cost.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-26"
-generated: { by: "process:framework-documentation", at: "2026-08-26T14:57:16+02:00" }
+updated: "2026-08-28"
+generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -36,7 +36,9 @@ The deterministic runner checks the full staged and unstaged commit diff, reposi
 
 Changes to a shared role boundary, permission, Done rule, or Sprint lifecycle add one focused end-to-end trace that crosses the changed boundary.
 
-For example, a multi-agent change should demonstrate real and distinct Product Owner, Scrum Master, Programmer, and Tester identifiers, reuse those identifiers, and reach an independent test result. It should not repeat unrelated role cases merely to increase the evidence count.
+For example, a multi-agent lifecycle change should demonstrate real and distinct Product Owner, Programmer, and Tester identifiers, plus a preserved Scrum Master identity whenever facilitation is required. It should show that the host owns only mechanical routing and transitions and should reach an independent test result without repeating unrelated role cases merely to increase the evidence count.
+
+Interaction capability cases are evaluated against the selected runtime. Unsupported direct handoff requires a passing fail-closed gating case; its positive handoff case remains not applicable until a capable runtime is used and must never be reported as passed without an actual transfer trace.
 
 ## Release gate
 

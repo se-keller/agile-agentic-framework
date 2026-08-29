@@ -6,7 +6,15 @@ This workspace contains Product Code, product knowledge, Scrum artifacts, and pr
 
 ## Start here
 
-Start with the **Product Owner**. The base framework also provides a **Scrum Master**, **Programmer**, and **Tester**. Tell your agent runtime:
+At the start of each runtime session, choose how you want to interact:
+
+- **Host:** the host presents attributable role results and manages the conversation.
+- **Transparent proxy:** the active role speaks visibly through the host, and your next reply returns unchanged to the same role agent.
+- **Direct handoff:** a supported runtime transfers the visible conversation to the active role agent. This option appears only when the runtime can perform a real same-conversation handoff.
+
+You can change the mode later. The runtime must not silently replace an unavailable mode.
+
+Then start with the **Product Owner**. The base framework also provides a **Scrum Master**, **Programmer**, and **Tester**. Tell your agent runtime:
 
 > Start the Product Owner for this product. Inspect the existing artifacts and Product Code first, then continue product discovery with me.
 
@@ -14,9 +22,9 @@ The Product Owner will resume from existing knowledge when possible. If the Prod
 
 When the Product Goal and at least one ready PBI exist, continue with:
 
-> Ask the Scrum Master to start the next event-driven Sprint.
+> Start the next event-driven Sprint.
 
-The Scrum Master brings the Product Owner and configured Developers into Sprint Planning, observes the delivery loop without assigning technical work, and facilitates Sprint Review and Retrospective.
+The runtime host performs the mechanical lifecycle transitions and activates the Product Owner and configured Developers at the required handoffs. The Scrum Master is activated when Planning or Review needs facilitation, an impediment or Scrum deviation needs attention, and for the Retrospective and process improvement. It does not run the lifecycle router or assign technical work.
 
 ## Workspace
 

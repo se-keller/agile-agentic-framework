@@ -5,7 +5,7 @@ description: Run one inspectable, event-driven Sprint through Sprint Planning, i
 
 # Run Sprint Cycle
 
-Apply this process skill with `$scrum-master-core`. Treat the event-driven duration as an explicit framework adaptation: the official Scrum Guide defines fixed-length Sprints, while this workflow initially uses completion events to support autonomous agent execution.
+Apply this process skill as the runtime host. It defines mechanical lifecycle inspection, agent routing, and transitions without giving the host a Scrum accountability. Do not combine it with a role core or perform a configured role's work. Treat the event-driven duration as an explicit framework adaptation: the official Scrum Guide defines fixed-length Sprints, while this workflow initially uses completion events to support autonomous agent execution.
 
 ## Keep lifecycle state explicit
 
@@ -18,9 +18,9 @@ Advance only one inspectable state at a time:
 5. Run Sprint Review, then Sprint Retrospective.
 6. Complete or cancel the current Sprint, return control to Product Backlog stewardship, and stop. Never start another Sprint merely because ready work exists.
 
-Inspect indexes, status metadata, lifecycle signals, and directly referenced artifacts before loading full bodies. Use `$okf` only when creating or changing knowledge or result artifacts.
+Inspect indexes, status metadata, lifecycle signals, and directly referenced artifacts before loading full bodies. Have the accountable role apply `$okf` when it creates or changes knowledge or result artifacts; the host does not load a role or artifact skill to author that content itself.
 
-Use the Scrum Master manifest, `$scrum-master-core`, and this process skill. Read another role's manifest to request it as a separate runtime agent, but do not load that role's core skill to decide or perform its work. Keep each returned agent identifier and let configured agents apply their own contracts and report their results.
+Read each needed role's manifest to request it as a separate runtime agent, but do not load its core skills to decide or perform its work. Keep every returned agent identifier and let configured agents apply their own contracts and report their results. Activate the Scrum Master only when Planning or Review needs facilitation, an impediment or Scrum deviation needs independent attention, or the Retrospective needs improvement work; the Scrum Master does not run this lifecycle router.
 
 Load only the detailed workflow matching the current event:
 
@@ -35,9 +35,10 @@ Do not load multiple references in advance. Load the next one only when a real l
 
 - Never assign Developer work, order the Product Backlog, choose product value, propose the Sprint Goal, make technical decisions, or determine Done.
 - Never continue a lifecycle transition by simulating an unavailable role in the host.
+- Never treat deterministic state checks, routing, or signal emission as Scrum Master evidence. Activate the real Scrum Master when facilitative judgment is required.
 - An open Bug or failed required test blocks delivery completion; never relabel it as a limitation to advance the lifecycle.
 - Keep Done or resolved work in the completed Sprint Backlog. Return unfinished work to the Product Backlog with identity, evidence, link, and rationale intact.
-- Only the Product Owner may determine that the Sprint Goal is obsolete; facilitate but never initiate cancellation on its behalf.
+- Only the Product Owner may determine that the Sprint Goal is obsolete; route that decision and activate facilitation when needed, but never initiate cancellation on its behalf.
 - Never use Sprint Review as a Done, release, or acceptance gate.
 - Never rewrite Sprint completion as Sprint Goal achievement.
 - After `sprint.completed`, emit no Planning or Sprint-start signal without a separate request.

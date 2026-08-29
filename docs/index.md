@@ -1,7 +1,7 @@
 ---
 okf_version: "0.2"
 created: "2026-08-26"
-updated: "2026-08-26"
+updated: "2026-08-28"
 ---
 
 # Agile Agentic Framework Documentation
@@ -37,9 +37,9 @@ The documentation is **descriptive and non-normative**. Agents operate from the 
 | Document | Primary framework sources |
 |---|---|
 | [Framework guide](framework-guide.md) | [`README.md`](https://github.com/se-keller/agile-agentic-framework/blob/main/README.md), [bootstrap skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/bootstrap-product-development/SKILL.md), [workspace template](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/bootstrap-product-development/assets/product-development-skeleton/AGENTS.md) |
-| [Architecture](architecture.md) | [`AGENTS.md`](https://github.com/se-keller/agile-agentic-framework/blob/main/AGENTS.md), [agent manifests](https://github.com/se-keller/agile-agentic-framework/tree/main/agents/), [skill catalog](https://github.com/se-keller/agile-agentic-framework/tree/main/skills/) |
+| [Architecture](architecture.md) | [`AGENTS.md`](https://github.com/se-keller/agile-agentic-framework/blob/main/AGENTS.md), [interaction skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/manage-role-interaction/SKILL.md), [agent manifests](https://github.com/se-keller/agile-agentic-framework/tree/main/agents/), [skill catalog](https://github.com/se-keller/agile-agentic-framework/tree/main/skills/) |
 | [Agentic principles](agentic-principles.md) | [role cores](https://github.com/se-keller/agile-agentic-framework/tree/main/skills/agent-core-skills/), [Sprint-cycle skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md) |
-| [Sprint lifecycle](sprint-lifecycle.md) | [Sprint-cycle skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md), [Product Vision Board skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/product-vision-board/SKILL.md), and their workflow references |
+| [Sprint lifecycle](sprint-lifecycle.md) | [Sprint-cycle skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md), [Scrum Master core](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/agent-core-skills/scrum-master-core/SKILL.md), [Product Vision Board skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/product-vision-board/SKILL.md), and their workflow references |
 | [Repository and extension model](repository-and-extension-model.md) | [`AGENTS.md`](https://github.com/se-keller/agile-agentic-framework/blob/main/AGENTS.md), [bootstrap skeleton](https://github.com/se-keller/agile-agentic-framework/tree/main/skills/bootstrap-product-development/assets/product-development-skeleton/) |
 | [Evaluation strategy](evaluation-strategy.md) | [evaluation guide](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/README.md), [critical cases](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/critical-behavior.md), [commit checks](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/run_deterministic_checks.py) |
 | [Design decisions](design-decisions.md) | Current contracts, Git history, and [evaluation reports](https://github.com/se-keller/agile-agentic-framework/tree/main/evals/reports/) |
