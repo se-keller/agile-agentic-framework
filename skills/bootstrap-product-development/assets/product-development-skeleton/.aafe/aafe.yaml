@@ -2,7 +2,9 @@ api_version: aaf.dev/v1alpha1
 kind: FrameworkExtensions
 framework:
   name: agile-agentic-framework
-  version: local
+  repository: "{{FRAMEWORK_REPOSITORY}}"
+  version: "{{FRAMEWORK_REVISION}}"
+  path: "../{{FRAMEWORK_DIRECTORY}}"
 agents:
   add: []
   override: []

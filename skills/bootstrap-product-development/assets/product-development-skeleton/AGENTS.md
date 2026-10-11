@@ -6,6 +6,8 @@ Keep `README.md` only at this workspace root and for people. Put agent-operating
 
 Use the configured Agile Agentic Framework as the base and apply only additions and explicit overrides declared in `.aafe/aafe.yaml`.
 
+The configured framework checkout is a sibling of this product workspace. Start every product-role agent with this product workspace as its working directory and restrict its write scope to this workspace. It may read the framework checkout named by `.aafe/aafe.yaml` to load declared contracts, but it must never modify that checkout.
+
 ## Multi-agent execution
 
 The primary agent is the runtime host, not a Scrum role.

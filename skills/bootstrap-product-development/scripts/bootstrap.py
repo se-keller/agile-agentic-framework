@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create a minimal product-development workspace from the bundled skeleton."""
+"""Create a product workspace beside a versioned AAF framework checkout."""
 
 from __future__ import annotations
 
@@ -17,6 +17,7 @@ TOKEN_RE = re.compile(r"\{\{([A-Z_]+)\}\}")
 GERMAN_TRANSLITERATION = str.maketrans(
     {"ä": "ae", "ö": "oe", "ü": "ue", "Ä": "Ae", "Ö": "Oe", "Ü": "Ue", "ß": "ss"}
 )
+FRAMEWORK_DIRECTORY = "agile-agentic-framework"
 
 
 def slugify(value: str) -> str:
@@ -56,10 +57,88 @@ def inside_git_worktree(path: Path) -> bool:
     return result.returncode == 0
 
 
+def git_output(*args: str) -> str:
+    """Return Git output or present a concise bootstrap error."""
+    result = subprocess.run(
+        ["git", *args],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if result.returncode:
+        detail = result.stderr.strip() or result.stdout.strip()
+        raise SystemExit(f"ERROR: git {' '.join(args)} failed: {detail}")
+    return result.stdout.strip()
+
+
+def is_git_checkout(path: Path) -> bool:
+    result = subprocess.run(
+        ["git", "-C", str(path), "rev-parse", "--show-toplevel"],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    return result.returncode == 0 and Path(result.stdout.strip()).resolve() == path.resolve()
+
+
+def current_framework_root() -> Path:
+    return Path(__file__).resolve().parents[3]
+
+
+def public_repository_name(source: Path) -> str:
+    """Prefer the origin URL, without copying HTTP credentials into a product."""
+    result = subprocess.run(
+        ["git", "-C", str(source), "remote", "get-url", "origin"],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    repository = result.stdout.strip() if result.returncode == 0 else str(source)
+    return re.sub(r"^(https?://)[^/@]+@", r"\1", repository)
+
+
+def ensure_framework_checkout(
+    parent: Path,
+    source: Path,
+    requested_ref: str | None,
+) -> tuple[Path, str]:
+    """Reuse or create the sibling framework checkout and return its exact revision."""
+    checkout = parent / FRAMEWORK_DIRECTORY
+    if checkout.exists():
+        if not checkout.is_dir() or not is_git_checkout(checkout):
+            raise SystemExit(f"ERROR: framework target is not a Git checkout: {checkout}")
+        if requested_ref is not None:
+            expected_revision = git_output("-C", str(checkout), "rev-parse", f"{requested_ref}^{{commit}}")
+            actual_revision = git_output("-C", str(checkout), "rev-parse", "HEAD")
+            if actual_revision != expected_revision:
+                raise SystemExit(
+                    "ERROR: existing framework checkout does not match "
+                    f"--framework-ref {requested_ref}: {checkout}"
+                )
+        return checkout, git_output("-C", str(checkout), "rev-parse", "HEAD")
+
+    ref = requested_ref or git_output("-C", str(source), "rev-parse", "HEAD")
+    git_output("clone", "--no-checkout", str(source), str(checkout))
+    git_output("-C", str(checkout), "checkout", "--detach", ref)
+    return checkout, git_output("-C", str(checkout), "rev-parse", "HEAD")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("product_name", help="human-readable product name")
     parser.add_argument("--parent", type=Path, default=Path.cwd(), help="parent directory")
+    parser.add_argument(
+        "--framework-source",
+        type=Path,
+        help="Git checkout to clone as the sibling framework (defaults to this checkout)",
+    )
+    parser.add_argument(
+        "--framework-ref",
+        help="commit, tag, or branch to check out; required to match an existing framework checkout",
+    )
     parser.add_argument("--no-git", action="store_true", help="do not initialize a Git repository")
     return parser
 
@@ -77,6 +156,17 @@ def main() -> int:
     target = parent / f"product-development-{product_slug}"
     if target.exists():
         raise SystemExit(f"ERROR: refusing to overwrite existing target: {target}")
+
+    framework_source = (args.framework_source or current_framework_root()).expanduser().resolve()
+    if not framework_source.is_dir() or not is_git_checkout(framework_source):
+        raise SystemExit(f"ERROR: framework source is not a Git checkout: {framework_source}")
+    framework_existed = (parent / FRAMEWORK_DIRECTORY).exists()
+    framework_checkout, framework_revision = ensure_framework_checkout(
+        parent, framework_source, args.framework_ref
+    )
+    framework_repository = public_repository_name(
+        framework_checkout if framework_existed else framework_source
+    )
 
     skeleton = Path(__file__).resolve().parent.parent / "assets" / "product-development-skeleton"
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -99,6 +189,9 @@ def main() -> int:
                 "PRODUCT_SLUG": product_slug,
                 "GENERATED_AT": generated_at,
                 "GENERATED_DATE": generated_date,
+                "FRAMEWORK_DIRECTORY": framework_checkout.name,
+                "FRAMEWORK_REPOSITORY": framework_repository,
+                "FRAMEWORK_REVISION": framework_revision,
             },
         )
 
@@ -109,6 +202,7 @@ def main() -> int:
         staging.rename(target)
 
     print(f"Created {target}")
+    print(f"Framework checkout: {framework_checkout} ({framework_revision})")
     print(f"Git initialized: {'yes' if initialized_git else 'no (already nested or disabled)'}")
     return 0
 

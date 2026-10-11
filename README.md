@@ -18,13 +18,13 @@ The Product Owner is defined by `agents/product-owner/agent.yaml`. Programmer an
 
 ## Start a product workspace
 
-Use the bootstrap skill to create a separate, Git-ready workspace for one product:
+Use the bootstrap skill to create a shared workspace root for one product:
 
 ```bash
 python3 skills/bootstrap-product-development/scripts/bootstrap.py "My Product" --parent ../
 ```
 
-This creates `product-development-my-product/` with a human and agent entry point, a `product-code/` area, initial OKF artifacts, a Product Backlog, Sprint and Increment Documentation areas, and a `.aafe/` extension layer. Keep product knowledge and product-specific framework changes there; do not modify this base framework for one product's needs.
+This creates sibling `agile-agentic-framework/` and `product-development-my-product/` directories. The framework checkout is pinned in the product's `.aafe/aafe.yaml` and can be updated deliberately with Git. The product directory has the human and agent entry points, `product-code/`, initial OKF artifacts, a Product Backlog, Sprint and Increment Documentation areas, and the `.aafe/` extension layer. Run product agents from that product directory and limit their write scope to it; they may read but never modify the sibling framework checkout.
 
 Product Vision and the current Product Goal live under `artefacts/product-backlog/` with its index. For a new Product Vision, the Product Owner offers Roman Pichler's simple and extended Product Vision Board, guides the human through it field by field, and then uses the confirmed board to establish the next Product Goal. PBI files begin under `artefacts/product-backlog/items/`. Sprint Planning stores the Sprint Goal at `sprint-backlog/sprint-goal.md` and moves selected PBI files beside it. Done PBIs and resolved Bugs remain there as the completed Sprint record; unfinished work is moved back to the Product Backlog for Product Owner ordering.
 

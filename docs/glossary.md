@@ -4,8 +4,8 @@ title: Glossary
 description: Definitions of the central Scrum, agentic, runtime, and repository terms used by AAF.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-28"
-generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
+updated: "2026-10-11"
+generated: { by: "codex/gpt-5", at: "2026-10-11T13:30:00+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -24,7 +24,8 @@ framework: agile-agentic-framework
 | Transparent proxy | Host transport that visibly attributes and forwards a role's intended user-facing payload without material rewriting, then returns the human reply unchanged to the same role ID. |
 | Direct handoff | Native runtime transfer of the same visible conversation to a role agent and later back to the host; a label, proxy, or separate task is not equivalent. |
 | Role simulation | Producing multiple role-labeled answers in one context without real agent activation; prohibited by AAF. |
-| Product workspace | Separate repository containing one product's code, OKF artifacts, and `.aafe` extensions. |
+| Product workspace | Separate repository containing one product's code, OKF artifacts, and `.aafe` extensions; it is the working directory and write scope for product-role agents. |
+| Workspace root | Parent directory containing a version-pinned `agile-agentic-framework/` checkout and one or more sibling product workspaces. |
 | `.aafe` | Explicit product-local additions and overrides to the base framework. |
 | OKF | Open Knowledge Format; indexed Markdown concepts with metadata, provenance, and human-readable links. |
 | Product Code | Executable implementation and related technical files under `product-code/`. |

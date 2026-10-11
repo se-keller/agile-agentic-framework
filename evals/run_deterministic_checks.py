@@ -65,7 +65,14 @@ def check_bootstrap() -> None:
             parent,
             "--no-git",
         )
+        framework = Path(parent) / "agile-agentic-framework"
         workspace = Path(parent) / "product-development-commit-check"
+        if not framework.is_dir():
+            raise RuntimeError("Bootstrap did not create the framework checkout")
+        framework_revision = run("git", "-C", str(framework), "rev-parse", "HEAD").strip()
+        extension = (workspace / ".aafe" / "aafe.yaml").read_text(encoding="utf-8")
+        if 'path: "../agile-agentic-framework"' not in extension or framework_revision not in extension:
+            raise RuntimeError("Bootstrap did not pin the sibling framework checkout")
         run(
             sys.executable,
             "skills/okf/scripts/validate_okf.py",

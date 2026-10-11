@@ -5,7 +5,7 @@ description: How AAF separates reusable framework contracts, product workspaces,
 status: draft
 created: "2026-08-26"
 updated: "2026-10-11"
-generated: { by: "codex/gpt-5", at: "2026-10-11T12:55:01+02:00" }
+generated: { by: "codex/gpt-5", at: "2026-10-11T13:30:00+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -29,7 +29,17 @@ agile-agentic-framework/
 
 The base repository contains reusable behavior only. Its `AGENTS.md`, manifests, skills, and directly referenced evaluation contracts are normative. This documentation is not. Each repository or generated workspace has one human-facing `README.md` at its root; nested directories use their applicable agent or domain contract instead of another README.
 
-## Product workspace
+## Shared workspace root and product workspace
+
+Bootstrap places the framework and one product workspace beside each other. The framework is a regular Git checkout so a maintainer can inspect or update it, while the product remains a separate repository and the only normal working directory for product agents.
+
+```text
+workspace-root/
+├── agile-agentic-framework/          # framework checkout; product agents read only
+└── product-development-example/      # product repository and agent working directory
+```
+
+The product's `.aafe/aafe.yaml` records the framework repository, exact Git revision, and sibling-relative path. This makes a framework update explicit and reviewable instead of changing agent behavior merely because a moving branch changed.
 
 ```text
 product-development-example/
@@ -69,6 +79,7 @@ flowchart TD
 - Treat undeclared name collisions as errors.
 - Never infer an override merely because two files share a name.
 - Keep the base framework read-only during ordinary product work.
+- Start product-role agents in the product workspace and restrict their write scope to it. They may read the framework checkout recorded by `.aafe/aafe.yaml`, but must never modify it.
 
 This makes extension reviewable. A maintainer can tell which behavior came from AAF and which behavior belongs only to one product.
 

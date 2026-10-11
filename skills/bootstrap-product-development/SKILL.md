@@ -5,12 +5,12 @@ description: Create a minimal, standalone product-development workspace for the 
 
 # Bootstrap Product Development
 
-Create one workspace per product. Do not create a separate product merely for a technical module; use another workspace only when it has an independently managed product boundary, Product Goal, Product Backlog, and stakeholder context.
+Create one workspace per product. The bootstrap parent becomes a shared workspace root containing a versioned `agile-agentic-framework/` checkout and a sibling product repository. Do not create a separate product merely for a technical module; use another workspace only when it has an independently managed product boundary, Product Goal, Product Backlog, and stakeholder context.
 
 ## Bootstrap
 
 1. Ask for the product's human-readable name and the parent directory when either is unknown.
-2. Preview the resulting directory name: `product-development-<product-slug>`.
+2. Preview the resulting sibling directories: `agile-agentic-framework/` and `product-development-<product-slug>/`. Reuse the framework checkout if it already exists; otherwise bootstrap clones the current framework checkout at its current commit.
 3. Run:
 
    ```bash
@@ -18,18 +18,20 @@ Create one workspace per product. Do not create a separate product merely for a 
    ```
 
 4. Never overwrite an existing target. Resolve the collision with the user.
-5. If the parent is not already inside a Git worktree, let the script initialize a Git repository. Use `--no-git` only when the user explicitly does not want this.
-6. Show the generated `README.md` as the human entry point and use the generated `AGENTS.md` as the single, self-contained agent entry point. Do not load `README.md` as agent operating input.
-7. Validate the generated `artefacts/` bundle with the shared `$okf` skill.
-8. Apply `$manage-role-interaction`, inspect the runtime's actual conversation capabilities, and let the human select a supported interaction mode for the session unless they already selected one.
-9. Using the runtime's real subagent or delegation mechanism, start a separate Product Owner agent. Give it the workspace `AGENTS.md`, the Product Owner manifest and its declared core skills, and let it inspect existing artifacts and Product Code before continuing discovery with open questions.
-10. Preserve the returned Product Owner agent identifier and route the human dialogue according to the selected interaction mode. If a separate agent cannot be started or resumed, stop after bootstrap instead of acting as the Product Owner.
+5. If the parent is not already inside a Git worktree, let the script initialize a Git repository for the product. Use `--no-git` only when the user explicitly does not want a product repository; the framework remains a Git checkout so it can be updated deliberately.
+6. When bootstrap needs a different framework source or an explicit revision, pass `--framework-source <checkout>` and `--framework-ref <commit-or-tag>`. If an explicit ref does not match an existing framework checkout, never change it silently; ask the user to update it deliberately.
+7. Show the generated `README.md` as the human entry point and use the generated `AGENTS.md` as the single, self-contained agent entry point. Do not load `README.md` as agent operating input.
+8. Validate the generated `artefacts/` bundle with the shared `$okf` skill.
+9. Apply `$manage-role-interaction`, inspect the runtime's actual conversation capabilities, and let the human select a supported interaction mode for the session unless they already selected one.
+10. Using the runtime's real subagent or delegation mechanism, start a separate Product Owner agent. Give it the workspace `AGENTS.md`, the Product Owner manifest and its declared core skills, and let it inspect existing artifacts and Product Code before continuing discovery with open questions.
+11. Preserve the returned Product Owner agent identifier and route the human dialogue according to the selected interaction mode. If a separate agent cannot be started or resumed, stop after bootstrap instead of acting as the Product Owner.
 
 ## Preserve boundaries
 
 - Keep generated `README.md` human-facing and `AGENTS.md` agent-facing. Duplicate information when both audiences need it; never make an agent depend on `README.md`.
 - Create the generated `README.md` only at the workspace root. Put nested agent-operating information in `AGENTS.md`, `SKILL.md`, or other directly referenced contracts, never in a nested README.
 - Keep the base framework unchanged for product-specific needs.
+- Start product-role agents in the product workspace and restrict their write scope to it. They may read the framework checkout pinned by `.aafe/aafe.yaml`, but may never modify it.
 - Put product-specific agents and skills under `.aafe/agents/` and `.aafe/skills/`.
 - Keep each product-specific skill folder minimal: `SKILL.md` plus only required resources. Omit `agents/` and `agents/openai.yaml` unless a concrete runtime integration requires them.
 - Declare additions and overrides explicitly in `.aafe/aafe.yaml`.

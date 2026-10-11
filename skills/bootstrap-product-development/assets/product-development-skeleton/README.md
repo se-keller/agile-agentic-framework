@@ -2,7 +2,7 @@
 
 This README is the entry point for people using or developing this product. AI agents use `AGENTS.md` as their self-contained workspace entry point and load relevant skills as needed; they do not need this README as operating input.
 
-This workspace contains Product Code, product knowledge, Scrum artifacts, and product-specific extensions for the Agile Agentic Framework.
+This workspace contains Product Code, product knowledge, Scrum artifacts, and product-specific extensions for the Agile Agentic Framework. Its sibling `agile-agentic-framework/` checkout is identified by repository, revision, and path in `.aafe/aafe.yaml`; product agents may read it but work only in this product directory.
 
 ## Start here
 
@@ -32,6 +32,8 @@ The runtime host performs the mechanical lifecycle transitions and activates the
 - `artefacts/`: OKF product knowledge, Scrum artifacts, and Increment Documentation.
 - `.aafe/`: explicit product-specific additions and overrides to the base framework.
 - `AGENTS.md`: the separate, self-contained operating entry point for AI agents.
+
+The framework checkout is shared infrastructure, not Product Code. Update it deliberately with Git and update the recorded revision only after checking the framework change. Keep all product changes, including extensions, in this workspace.
 
 Product Vision and the current Product Goal live in `artefacts/product-backlog/`. PBI files begin in `artefacts/product-backlog/items/`. Planning stores the Sprint Goal at `sprint-backlog/sprint-goal.md` and moves selected PBI files beside it. Done PBIs and resolved Bugs remain there; unfinished work returns to the Product Backlog for reordering.
 

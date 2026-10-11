@@ -4,8 +4,8 @@ title: Framework Guide
 description: A human-oriented guide to starting and operating a product with AAF.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-28"
-generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
+updated: "2026-10-11"
+generated: { by: "codex/gpt-5", at: "2026-10-11T13:30:00+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -19,19 +19,31 @@ You provide an agent runtime capable of starting real, resumable agents. AAF sup
 
 ## Start a product
 
-From the framework repository, run the [bootstrap script](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/bootstrap-product-development/scripts/bootstrap.py):
+From the framework repository, run the [bootstrap script](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/bootstrap-product-development/scripts/bootstrap.py). The chosen parent is the shared workspace root:
 
 ```bash
 python3 skills/bootstrap-product-development/scripts/bootstrap.py "My Product" --parent ../
 ```
 
-The new workspace contains:
+The workspace contains sibling directories:
+
+```text
+<parent>/
+├── agile-agentic-framework/          # Git checkout of the pinned framework revision
+└── product-development-my-product/   # separate product workspace and repository
+```
+
+The bootstrap reuses an existing sibling framework checkout, or clones the framework running the script at its current commit. It records the public repository identity, exact revision, and relative path in `product-development-my-product/.aafe/aafe.yaml`. To choose a different base explicitly, use `--framework-source <checkout>` and `--framework-ref <commit-or-tag>`.
+
+The product directory contains:
 
 - `README.md` for people;
 - `AGENTS.md` for the runtime host and agents;
 - `product-code/` for implementation;
 - `artefacts/` for OKF product knowledge and Scrum results; and
 - `.aafe/` for explicit product-specific framework extensions.
+
+Start the runtime and every product role from the product directory. Restrict its write scope to that directory; a role may read its configured sibling framework checkout to load contracts, but it must not modify it. Update the framework checkout only as a deliberate maintenance action and then update the recorded revision after validation.
 
 At the first product interaction of each runtime session, choose among the modes the runtime can actually provide:
 
