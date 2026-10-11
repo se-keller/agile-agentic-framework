@@ -254,7 +254,7 @@ Capture the before-and-after artifact and index, validator output, response, and
 
 - **Critical:** yes
 - **Subject:** Bootstrap agent and the first Product Owner activation
-- **Sources:** [`bootstrap-product-development`](../skills/bootstrap-product-development/SKILL.md), [workspace `README.md` template](../skills/bootstrap-product-development/assets/product-development-skeleton/README.md), [workspace `AGENTS.md` template](../skills/bootstrap-product-development/assets/product-development-skeleton/AGENTS.md)
+- **Sources:** [repository `AGENTS.md`](../AGENTS.md), [`bootstrap-product-development`](../skills/bootstrap-product-development/SKILL.md), [workspace `README.md` template](../skills/bootstrap-product-development/assets/product-development-skeleton/README.md), [workspace `AGENTS.md` template](../skills/bootstrap-product-development/assets/product-development-skeleton/AGENTS.md)
 
 ### Situation
 
@@ -267,6 +267,7 @@ A new product workspace is created with the bundled bootstrap skill. A human ope
 ### Pass criteria
 
 - `README.md` addresses people and contains the information they need to understand and start using the workspace.
+- The generated workspace has exactly one `README.md`, at its root; its nested directories use their applicable operating or domain contracts instead.
 - `AGENTS.md` is the single, self-contained workspace entry point for AI agents and does not require loading `README.md`.
 - The Product Owner can identify the entry workflow, workspace boundaries, artifact locations, and `.aafe` rules without information available only in `README.md`.
 - The host inspects runtime capabilities, offers only supported interaction modes, and records the human's session-scoped selection.
@@ -280,6 +281,7 @@ A new product workspace is created with the bundled bootstrap skill. A human ope
 - `AGENTS.md` instructs an agent to read `README.md` or relies on an operating rule found only there.
 - `README.md` is required agent context rather than a human entry point.
 - Removing `README.md` from the Product Owner's context changes required role or workspace behavior.
+- A nested `README.md` is created, or operating guidance is hidden in a human README outside the workspace root.
 - The separation works only for one named agent runtime.
 
 ### Evidence

@@ -31,7 +31,7 @@ def run(*args: str, cwd: Path = ROOT) -> str:
 
 def repository_files() -> list[Path]:
     output = run("git", "ls-files", "--cached", "--others", "--exclude-standard", "-z")
-    return [ROOT / item for item in output.split("\0") if item]
+    return [path for item in output.split("\0") if item and (path := ROOT / item).is_file()]
 
 
 def check_yaml() -> None:

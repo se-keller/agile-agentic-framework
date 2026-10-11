@@ -4,8 +4,8 @@ title: Agentic Architecture and Design Principles
 description: How established agent architecture patterns relate to AAF, including what the framework implements, adapts, delegates to runtimes, or deliberately does not claim.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-28"
-generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
+updated: "2026-10-11"
+generated: { by: "codex/gpt-5", at: "2026-10-11T12:55:01+02:00" }
 framework: agile-agentic-framework
 sources:
   - id: react
@@ -190,7 +190,7 @@ AAF keeps evals outside productive prompts and combines:
 - fresh contexts and independent review for critical evidence; and
 - proportional commit, integration, and release gates.
 
-The authoritative procedure is the [evaluation guide](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/README.md); the rationale is summarized in [Evaluation Strategy](evaluation-strategy.md).
+The authoritative procedure is the [evaluation instructions](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/AGENTS.md); the rationale is summarized in [Evaluation Strategy](evaluation-strategy.md).
 
 ## 12. Modular skills with controlled evolution
 

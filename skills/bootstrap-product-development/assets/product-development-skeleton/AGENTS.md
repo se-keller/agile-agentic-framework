@@ -2,6 +2,8 @@
 
 This is the self-contained entry point for AI agents working in this product workspace. Do not read `README.md` for operating instructions; it is the human entry point.
 
+Keep `README.md` only at this workspace root and for people. Put agent-operating information in `AGENTS.md`, `SKILL.md`, manifests, or directly referenced workflow artifacts; do not create nested README files.
+
 Use the configured Agile Agentic Framework as the base and apply only additions and explicit overrides declared in `.aafe/aafe.yaml`.
 
 ## Multi-agent execution

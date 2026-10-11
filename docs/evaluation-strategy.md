@@ -4,8 +4,8 @@ title: Evaluation Strategy
 description: How AAF balances deterministic checks, behavioral evidence, integration confidence, and evaluation cost.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-28"
-generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
+updated: "2026-10-11"
+generated: { by: "codex/gpt-5", at: "2026-10-11T12:55:01+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -68,4 +68,4 @@ New or revised cases receive human review and a calibrated candidate run; they d
 
 A semantic change reviews the [documentation map](index.md#documentation-map). The affected concept is updated, or the evaluation report records why it is unaffected. The commit check validates structure and links; it does not replace semantic review.
 
-The normative procedure lives in the [evaluation guide](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/README.md).
+The normative procedure lives in the [evaluation instructions](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/AGENTS.md).

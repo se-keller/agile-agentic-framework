@@ -28,6 +28,7 @@ Create one workspace per product. Do not create a separate product merely for a 
 ## Preserve boundaries
 
 - Keep generated `README.md` human-facing and `AGENTS.md` agent-facing. Duplicate information when both audiences need it; never make an agent depend on `README.md`.
+- Create the generated `README.md` only at the workspace root. Put nested agent-operating information in `AGENTS.md`, `SKILL.md`, or other directly referenced contracts, never in a nested README.
 - Keep the base framework unchanged for product-specific needs.
 - Put product-specific agents and skills under `.aafe/agents/` and `.aafe/skills/`.
 - Keep each product-specific skill folder minimal: `SKILL.md` plus only required resources. Omit `agents/` and `agents/openai.yaml` unless a concrete runtime integration requires them.

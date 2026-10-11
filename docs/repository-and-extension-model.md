@@ -4,8 +4,8 @@ title: Repository and Extension Model
 description: How AAF separates reusable framework contracts, product workspaces, knowledge, code, and extensions.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-26"
-generated: { by: "process:framework-documentation", at: "2026-08-26T14:57:16+02:00" }
+updated: "2026-10-11"
+generated: { by: "codex/gpt-5", at: "2026-10-11T12:55:01+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -15,6 +15,7 @@ framework: agile-agentic-framework
 
 ```text
 agile-agentic-framework/
+├── README.md                  # human entry point
 ├── AGENTS.md                  # normative repository entry point
 ├── agents/                    # runtime-neutral role manifests
 ├── skills/
@@ -22,11 +23,11 @@ agile-agentic-framework/
 │   ├── bootstrap-product-development/
 │   ├── okf/
 │   └── run-sprint-cycle/
-├── evals/                     # behavior and commit evidence
+├── evals/                     # behavior and commit evidence; AGENTS.md is its agent entry point
 └── docs/                      # non-normative human explanation
 ```
 
-The base repository contains reusable behavior only. Its `AGENTS.md`, manifests, and skills are normative. This documentation is not.
+The base repository contains reusable behavior only. Its `AGENTS.md`, manifests, skills, and directly referenced evaluation contracts are normative. This documentation is not. Each repository or generated workspace has one human-facing `README.md` at its root; nested directories use their applicable agent or domain contract instead of another README.
 
 ## Product workspace
 

@@ -38,7 +38,7 @@ Framework development and product development may alternate during a trial, but 
 
 Validate and version each repository independently so a product experiment cannot silently change the base framework.
 
-Behavioral changes to agent manifests, skills, and agent instructions are checked with the lightweight, runtime-neutral evaluations under [`evals/`](evals/README.md). Evaluation cases stay separate from the productive instructions they test. Change authors provide the relevant evidence, critical behavior is reviewed independently when practical, and the human maintainer remains responsible for the merge decision. Resource savings count as improvements only when the candidate continues to pass the same quality criteria as the unchanged baseline.
+Behavioral changes to agent manifests, skills, and agent instructions are checked with the lightweight, runtime-neutral [evaluation strategy](docs/evaluation-strategy.md). Evaluation cases stay separate from the productive instructions they test. Change authors provide the relevant evidence, critical behavior is reviewed independently when practical, and the human maintainer remains responsible for the merge decision. Resource savings count as improvements only when the candidate continues to pass the same quality criteria as the unchanged baseline.
 
 ## Validation
 

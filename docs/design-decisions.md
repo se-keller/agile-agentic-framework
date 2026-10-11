@@ -4,8 +4,8 @@ title: Design Decisions
 description: A catalog of the main architectural choices in AAF, their rationale, tradeoffs, and evidence strength.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-28"
-generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
+updated: "2026-10-11"
+generated: { by: "codex/gpt-5", at: "2026-10-11T12:55:01+02:00" }
 framework: agile-agentic-framework
 decision_state: reconstructed-awaiting-human-verification
 ---
@@ -92,7 +92,7 @@ This catalog reconstructs rationale from current contracts, Git history, and eva
 - **Decision:** Run deterministic and affected candidate checks per commit, one end-to-end trace for shared boundaries, and the full critical suite for releases.
 - **Why:** Full multi-agent baseline/candidate matrices consumed too much runtime quota for routine commits.
 - **Tradeoff:** Confidence is accumulated across stored reports; every commit does not independently rerun the complete suite.
-- **Evidence:** [evaluation guide](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/README.md), commit `df3451e`, [latest report](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/reports/2026-08-26-multi-agent-commit.md).
+- **Evidence:** [evaluation instructions](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/AGENTS.md), commit `df3451e`, [latest report](https://github.com/se-keller/agile-agentic-framework/blob/main/evals/reports/2026-08-26-multi-agent-commit.md).
 
 ## D-011 — Keep documentation non-normative
 
