@@ -1,0 +1,245 @@
+FILE: artefacts/definition-of-done.md
+---
+type: Definition of Done
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "process:bootstrap-product-development", at: "2026-10-11T13:32:17Z" }
+product: "split-002"
+---
+
+# Definition of Done
+
+Work is part of an Increment only when all of the following are true:
+
+- all relevant automated and manual tests pass;
+- all regression tests pass and no regression is known;
+- affected existing features still work;
+- all Acceptance Criteria are fulfilled;
+- Product Code is integrated, executable, and usable;
+- there are no known unresolved bugs (Zero Bug Policy);
+- known limitations are transparent;
+- Increment Documentation has been created; and
+- the Product Owner has inspected the Increment Documentation, run the Increment when reasonably possible, assessed it against the PBI, Sprint Goal, Product Goal, and Product Vision, and the assessment is recorded.
+
+Product Owner inspection supplies product feedback; it is not approval or rejection. The inspection criterion is fulfilled by completing and recording the assessment, irrespective of whether it produces follow-up work. Developers remain accountable for determining that the Definition of Done is met.
+
+## Minimum Increment Documentation
+
+- understandable description of the Increment;
+- instructions for trying it;
+- test results;
+- relevant commits, diffs, and Pull Requests;
+- known limitations; and
+- links to the Product Backlog Item and Sprint Goal.
+
+## After Done
+
+Developers document possible Retrospective topics after declaring the work Done. This follow-up does not change the Increment's Done status.
+
+FILE: artefacts/definition-of-ready.md
+---
+type: Definition of Ready
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "process:bootstrap-product-development", at: "2026-10-11T13:32:27.152704+00:00" }
+product: "split-002"
+---
+
+# Definition of Ready
+
+A Product Backlog Item is ready to be considered for Sprint selection when:
+
+- it has a clear title;
+- it contains a summary in the form “As a <user>, I want <capability>, so that <goal>” in the product's working language;
+- it contains at least one observable Acceptance Criterion;
+- material open questions are visible; and
+- it is sufficiently understood and small enough to be selected for one Sprint as a valuable, testable vertical slice; and
+- a larger item has been split using the shared Product Backlog Item Splitting practice unless a further split would lose a meaningful outcome or create disproportionate coordination overhead.
+
+The Definition of Ready is a complementary working agreement, not an official Scrum artifact and not a commitment that the item will be selected.
+
+FILE: artefacts/increment-documentation/index.md
+# Increment Documentation
+
+Add completed Increment Documentation here and link it to its Product Backlog Item and Sprint Goal. Product Code belongs in the workspace's top-level `product-code/` directory, never here.
+
+FILE: artefacts/index.md
+---
+okf_version: "0.2"
+created: "2026-10-11"
+updated: "2026-10-11"
+---
+
+# Split 002
+
+## Product direction
+
+- [Product Vision](product-backlog/product-vision.md)
+- [Current Product Goal](product-backlog/current-product-goal.md)
+- [Product Backlog](product-backlog/index.md)
+
+## Shared quality agreements
+
+- [Definition of Ready](definition-of-ready.md)
+- [Definition of Done](definition-of-done.md)
+
+## Delivery
+
+- [Sprints](sprints/index.md)
+- [Increment Documentation](increment-documentation/index.md)
+- [Retrospectives](retrospectives/index.md)
+
+FILE: artefacts/product-backlog/current-product-goal.md
+---
+type: Product Goal
+title: Current Product Goal
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "process:evaluation-fixture", at: "2026-10-11T13:32:27.152704+00:00" }
+verified: { by: "human:fixture-maintainer", at: "2026-10-11T13:32:27.152704+00:00" }
+---
+
+# Current Product Goal
+
+Kunden können eine vollständige Anfrage einreichen und veröffentlichen. Normale Anfragen dürfen unmittelbar veröffentlicht werden. Bei ausdrücklich managergeprüften Anfragen muss eine Freigabe vor Veröffentlichung erfolgen; eine abgelehnte Anfrage bleibt unveröffentlicht. Das Team kann mehrere vergleichbare PBIs pro Sprint liefern.
+
+FILE: artefacts/product-backlog/index.md
+# Product Backlog
+
+## Product direction
+
+- [Product Vision](product-vision.md)
+- [Current Product Goal](current-product-goal.md)
+
+## Available work
+
+The order of links in this file is the authoritative order for work currently available to the Product Owner. Planning moves selected PBI files into the Sprint Backlog; unfinished Sprint work returns here for reordering.
+
+- [pbi-0001: Normale Anfrage einreichen und veröffentlichen](items/pbi-0001-request-publication.md)
+- [pbi-0002: Managergeprüfte Anfrage freigeben und veröffentlichen](items/pbi-0002-manager-reviewed-publication.md)
+
+Der Product Owner hat den Developer-Vorschlag übernommen: ein früher nutzbarer normaler End-to-End-Pfad, danach der vollständige Reviewpfad. Zusammen bleibt der bisherige Product Goal erhalten. Managergeprüfte Anfragen werden auch während der ersten Lieferung niemals vor Freigabe veröffentlicht. Der alte gekoppelte Umfang wurde ersetzt; es gibt keinen zusätzlichen Gesamt-PBI mit doppeltem Umfang. Es können nach Developer-Forecast mehrere passende PBIs im selben Sprint ausgewählt werden.
+
+FILE: artefacts/product-backlog/items/pbi-0001-request-publication.md
+---
+type: Product Backlog Item
+title: Normale Anfrage einreichen und veröffentlichen
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "product-owner/codex", at: "2026-10-11T13:36:26.061398+00:00" }
+id: pbi-0001
+backlog_state: ready
+---
+
+# Normale Anfrage einreichen und veröffentlichen
+
+Als Kunde möchte ich eine vollständige normale Anfrage einreichen und unmittelbar veröffentlichen, damit andere auf meinen Bedarf reagieren können.
+
+## Fachlicher Umfang
+
+Eine normale Anfrage ist eine Anfrage, für die der Kunde keine Managerprüfung verlangt. Ein ausdrücklich geäußerter Wunsch nach Managerfreigabe macht eine Anfrage managergeprüft; sie darf nicht als normale Anfrage behandelt werden. Diese fachliche Unterscheidung schreibt keine technische Darstellung vor.
+
+Dieser erste Umfang liefert den vollständigen normalen Einreichen-und-Veröffentlichen-Pfad. Managerreview ist hier noch nicht verfügbar und darf nicht als verfügbar erscheinen. Wenn dennoch ein ausdrücklicher Reviewwunsch vorliegt, bleibt die Anfrage unveröffentlicht; sie darf diesen normalen Veröffentlichungspfad nicht nutzen.
+
+## Acceptance Criteria
+
+- AC1: Ein Kunde kann eine vollständige normale Anfrage einreichen und unmittelbar veröffentlichen, ohne eine Managerfreigabe einzuholen.
+- AC2: Die veröffentlichte normale Anfrage ist für andere sichtbar, sodass diese auf den Bedarf reagieren können.
+- AC3: Die Begrenzung auf normale Anfragen ist erkennbar; eine Managerprüfung wird in diesem Umfang nicht als verfügbar angeboten.
+- AC4: Eine ausdrücklich zur Managerprüfung bestimmte Anfrage wird durch diesen Umfang nicht veröffentlicht und bleibt für andere unsichtbar.
+
+## Verifiable Examples
+
+- Ein Kunde reicht eine vollständige Anfrage ohne Reviewwunsch ein und veröffentlicht sie. Andere sehen den eingereichten Bedarf; eine Managerentscheidung ist dafür nicht erforderlich.
+- Ein Kunde verlangt ausdrücklich Managerfreigabe für seine Anfrage. Der normale Pfad veröffentlicht sie nicht; sie bleibt für andere unsichtbar und der noch nicht verfügbare Reviewpfad wird nicht versprochen.
+
+## Zusammenhang und Entscheidung
+
+Dieses PBI behält die ID des ursprünglichen request-publication-PBIs und ersetzt dessen gekoppelten Gesamtumfang. Die Managerprüfung mit Freigabe oder Ablehnung ist ausschließlich in [pbi-0002](pbi-0002-manager-reviewed-publication.md) enthalten. Beide PBIs zusammen bewahren den beabsichtigten Veröffentlichungserfolg und die Freigaberegeln des [Product Goal](/product-backlog/current-product-goal.md).
+
+Der Product Owner übernimmt den Developer-Vorschlag, einen einfachen vollständigen Pfad zuerst und den Reviewpfad anschließend zu liefern. Dies ermöglicht früher nutzbaren Wert und Feedback und verringert die beschriebene wiederholte Integrations- und Freigabekoordination. Eine weitere Aufteilung in Einreichen und Veröffentlichen würde hier den vollständigen sichtbaren Kundennutzen zerteilen. Dies ist eine Produktentscheidung im vorhandenen Product Goal, keine neue menschliche Bestätigung und kein technischer Plan.
+
+## Open questions
+
+Keine wesentliche offene Produktfrage. Tester-Geschäftsfälle, technischer und Qualitätsplan, Developer-Forecast, Sprint-Auswahl und Sprint Goal folgen im Planning; Ready bedeutet keine Auswahlzusage.
+
+FILE: artefacts/product-backlog/items/pbi-0002-manager-reviewed-publication.md
+---
+type: Product Backlog Item
+title: Managergeprüfte Anfrage freigeben und veröffentlichen
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "product-owner/codex", at: "2026-10-11T13:36:26.061398+00:00" }
+id: pbi-0002
+backlog_state: ready
+---
+
+# Managergeprüfte Anfrage freigeben und veröffentlichen
+
+Als Kunde möchte ich eine vollständige Anfrage ausdrücklich zur Managerprüfung einreichen und nach Freigabe veröffentlichen lassen, damit andere auf meinen geprüften Bedarf reagieren können.
+
+## Fachlicher Umfang
+
+Der Kunde verlangt ausdrücklich Managerfreigabe für diese Anfrage. Dieser Reviewwunsch ist bei der Einreichung fachlich erkennbar und unterscheidet die Anfrage vom normalen unmittelbaren Veröffentlichungspfad. Ohne diesen Wunsch ist eine Anfrage normal; mit diesem Wunsch muss sie bis zur Freigabe unveröffentlicht bleiben. Die konkrete technische Darstellung entscheiden die Developers.
+
+Dieses PBI liefert den vollständigen Reviewpfad einschließlich Einreichung, sichtbarer Reviewbestimmung, Managerentscheidung und Veröffentlichung ausschließlich nach Freigabe. Ablehnung bewirkt keine Veröffentlichung. Der normale Veröffentlichungsweg bleibt weiterhin nutzbar.
+
+## Acceptance Criteria
+
+- AC1: Ein Kunde kann eine vollständige Anfrage ausdrücklich zur Managerprüfung einreichen. Bis zur Entscheidung ist sie für andere unveröffentlicht und unsichtbar.
+- AC2: Ein Manager kann die eingereichte managergeprüfte Anfrage freigeben; erst nach dieser Freigabe ist sie veröffentlicht und für andere sichtbar.
+- AC3: Ein Manager kann die eingereichte managergeprüfte Anfrage ablehnen; sie bleibt unveröffentlicht und für andere unsichtbar.
+- AC4: Eine managergeprüfte Anfrage darf die Freigabe nicht durch den unmittelbaren normalen Veröffentlichungspfad umgehen.
+- AC5: Eine normale Anfrage ohne ausdrücklichen Reviewwunsch kann weiterhin unmittelbar veröffentlicht werden.
+
+## Verifiable Examples
+
+- Ein Kunde verlangt bei einer vollständigen Anfrage Managerprüfung. Andere sehen sie vor der Entscheidung nicht. Ein Manager gibt sie frei; danach sehen andere den Bedarf.
+- Ein Manager lehnt eine managergeprüfte Anfrage ab. Auch nach der Entscheidung sehen andere diese Anfrage nicht.
+- Eine noch ungeprüfte oder abgelehnte Anfrage wird über den normalen Veröffentlichungspfad zur Veröffentlichung versucht. Sie bleibt unveröffentlicht.
+- Ein Kunde reicht eine normale Anfrage ohne Reviewwunsch ein und veröffentlicht sie unmittelbar. Die ergänzte Managerprüfung erzwingt dafür keine Freigabe.
+
+## Zusammenhang und Reihenfolge
+
+Dieses PBI übernimmt den Managerreview-Umfang des ursprünglichen request-publication-PBIs und ergänzt den normalen vollständigen Pfad aus [pbi-0001](pbi-0001-request-publication.md). Die fachliche Erweiterung baut auf dem vorherigen Veröffentlichungserfolg auf; die Reihenfolge im Product Backlog liefert normalen Nutzen früher und bewahrt die vollständigen [Product-Goal-Regeln](/product-backlog/current-product-goal.md). Es besteht keine Überlappung der Veröffentlichungsszenarien: pbi-0001 betrifft normale Anfragen, pbi-0002 managergeprüfte Anfragen einschließlich Ablehnung und den Schutz vor Umgehung.
+
+Eine weitere Aufteilung nach Einreichen, Freigeben oder Veröffentlichen würde den vollständigen geprüften Kundennutzen zerteilen und die beschriebene Koordination wiederherstellen. Die Größe ist ein vorgeschlagener kohärenter Zuschnitt; Developer-Forecast und Teamkapazität bleiben offen. Die Reihenfolge ist keine Vorgabe, nur ein PBI pro Sprint zu liefern.
+
+## Open questions
+
+Keine wesentliche offene Produktfrage. Tester-Geschäftsfälle, technischer und Qualitätsplan, Developer-Forecast, Sprint-Auswahl und Sprint Goal folgen im Planning; Ready bedeutet keine Auswahlzusage.
+
+FILE: artefacts/product-backlog/product-vision.md
+---
+type: Product Vision
+title: Product Vision
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "process:evaluation-fixture", at: "2026-10-11T13:32:27.152704+00:00" }
+verified: { by: "human:fixture-maintainer", at: "2026-10-11T13:32:27.152704+00:00" }
+---
+
+# Product Vision
+
+Kunden veröffentlichen Anfragen, damit andere auf ihre Bedürfnisse reagieren können. Managerfreigaben unterstützen Anfragen, für die ein Review gewünscht ist.
+
+FILE: artefacts/retrospectives/index.md
+# Retrospectives
+
+Record Sprint Retrospective results here. Propose improvements to agents, skills, rules, templates, formats, or process as Pull Requests against `.aafe/`; never silently modify the base framework or expand permissions.
+
+FILE: artefacts/sprints/index.md
+# Sprints
+
+Create a directory after Sprint Planning establishes a Sprint Goal. Use `sprint-0001-three-word-goal/` and do not rename it after the Sprint begins.
+
+Each Sprint directory contains `developer-plan.md` and `sprint-backlog/`. The Sprint Backlog contains `index.md`, `sprint-goal.md`, selected PBIs, Bugs, and other work artifacts.
+
+FILE: product-code/existing-product.txt
+Existing product context. Registration is already available. Evaluation fixture: Product Code execution is unnecessary during Planning.

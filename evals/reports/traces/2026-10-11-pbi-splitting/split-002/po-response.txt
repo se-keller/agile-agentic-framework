@@ -1,0 +1,31 @@
+Lifecycle signal: planning.pbi.presented
+PBI: pbi-0001 — request-publication
+Authoritative path: artefacts/product-backlog/items/pbi-0001-request-publication.md
+
+Ich stelle pbi-0001 zur Planning-Abstimmung vor: Als Kunde möchte ich eine vollständige Anfrage einreichen, durch einen Manager freigeben lassen und veröffentlichen, damit andere auf meinen Bedarf reagieren können. Der aktuelle Umfang erwartet die Managerfreigabe vor der sichtbaren Veröffentlichung; eine abgelehnte Anfrage bleibt unveröffentlicht.
+
+Der aktuelle Product Goal unterscheidet normale Anfragen, die unmittelbar veröffentlicht werden dürfen, und ausdrücklich managergeprüfte Anfragen, die vor Veröffentlichung freigegeben sein müssen. Er ist noch nicht erreicht. Dieses PBI beschreibt derzeit den managergeprüften Pfad. Der Nutzen ist, dass andere auf einen veröffentlichten Bedarf reagieren können.
+
+Ich bitte die Developers im Planning-Handoff um ihre kurze Einschätzung von Lieferzuschnitt, Machbarkeit, Risiko und Testbarkeit. Eine Alternative darf die bestätigten Veröffentlichungsregeln nicht abschwächen. Technischen Plan und Forecast entscheiden die Developers; Auswahl und Sprint Goal sind noch nicht abgeschlossen. Ich stehe für Klärung und gegebenenfalls Anpassung des Product Backlogs bereit.
+
+Lifecycle signals: planning.pbi.clarified; planning.pbi.presented
+Decision owner: Product Owner
+Decision: Adopt the Programmer's proposed two vertical slices in the existing Product Goal.
+
+Ich übernehme den Vorschlag und habe den Product Backlog aktualisiert. pbi-0001 behält seine ID und liefert zuerst den vollständigen normalen Einreichen-und-Veröffentlichen-Pfad. pbi-0002 ergänzt anschließend den vollständigen Managerreview mit Veröffentlichung nach Freigabe und Nichtveröffentlichung bei Ablehnung. Es gibt keinen duplizierten Gesamtumfang.
+
+Fachliche Klärung: Normal heißt ohne ausdrücklichen Reviewwunsch des Kunden. Verlangt der Kunde Managerfreigabe, ist die Anfrage managergeprüft. Dieser Wunsch muss fachlich erkennbar sein; seine technische Darstellung bleibt bei den Developers. Der erste Umfang bietet Review nicht als verfügbar an und veröffentlicht keine ausdrücklich managergeprüfte Anfrage. Der zweite Umfang bewahrt Unveröffentlichtheit bis zur Freigabe und bei Ablehnung sowie den Schutz vor Umgehung über den normalen Pfad.
+
+Die beiden vollständigen, beobachtbaren Pfade sind für die weitere Planning-Abstimmung als ready dokumentiert. Das ist keine Auswahlzusage oder Größen-/Kapazitätsschätzung. Die Reihenfolge maximiert früheren normalen Nutzen und vermeidet die beschriebene Koordination; mehrere passende PBIs können nach dem Developer-Forecast in denselben Sprint aufgenommen werden. Product Vision und Product Goal bleiben unverändert. Ich habe keine menschliche Bestätigung, keinen Developer-Forecast und keinen technischen Plan erfunden.
+
+Nächster PBI-wise Handoff an den Tester: pbi-0001 — Normale Anfrage einreichen und veröffentlichen. Bitte zuerst beobachtbare Geschäftsfälle und Beispiele für unmittelbare normale Veröffentlichung, Sichtbarkeit, erkennbar nicht verfügbaren Review und Nichtveröffentlichung ausdrücklich managergeprüfter Anfragen liefern. Danach können Programmer und Tester ihren Plan und Forecast abstimmen. pbi-0002 folgt als zweites PBI; keine pauschale Planung beider PBIs vor dem ersten Handoff.
+
+Authoritative artifacts:
+- artefacts/product-backlog/items/pbi-0001-request-publication.md
+- artefacts/product-backlog/items/pbi-0002-manager-reviewed-publication.md
+- artefacts/product-backlog/index.md
+
+No Sprint selection, Sprint Goal change, implementation, Done declaration, git operation, or new agent.
+
+Validation: OKF validator passed with no errors and 0 warnings using the existing Miniconda Python.
+Handoff remains planning.pbi.presented for pbi-0001 to Tester first, then Developer collaboration; pbi-0002 remains second in the available Product Backlog.

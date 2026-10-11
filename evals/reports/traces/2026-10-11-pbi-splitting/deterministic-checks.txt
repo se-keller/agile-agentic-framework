@@ -1,0 +1,6 @@
+Run time: 2026-10-11T13:49:51.469109+00:00
+Command: python evals/run_deterministic_checks.py
+Interpreter: /Users/sebastiankeller/miniconda3/bin/python
+Cwd: /Users/sebastiankeller/Documents/devenv/agile-agentic-framework
+Exit: 0
+OK: diff, YAML, links, bootstrap, placeholders, and OKF validation

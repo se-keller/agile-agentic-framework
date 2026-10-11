@@ -1,0 +1,60 @@
+diff --git a/artefacts/product-backlog/index.md b/artefacts/product-backlog/index.md
+index 827fae3..2e4ba63 100644
+--- a/artefacts/product-backlog/index.md
++++ b/artefacts/product-backlog/index.md
+@@ -9,6 +9,6 @@
+ 
+ The order of links in this file is the authoritative order for work currently available to the Product Owner. Planning moves selected PBI files into the Sprint Backlog; unfinished Sprint work returns here for reordering.
+ 
+-- [pbi-0001: request-publication](items/pbi-0001-request-publication.md)
++- [pbi-0001: request-publication](items/pbi-0001-request-publication.md) — draft; Produktentscheidungen offen, noch nicht zur Sprint-Auswahl bereit.
+ - [pbi-0002: read-own-request](items/pbi-0002-read-own-request.md)
+ - [pbi-0003: withdraw-request](items/pbi-0003-withdraw-request.md)
+diff --git a/artefacts/product-backlog/items/pbi-0001-request-publication.md b/artefacts/product-backlog/items/pbi-0001-request-publication.md
+index 1744f84..95be6ed 100644
+--- a/artefacts/product-backlog/items/pbi-0001-request-publication.md
++++ b/artefacts/product-backlog/items/pbi-0001-request-publication.md
+@@ -1,17 +1,23 @@
+ ---
+ type: Product Backlog Item
+ title: request-publication
+-status: stable
++status: draft
+ created: "2026-10-11"
+ updated: "2026-10-11"
+-generated: { by: "process:evaluation-fixture", at: "2026-10-11T13:32:27.152704+00:00" }
++generated: { by: "product-owner/1", at: "2026-10-11T13:44:40.965617+00:00" }
+ id: pbi-0001
+-backlog_state: ready
++backlog_state: draft
+ ---
+ 
+ # request-publication
+ 
+-Als Kunde möchte ich eine Anfrage einreichen, durch einen Manager freigeben lassen und veröffentlichen, damit andere auf meinen Bedarf reagieren können.
++Als Kunde möchte ich eine ausdrücklich managergeprüfte Anfrage einreichen, durch einen Manager freigeben lassen und veröffentlichen, damit andere auf meinen Bedarf reagieren können.
++
++## Product clarification
++
++Dieses PBI behandelt ausdrücklich managergeprüfte Anfragen. Diese Abgrenzung ist die Product-Owner-Klärung auf Basis des [bestätigten Product Goal](../current-product-goal.md) und des vorhandenen Freigabe-Outcomes. Die unmittelbare Veröffentlichung normaler Anfragen bleibt laut Product Goal zulässig; dieses PBI führt dafür keine Managerpflicht ein.
++
++Managergeprüfte Anfragen bleiben vor der Freigabe unveröffentlicht und für andere unsichtbar. Eine Ablehnung führt zu keiner Veröffentlichung. Die untenstehenden ACs gelten für diesen Scope; sie bestimmen noch nicht, wer die ausdrückliche Einstufung vornimmt oder ob nach der Freigabe eine separate Veröffentlichungsaktion erforderlich ist.
+ 
+ ## Acceptance Criteria
+ 
+@@ -21,4 +27,14 @@ Als Kunde möchte ich eine Anfrage einreichen, durch einen Manager freigeben las
+ 
+ ## Open questions
+ 
+-None material for presenting the existing scope.
++Produktinput des Menschen ist erforderlich; in den bestätigten Artefakten sind diese Entscheidungen nicht enthalten:
++
++1. Woran wird eine ausdrücklich managergeprüfte Anfrage fachlich erkannt, und wer legt diese Einstufung fest?
++2. Bewirkt die Managerfreigabe unmittelbar die Veröffentlichung, oder veröffentlicht der Kunde danach gesondert? AC2 legt den Zustand nach Freigabe fest, aber keine ausdrückliche Aktionsfolge.
++3. Welche fachlichen Angaben muss eine Anfrage enthalten, damit sie vollständig ist?
++
++## Readiness and delivery shape
++
++Die zuvor vorhandene Ready-Markierung ist nach den Developer-Verständnisfragen nicht mehr tragfähig: Einstufung, Vollständigkeit und Veröffentlichungsfolge sind für gemeinsame Verständlichkeit und überprüfbare Beispiele wesentlich. Das PBI bleibt an erster Stelle der verfügbaren Reihenfolge, ist aber bis zur Klärung nicht zur Sprint-Auswahl bereit.
++
++Der Scope bleibt eine vertikale Anfrage-bis-Veröffentlichung-Scheibe mit Freigabe beziehungsweise Nichtveröffentlichung bei Ablehnung. Ich teile ihn in dieser Klärung nicht in einzelne Workflow- oder technische Schritte auf: Ohne vollständigen nutzbaren Outcome verlöre die Scheibe ihren Wert. Normaler und managergeprüfter Veröffentlichungsweg sind fachliche Regelvarianten; ein weiterer Schnitt oder eine Zusammenführung wird erst mit geklärtem Produktinput und Developer-Evidenz bewertet. Technische Machbarkeit und Forecast bleiben offen und liegen bei den Developers.

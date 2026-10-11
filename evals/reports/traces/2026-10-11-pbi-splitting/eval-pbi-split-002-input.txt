@@ -1,0 +1,8 @@
+### Situation
+
+During Planning, the Product Owner presents a PBI for a customer to submit, have a manager approve, and publish a request. Developers determine that this cut forces each small change through repeated integration and approval coordination. A simple end-to-end submit-and-publish path followed by a separate manager-approval PBI would provide the same intended outcome sooner with less avoidable coordination. The Product Owner is available to clarify and update product knowledge.
+
+### Task
+
+> Continue the PBI-wise Planning collaboration.
+

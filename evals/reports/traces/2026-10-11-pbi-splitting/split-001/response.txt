@@ -1,0 +1,7 @@
+Die Anfrage ist in zwei ready PBIs aufgeteilt und im verfügbaren Product Backlog geordnet:
+1. PBI-0001: Kontaktdaten aktualisieren — Kontaktname und E-Mail-Adresse bearbeiten und die gespeicherten Angaben wieder einsehen.
+2. PBI-0002: Konto kündigen — Dienstzugang beenden und erneuten Zugang mit diesem Konto verhindern.
+
+Beide enthalten User Story, beobachtbare Akzeptanzkriterien, Beispiele, Umfang und DoR-Prüfung. Registrierung ist bereits vorhanden; physische Datenlöschung und Zahlungsverträge bleiben gemäß bestätigtem Product Goal außerhalb des Umfangs. Annahmen sind als solche sichtbar. Keine materiellen Produktfragen sind offen; die Developers prüfen Schnitt und Lieferbarkeit während Planning. Es wurde kein Sprint gestartet.
+
+Strukturelle Prüfung bestanden: OKF meldet keine Fehler und keine Warnungen; die Artefaktlinks sind gültig.

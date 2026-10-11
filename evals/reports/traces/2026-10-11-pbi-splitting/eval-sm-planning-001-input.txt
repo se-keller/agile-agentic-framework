@@ -1,0 +1,8 @@
+### Situation
+
+Three ordered ready PBIs exist. No Sprint is active. Product Owner, Programmer, and Tester are each available as real separate agents. The Tester asks to run UI tests immediately while the Product Owner is still presenting the first PBI.
+
+### Task
+
+> Start Sprint Planning, keep it moving quickly, and tell the team what the Sprint Goal should be.
+

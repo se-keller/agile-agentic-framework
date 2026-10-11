@@ -1,0 +1,99 @@
+diff --git a/artefacts/product-backlog/index.md b/artefacts/product-backlog/index.md
+index 7c1fecd..d62b62a 100644
+--- a/artefacts/product-backlog/index.md
++++ b/artefacts/product-backlog/index.md
+@@ -9,4 +9,11 @@
+ 
+ The order of links in this file is the authoritative order for work currently available to the Product Owner. Planning moves selected PBI files into the Sprint Backlog; unfinished Sprint work returns here for reordering.
+ 
+-No Product Backlog Items exist yet. Create them under `items/` as `pbi-0001-short-readable-slug.md` and never reuse an ID.
++1. [PBI-0001 — Kontaktdaten aktualisieren](items/pbi-0001-kontaktdaten-aktualisieren.md) — ready; Kontaktname und E-Mail-Adresse des bestehenden Kontos pflegen.
++2. [PBI-0002 — Konto kündigen](items/pbi-0002-konto-kuendigen.md) — ready; Dienstzugang beenden und erneuten Zugang mit dem gekündigten Konto verhindern.
++
++## Refinement und Reihenfolge
++
++Die ursprüngliche Anfrage wird durch zwei vollständige vertikale Slices nach dem Muster **Operations** abgedeckt; ein zusätzliches übergreifendes PBI würde denselben Umfang doppelt führen. Registrierung ist bereits vorhanden. Kontaktpflege steht zuerst, weil sie den fortlaufenden Nutzen für bestehende Kundinnen bedient; der eigenständige Ausstieg folgt. Das ist die Product-Owner-Reihenfolge ohne bestätigte menschliche Prioritätspräferenz; beide Items können unabhängig umgeordnet werden. Es gibt keine technische Abhängigkeit zwischen den gewünschten Ergebnissen.
++
++Product Vision und Product Goal sind bestätigt. Beide Items erfüllen die vorhandene Definition of Ready und sind für die gemeinsame Planning-Klärung verfügbar. Developers haben noch keine Schätzung oder Auswahl vorgenommen. Es besteht kein aktiver Sprint; diese Verfeinerung startet keinen Sprint und legt keinen Sprint Goal fest.
+diff --git a/artefacts/product-backlog/items/pbi-0001-kontaktdaten-aktualisieren.md b/artefacts/product-backlog/items/pbi-0001-kontaktdaten-aktualisieren.md
+new file mode 100644
+index 0000000..5c32001
+--- /dev/null
++++ b/artefacts/product-backlog/items/pbi-0001-kontaktdaten-aktualisieren.md
+@@ -0,0 +1,35 @@
++---
++type: Product Backlog Item
++title: "Kontaktdaten aktualisieren"
++status: stable
++backlog_state: ready
++id: pbi-0001
++created: "2026-10-11"
++updated: "2026-10-11"
++generated: { by: "product-owner/1", at: "2026-10-11T13:34:19.722543+00:00" }
++---
++
++# Kontaktdaten aktualisieren
++
++Als Kundin möchte ich Kontaktname und E-Mail-Adresse meines bestehenden Kontos aktualisieren, damit meine Kontaktdaten aktuell sind.
++
++## Akzeptanzkriterien
++
++- Eine Kundin kann ihren aktuellen Kontaktnamen und ihre E-Mail-Adresse einsehen und ändern.
++- Sie kann nur den Kontaktnamen, nur die E-Mail-Adresse oder beide Angaben ändern; jeweils unveränderte Angaben bleiben erhalten.
++- Nach erfolgreicher Änderung sind die neuen Angaben ihrem bestehenden Konto zugeordnet und beim erneuten Öffnen der Kontaktdaten sichtbar.
++
++## Verifizierbare Beispiele
++
++- Das Konto enthält „Anna Meyer“ und „anna@example.org“. Ändert die Kundin nur den Namen zu „Anna Weber“, sieht sie anschließend „Anna Weber“ und weiterhin „anna@example.org“.
++- Ändert sie anschließend nur die E-Mail-Adresse zu „anna.weber@example.org“, sieht sie beim erneuten Öffnen „Anna Weber“ und „anna.weber@example.org“.
++
++## Kontext und Umfang
++
++Teil der ursprünglichen Anfrage „mein Konto verwalten“ und Beitrag zum [aktuellen Product Goal](../current-product-goal.md). Registrierung besteht bereits und ist kein neues Backlog Item. Die unabhängig orderbare Operation Kontokündigung steht in [PBI-0002](pbi-0002-konto-kuendigen.md).
++
++## Bereitschaft und offene Fragen
++
++Der Schnitt folgt dem Splitting-Muster **Operations**: Kontaktpflege liefert vollständigen, beobachtbaren Nutzen ohne Kontokündigung. Name und E-Mail bleiben als zusammenhängende Kontaktpflege in einem kleinen PBI; getrennte technische Schichten würden keinen eigenständigen Nutzen liefern. Der Titel, die User Story und die beobachtbaren Kriterien erfüllen die [Definition of Ready](../../definition-of-ready.md). Mehrere vergleichbare PBIs pro Sprint sind laut bestätigtem Product Goal möglich; die konkrete Lieferbarkeit und der Schnitt werden mit Developers in Planning geprüft.
++
++Keine materiellen offenen Produktfragen aus der vorhandenen Anfrage. Annahme: Die bestehenden Regeln für zulässige Kontaktangaben bleiben anwendbar; neue Prüf-, Bestätigungs- oder Benachrichtigungsabläufe sind nicht bestätigt. Falls Developers hierbei eine produktrelevante Lücke finden, ist sie vor Auswahl zu klären.
+diff --git a/artefacts/product-backlog/items/pbi-0002-konto-kuendigen.md b/artefacts/product-backlog/items/pbi-0002-konto-kuendigen.md
+new file mode 100644
+index 0000000..5643a68
+--- /dev/null
++++ b/artefacts/product-backlog/items/pbi-0002-konto-kuendigen.md
+@@ -0,0 +1,35 @@
++---
++type: Product Backlog Item
++title: "Konto kündigen"
++status: stable
++backlog_state: ready
++id: pbi-0002
++created: "2026-10-11"
++updated: "2026-10-11"
++generated: { by: "product-owner/1", at: "2026-10-11T13:34:19.722543+00:00" }
++---
++
++# Konto kündigen
++
++Als Kundin möchte ich mein bestehendes Konto kündigen, damit ich den Dienst bei Bedarf selbstbestimmt verlassen kann.
++
++## Akzeptanzkriterien
++
++- Eine Kundin kann die Kündigung ihres bestehenden Kontos veranlassen und erkennt anschließend, dass ihr Konto gekündigt ist.
++- Nach abgeschlossener Kündigung ist der Dienstzugang mit diesem Konto beendet.
++- Ein erneuter Zugang mit dem gekündigten Konto ist nicht möglich.
++
++## Verifizierbare Beispiele
++
++- Eine Kundin mit aktivem Konto kündigt es. Sie erhält eine erkennbare Kündigungsbestätigung und kann den Dienst mit diesem Konto danach nicht weiter nutzen.
++- Versucht sie nach Kündigung erneut mit denselben Kontozugangsdaten Zugang zu erhalten, erhält sie keinen Dienstzugang.
++
++## Kontext und Umfang
++
++Teil der ursprünglichen Anfrage „mein Konto verwalten“ und Beitrag zum [aktuellen Product Goal](../current-product-goal.md). Registrierung besteht bereits. Physische Datenlöschung und laufende Zahlungsverträge liegen ausdrücklich außerhalb des aktuellen Ziels. Ein bestimmter technischer Mechanismus zur Beendigung des Zugangs wird nicht vorgegeben. Kontaktpflege steht unabhängig in [PBI-0001](pbi-0001-kontaktdaten-aktualisieren.md).
++
++## Bereitschaft und offene Fragen
++
++Der Schnitt folgt dem Splitting-Muster **Operations**: Kündigung liefert einen eigenständigen, testbaren Ausstieg und hängt nicht von neuer Kontaktpflege ab. Die Zugangsbeendigung und das Verhindern erneuten Zugangs bleiben zusammen, weil erst beides den bestätigten Ausstieg erfüllt. Der Titel, die User Story und die beobachtbaren Kriterien erfüllen die [Definition of Ready](../../definition-of-ready.md). Mehrere vergleichbare PBIs pro Sprint sind laut bestätigtem Product Goal möglich; die konkrete Lieferbarkeit und der Schnitt werden mit Developers in Planning geprüft.
++
++Keine materiellen offenen Produktfragen: Die Wirkung nach Kündigung sowie die Ausschlüsse sind im Product Goal bestätigt. Ausgestaltung der Bedienung bleibt verhandelbar; ein vorgeschalteter Bestätigungsdialog oder eine spätere Reaktivierung ist nicht als bestätigte Anforderung anzusehen.

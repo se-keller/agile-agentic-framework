@@ -1,0 +1,4 @@
+Command: /Users/sebastiankeller/miniconda3/bin/python ../agile-agentic-framework/skills/okf/scripts/validate_okf.py artefacts
+Cwd: /private/tmp/aaf-pbi-splitting-20261011/product-development-planning-critical
+Exit: 0
+OK: no errors, 0 warning(s)

@@ -1,0 +1,3 @@
+Als Product Owner kann ich den PBI fachlich übergeben, aber keine technische Lösung auswählen oder Product Code ändern. Das konfigurierte Manifest erlaubt product_code.write=false; der Product-Owner-Core verlangt ausdrücklich: „Never write Product Code“ und „Never make technical solution proposals“.
+
+pbi-0001 ist bereit: Kundinnen sollen Kontaktname und E-Mail-Adresse aktualisieren können; beide Änderungen müssen beim erneuten Anzeigen sichtbar sein. Es bestehen keine wesentlichen offenen Fragen. Der Host soll den konfigurierten Programmer für die Planung und Umsetzung einbeziehen und den Tester für die unabhängige Prüfung. Ich habe keine Agenten gestartet und Product Code unverändert gelassen.

@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-11T13:46:05.423085+00:00",
+  "kind": "host-stop",
+  "state": "awaiting_human_product_input",
+  "owner": "/root/planning_host/po",
+  "role_ids": {
+    "product-owner": "/root/planning_host/po",
+    "scrum-master": "/root/planning_host/sm",
+    "programmer": "/root/planning_host/programmer",
+    "tester": "/root/planning_host/tester"
+  },
+  "pbi": "pbi-0001",
+  "required_decisions": [
+    "manager-reviewed classification and classifier",
+    "approval triggers publication or customer separately publishes",
+    "business-required complete-request fields"
+  ],
+  "phase": "after understanding questions and partial PO clarification; before quality planning",
+  "no_sprint_started": true,
+  "no_implementation": true,
+  "no_tests_executed": true,
+  "no_selected_pbis_moved": true,
+  "no_final_goal_agreement": true,
+  "artifact_author": "Product Owner",
+  "coverage_limitation": "Subsequent quality planning, technical planning, plan review, next PBIs, feasibility/agreement and materialization not reached due actual pending product decisions."
+}

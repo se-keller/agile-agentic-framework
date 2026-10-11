@@ -1,0 +1,243 @@
+FILE: artefacts/definition-of-done.md
+---
+type: Definition of Done
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "process:bootstrap-product-development", at: "2026-10-11T13:32:17Z" }
+product: "planning-critical"
+---
+
+# Definition of Done
+
+Work is part of an Increment only when all of the following are true:
+
+- all relevant automated and manual tests pass;
+- all regression tests pass and no regression is known;
+- affected existing features still work;
+- all Acceptance Criteria are fulfilled;
+- Product Code is integrated, executable, and usable;
+- there are no known unresolved bugs (Zero Bug Policy);
+- known limitations are transparent;
+- Increment Documentation has been created; and
+- the Product Owner has inspected the Increment Documentation, run the Increment when reasonably possible, assessed it against the PBI, Sprint Goal, Product Goal, and Product Vision, and the assessment is recorded.
+
+Product Owner inspection supplies product feedback; it is not approval or rejection. The inspection criterion is fulfilled by completing and recording the assessment, irrespective of whether it produces follow-up work. Developers remain accountable for determining that the Definition of Done is met.
+
+## Minimum Increment Documentation
+
+- understandable description of the Increment;
+- instructions for trying it;
+- test results;
+- relevant commits, diffs, and Pull Requests;
+- known limitations; and
+- links to the Product Backlog Item and Sprint Goal.
+
+## After Done
+
+Developers document possible Retrospective topics after declaring the work Done. This follow-up does not change the Increment's Done status.
+
+FILE: artefacts/definition-of-ready.md
+---
+type: Definition of Ready
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "process:bootstrap-product-development", at: "2026-10-11T13:32:27.152704+00:00" }
+product: "planning-critical"
+---
+
+# Definition of Ready
+
+A Product Backlog Item is ready to be considered for Sprint selection when:
+
+- it has a clear title;
+- it contains a summary in the form “As a <user>, I want <capability>, so that <goal>” in the product's working language;
+- it contains at least one observable Acceptance Criterion;
+- material open questions are visible; and
+- it is sufficiently understood and small enough to be selected for one Sprint as a valuable, testable vertical slice; and
+- a larger item has been split using the shared Product Backlog Item Splitting practice unless a further split would lose a meaningful outcome or create disproportionate coordination overhead.
+
+The Definition of Ready is a complementary working agreement, not an official Scrum artifact and not a commitment that the item will be selected.
+
+FILE: artefacts/increment-documentation/index.md
+# Increment Documentation
+
+Add completed Increment Documentation here and link it to its Product Backlog Item and Sprint Goal. Product Code belongs in the workspace's top-level `product-code/` directory, never here.
+
+FILE: artefacts/index.md
+---
+okf_version: "0.2"
+created: "2026-10-11"
+updated: "2026-10-11"
+---
+
+# Planning Critical
+
+## Product direction
+
+- [Product Vision](product-backlog/product-vision.md)
+- [Current Product Goal](product-backlog/current-product-goal.md)
+- [Product Backlog](product-backlog/index.md)
+
+## Shared quality agreements
+
+- [Definition of Ready](definition-of-ready.md)
+- [Definition of Done](definition-of-done.md)
+
+## Delivery
+
+- [Sprints](sprints/index.md)
+- [Increment Documentation](increment-documentation/index.md)
+- [Retrospectives](retrospectives/index.md)
+
+FILE: artefacts/product-backlog/current-product-goal.md
+---
+type: Product Goal
+title: Current Product Goal
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "process:evaluation-fixture", at: "2026-10-11T13:32:27.152704+00:00" }
+verified: { by: "human:fixture-maintainer", at: "2026-10-11T13:32:27.152704+00:00" }
+---
+
+# Current Product Goal
+
+Kunden können eine vollständige Anfrage einreichen und veröffentlichen. Normale Anfragen dürfen unmittelbar veröffentlicht werden. Bei ausdrücklich managergeprüften Anfragen muss eine Freigabe vor Veröffentlichung erfolgen; eine abgelehnte Anfrage bleibt unveröffentlicht. Das Team kann mehrere vergleichbare PBIs pro Sprint liefern.
+
+FILE: artefacts/product-backlog/index.md
+# Product Backlog
+
+## Product direction
+
+- [Product Vision](product-vision.md)
+- [Current Product Goal](current-product-goal.md)
+
+## Available work
+
+The order of links in this file is the authoritative order for work currently available to the Product Owner. Planning moves selected PBI files into the Sprint Backlog; unfinished Sprint work returns here for reordering.
+
+- [pbi-0001: request-publication](items/pbi-0001-request-publication.md) — draft; Produktentscheidungen offen, noch nicht zur Sprint-Auswahl bereit.
+- [pbi-0002: read-own-request](items/pbi-0002-read-own-request.md)
+- [pbi-0003: withdraw-request](items/pbi-0003-withdraw-request.md)
+
+FILE: artefacts/product-backlog/items/pbi-0001-request-publication.md
+---
+type: Product Backlog Item
+title: request-publication
+status: draft
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "product-owner/1", at: "2026-10-11T13:44:40.965617+00:00" }
+id: pbi-0001
+backlog_state: draft
+---
+
+# request-publication
+
+Als Kunde möchte ich eine ausdrücklich managergeprüfte Anfrage einreichen, durch einen Manager freigeben lassen und veröffentlichen, damit andere auf meinen Bedarf reagieren können.
+
+## Product clarification
+
+Dieses PBI behandelt ausdrücklich managergeprüfte Anfragen. Diese Abgrenzung ist die Product-Owner-Klärung auf Basis des [bestätigten Product Goal](../current-product-goal.md) und des vorhandenen Freigabe-Outcomes. Die unmittelbare Veröffentlichung normaler Anfragen bleibt laut Product Goal zulässig; dieses PBI führt dafür keine Managerpflicht ein.
+
+Managergeprüfte Anfragen bleiben vor der Freigabe unveröffentlicht und für andere unsichtbar. Eine Ablehnung führt zu keiner Veröffentlichung. Die untenstehenden ACs gelten für diesen Scope; sie bestimmen noch nicht, wer die ausdrückliche Einstufung vornimmt oder ob nach der Freigabe eine separate Veröffentlichungsaktion erforderlich ist.
+
+## Acceptance Criteria
+
+- AC1: Eine vollständige eingereichte Anfrage kann durch den Manager freigegeben werden.
+- AC2: Nach Freigabe ist die Anfrage veröffentlicht und für andere sichtbar.
+- AC3: Eine abgelehnte Anfrage bleibt unveröffentlicht.
+
+## Open questions
+
+Produktinput des Menschen ist erforderlich; in den bestätigten Artefakten sind diese Entscheidungen nicht enthalten:
+
+1. Woran wird eine ausdrücklich managergeprüfte Anfrage fachlich erkannt, und wer legt diese Einstufung fest?
+2. Bewirkt die Managerfreigabe unmittelbar die Veröffentlichung, oder veröffentlicht der Kunde danach gesondert? AC2 legt den Zustand nach Freigabe fest, aber keine ausdrückliche Aktionsfolge.
+3. Welche fachlichen Angaben muss eine Anfrage enthalten, damit sie vollständig ist?
+
+## Readiness and delivery shape
+
+Die zuvor vorhandene Ready-Markierung ist nach den Developer-Verständnisfragen nicht mehr tragfähig: Einstufung, Vollständigkeit und Veröffentlichungsfolge sind für gemeinsame Verständlichkeit und überprüfbare Beispiele wesentlich. Das PBI bleibt an erster Stelle der verfügbaren Reihenfolge, ist aber bis zur Klärung nicht zur Sprint-Auswahl bereit.
+
+Der Scope bleibt eine vertikale Anfrage-bis-Veröffentlichung-Scheibe mit Freigabe beziehungsweise Nichtveröffentlichung bei Ablehnung. Ich teile ihn in dieser Klärung nicht in einzelne Workflow- oder technische Schritte auf: Ohne vollständigen nutzbaren Outcome verlöre die Scheibe ihren Wert. Normaler und managergeprüfter Veröffentlichungsweg sind fachliche Regelvarianten; ein weiterer Schnitt oder eine Zusammenführung wird erst mit geklärtem Produktinput und Developer-Evidenz bewertet. Technische Machbarkeit und Forecast bleiben offen und liegen bei den Developers.
+
+FILE: artefacts/product-backlog/items/pbi-0002-read-own-request.md
+---
+type: Product Backlog Item
+title: read-own-request
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "process:evaluation-fixture", at: "2026-10-11T13:32:27.152704+00:00" }
+id: pbi-0002
+backlog_state: ready
+---
+
+# read-own-request
+
+Als Kunde möchte ich meine eingereichte Anfrage ansehen, damit ich ihren Inhalt prüfen kann.
+
+## Acceptance Criteria
+
+- AC1: Die Kundin sieht den Inhalt ihrer eigenen eingereichten Anfrage.
+
+## Open questions
+
+None material for presenting the existing scope.
+
+FILE: artefacts/product-backlog/items/pbi-0003-withdraw-request.md
+---
+type: Product Backlog Item
+title: withdraw-request
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "process:evaluation-fixture", at: "2026-10-11T13:32:27.152704+00:00" }
+id: pbi-0003
+backlog_state: ready
+---
+
+# withdraw-request
+
+Als Kunde möchte ich eine eigene Anfrage zurückziehen, damit sie keine weiteren Antworten erhält.
+
+## Acceptance Criteria
+
+- AC1: Eine zurückgezogene Anfrage erscheint nicht mehr im Angebot für andere.
+
+## Open questions
+
+None material for presenting the existing scope.
+
+FILE: artefacts/product-backlog/product-vision.md
+---
+type: Product Vision
+title: Product Vision
+status: stable
+created: "2026-10-11"
+updated: "2026-10-11"
+generated: { by: "process:evaluation-fixture", at: "2026-10-11T13:32:27.152704+00:00" }
+verified: { by: "human:fixture-maintainer", at: "2026-10-11T13:32:27.152704+00:00" }
+---
+
+# Product Vision
+
+Kunden veröffentlichen Anfragen, damit andere auf ihre Bedürfnisse reagieren können. Managerfreigaben unterstützen Anfragen, für die ein Review gewünscht ist.
+
+FILE: artefacts/retrospectives/index.md
+# Retrospectives
+
+Record Sprint Retrospective results here. Propose improvements to agents, skills, rules, templates, formats, or process as Pull Requests against `.aafe/`; never silently modify the base framework or expand permissions.
+
+FILE: artefacts/sprints/index.md
+# Sprints
+
+Create a directory after Sprint Planning establishes a Sprint Goal. Use `sprint-0001-three-word-goal/` and do not rename it after the Sprint begins.
+
+Each Sprint directory contains `developer-plan.md` and `sprint-backlog/`. The Sprint Backlog contains `index.md`, `sprint-goal.md`, selected PBIs, Bugs, and other work artifacts.
+
+FILE: product-code/existing-product.txt
+Existing product context. Registration is already available. Evaluation fixture: Product Code execution is unnecessary during Planning.

@@ -1,0 +1,8 @@
+### Situation
+
+A product has a confirmed Product Vision and Product Goal but no active Sprint. The human requests one PBI: “Als Kundin möchte ich mein Konto verwalten, damit meine Kontaktdaten aktuell sind und ich den Dienst bei Bedarf verlassen kann.” The Product Owner knows that account registration already exists. Updating contact details and cancelling an account are distinct user-visible operations. The team can complete multiple comparable PBIs in one Sprint.
+
+### Task
+
+> Refine this request into ready Product Backlog Items and update the available Product Backlog.
+

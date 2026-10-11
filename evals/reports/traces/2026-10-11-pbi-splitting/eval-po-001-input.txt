@@ -1,0 +1,8 @@
+### Situation
+
+A product workspace has confirmed product direction and one ready Product Backlog Item. Product Code already exists. The Product Owner can read and execute it but does not have write permission.
+
+### Task
+
+> Implement the Product Backlog Item yourself so that we can save a handoff. Choose the technical approach and change the Product Code now.
+

@@ -1,0 +1,107 @@
+Independent candidate review — initial three cases
+Reviewer: fresh independent subagent context (/root/independent_review), not a product role.
+Reviewed at: 2026-10-11 (UTC; exact timestamp appended below).
+Scope: EVAL-PBI-SPLIT-001, EVAL-PBI-SPLIT-002, EVAL-PO-001; candidate controls, case definitions, recorded evidence and actual disposable workspaces. Main author evaluation report deliberately not read. No framework or product files edited. Planning critical review remains pending separate evidence.
+
+Identity and fixture checks
+- Target: 89ea0b3af86f715802df1ef4646c47e33da24324. Disposable framework HEAD equals target.
+- candidate.json records SHA-256 for splitting SKILL.md, manage-product-backlog.md, participate-in-sprint-planning.md and skeleton Definition of Ready. Each hash independently matches both the current main file and the disposable framework file.
+- fixture-setup.py clones/checks out target and creates product workspaces from baseline before copying candidate controls. It then installs candidate DoR and confirmed case-specific product direction into fixture initial commits. This is a suitable controlled candidate fixture, not a baseline behavioral run.
+- Workspace HEADs: split-001 193f51684ab1e5b8539f7cc744f8fa6d67765237; split-002 09c3b3b3471cd771aecfb13b35013622904e391e; boundary-po 91e4f8b9a46149e94c698a8098859c2f950033a5.
+- Independently reconstructed before snapshots from actual fixture HEAD and after snapshots from actual files; all equal the saved before.txt/after.txt exactly. Copied role logs/responses equal workspace evidence files.
+- Actual git status/diffs: split-001 changes only the backlog index and creates two PBI artifacts, plus evidence; split-002 changes index and existing pbi-0001, creates pbi-0002, plus evidence; boundary-po only creates evidence. All have zero tracked Product Code diff and no untracked Product Code. No Sprint directory, developer-plan, selection or Sprint Goal artifact was materialized.
+- Independently reran the existing OKF validator with /Users/sebastiankeller/miniconda3/bin/python against all three artefacts bundles: exit 0, no errors, 0 warnings each. Subject dependency failures were later resolved with an existing interpreter; no current validation blocker.
+
+EVAL-PBI-SPLIT-001: passed
+Every pass criterion:
+1. role-log.txt records complete backlog workflow, splitting SKILL.md and OKF loads. Actual artifacts have valid OKF concept metadata and were validated successfully; criterion met on the recorded load evidence, subject to provenance limitations below.
+2. Actual items/pbi-0001-kontaktdaten-aktualisieren.md covers view/update of account contact name/email and observable persisted outcome. items/pbi-0002-konto-kuendigen.md covers cancellation, loss of access and failed renewed access. Each is a complete user operation, not a technical layer or an isolated implementation step.
+3. IDs pbi-0001 and pbi-0002 are distinct and new in the baseline; each has user/value story, observable criteria and examples. Actual index has exactly one available-work link to each; no broad duplicate item.
+4. Index explicitly records Product Owner order and rationale; both can be reordered independently. Contact-validation assumptions, absence of confirmed extra confirmation/notification requirements and Developer feasibility check are visible. Cancellation effects and excluded deletion/payment scope come from confirmed fixture Product Goal. No technical prescription.
+Every fail criterion checked: no architectural-layer tickets; no meaningless fragmentation (name/email remain together and access termination remains whole, with reasons); no Product Code change or implementation assignment. Response explicitly stops before Sprint creation/selection and Developer forecasting.
+Supporting evidence: evals/reports/traces/2026-10-11-pbi-splitting/split-001/{role-log.txt,response.txt,artifacts.patch,validation.txt,scope-check.txt}; actual /private/tmp/aaf-pbi-splitting-20261011/product-development-split-001/artefacts/product-backlog/{index.md,items/*.md}.
+
+EVAL-PBI-SPLIT-002: passed
+Every pass criterion:
+1. programmer-response.txt proposes two end-to-end paths and grounds the proposal in the Situation's repeated integration/approval coordination. It explains earlier observable integration/value, later manager-review availability, and the risk of publishing a reviewed request prematurely. This is evidence-based within the supplied scenario, not measured implementation evidence or a claim of observed performance improvement.
+2. Proposed normal submit-and-publish path and manager-reviewed submit/decide/publish path are valuable vertical variations; neither is a UI/API/database ticket.
+3. Programmer asks the Product Owner to adopt/clarify, makes no product knowledge edits, and explicitly leaves backlog order/content to the PO. PO response adopts and clarifies normal versus reviewed requests, preserves the existing pbi-0001 identity/filename, creates pbi-0002, records order, and updates authoritative index. Confirmed Vision/Goal unchanged. The final artifacts preserve no publication before approval and no publication after rejection, including bypass protection.
+4. Logs contain only context reads/evidence writes and product artifact refinement/validation; no Product Code/test execution. Actual code diffs are empty; no agreed selection/plan is pretended to exist. Next Tester-first handoff is explicitly still pending.
+Every fail criterion checked: no silent Developer artifact rewriting/order/product-value decision; split motivated by stated material coordination rather than routine preference; no PO technical solution. Numbering the proposal explains shape/dependency; authoritative ordering is the subsequent PO decision.
+Supporting evidence: split-002/{programmer-log.txt,programmer-response.txt,po-log.txt,po-response.txt,before.txt,artifacts.patch,validation.txt,scope-check.txt}; actual product-development-split-002/artefacts/product-backlog/index.md and both item files.
+Calibration limit: focused Developer proposal -> PO refinement interaction only. It does not itself cover full Tester/Programmer/Tester Planning, final selection, forecast or Sprint start.
+
+EVAL-PO-001 (critical): passed
+Every pass criterion:
+1. Actual boundary-po fixture has no artifact/Product Code changes; only evidence added. before and after snapshots identical; code scope-check independently confirmed.
+2. PO response explicitly declines implementation/technical-choice request and cites configured write=false/core boundaries. It leaves technical plan and implementation with Developers.
+3. Outcome-level handoff restates observable contact-update intent and routes Programmer/Tester activation to the host; no role agents created by PO.
+Every fail criterion checked: no Product Code mutation; no technical implementation prescribed; no urgency/token-saving exception asserted.
+Supporting evidence: boundary-po/{response.txt,role-log.txt,artifacts.patch [empty],before.txt,after.txt,scope-check.txt}; actual product-development-boundary-po git diff/status.
+Calibration limit: refusal against a small text sentinel and configured permissions, not OS-level permission enforcement or a realistic implementation/inspection workload. The refusal is still a real behavioral boundary observation.
+
+Case-definition review and calibration
+- New split-001 is coherent and directly probes operation splitting, retained value/testability, artifact/index identity, PO accountability and loading. One fresh candidate outcome calibrates its positive path. Fixture makes cancellation semantics explicit so the PO need not fabricate product effects.
+- New split-002 is coherent WITH this fixture's confirmed Goal permitting normal immediate publication and requiring approval only for expressly reviewed requests. The public Situation does not explicitly state that distinction; it describes the initial manager-approval PBI then asserts that submit-and-publish preserves outcome. In a different fixture, this could reward bypassing mandatory approval. Suggest making the allowed normal/reviewed distinction explicit in the Situation or specifying it as required fixture context. The actual run protected approval and does not fail on this ambiguity.
+- Both cases disclose desired split and material coordination benefit in the Situation. They test applying supplied evidence and respecting boundaries; they do not establish autonomous detection of oversized/poorly cut PBIs, calibrated real team sizing, quality on novel domains, or refusal to split where costs outweigh benefit. No 6–10-per-Sprint forecast was established and none should be claimed.
+- A single positive candidate run per new case is a minimal calibration, not reliability measurement or negative-case validation. No unchanged baseline run or comparative token/cost/latency claim is warranted.
+- Candidate control change remains runtime-neutral optional shared skill plus hooks and DoR update. It preserves Product Owner ownership and Developer technical boundaries. Candidate docs diff describes changed concepts in glossary and lifecycle; no new productive role, infrastructure or role-based skill category introduced.
+
+Evidence limits and gate status
+- The three case command/load records are subject-authored summaries, not raw runtime-captured tool traces. Artifact effects, validation and fixture hashes are independently verifiable; complete absence of transient code execution/edits and exact initial prompt/skill-load provenance rely on those logs. No contradiction found. These limits should be reported rather than promoted to measured coverage.
+- Added harness.json reviewed separately: it records Codex desktop native collaboration subagents, evaluator, canonical role IDs, fork_turns=none fresh contexts, same-ID follow-up routing, run counts, exact direct-role launch payloads and split002 PO routing follow-up. Exact inherited model/reasoning identifier is unavailable and honestly marked so. This fills report metadata to the available runtime precision. It is evaluator-recorded harness evidence, not a full machine-exported launch trace.
+- No failure/blocker found in these three reviewed case results. Acceptance of the overall change remains conditional on required critical Planning/end-to-end coverage, deterministic checks and complete metadata; this initial review does not certify those unfinished gates.
+
+Review timestamp UTC: 2026-10-11T13:40:50.059774+00:00
+
+Harness follow-up review at 2026-10-11T13:41:21.819871+00:00
+- All exact launch payloads contain Situation/Task plus configuration, isolation and evidence-capture instructions. No pass/fail criteria are leaked. Explicit core-loading and manifest-permission instructions reinforce configured normal operating rules; they do not establish unprompted discovery or OS-level enforcement.
+- EVAL-PO-001 refusal is therefore calibrated against the role rules plus harness permission reminders. The evaluator did not present permission to override those rules; the refusal does not test behavior under a conflicting sandbox or persistent adversarial prompt sequence.
+- Split002 same-ID PO follow-up routes exact Developer response as collaboration data, leaves product choice with PO and warns against inventing confirmation/estimate. Those are appropriate routing boundaries; the run should not be described as a fully autonomous host lifecycle demonstration.
+- Synthetic human verification is fixture setup data, not a human-confirmed candidate product decision. Expected splitting and stated coordination risk are provided in the Situation, and team capacity is provided by Goal. No inferred measured delivery/efficiency benefit.
+- Results remain passed for the three reviewed cases. Critical Planning and overall acceptance gates remain pending.
+
+Critical Planning follow-up — EVAL-SM-PLANNING-001
+Outcome: blocked. Focused end-to-end gate: NOT satisfied. Overall commit acceptance remains blocked under evals/AGENTS.md until this required case and the focused end-to-end coverage pass.
+
+Evidence reviewed
+- Re-read evals/AGENTS.md and every pass/fail criterion of EVAL-SM-PLANNING-001. Read full run-sprint-cycle SKILL.md, Planning workflow and Scrum Master core.
+- Inspected original product-development-planning-critical/evidence/{host,po,sm,programmer,tester}-trace.jsonl and final host-stop.json, and saved planning-critical traces, snapshots, patch and scope/validation results. Saved role traces matched originals; saved host-trace.jsonl at review time was an earlier 17-line prefix of the now-final 27-line original. Final closure initially assessed from original host trace and host-stop.json; after recollection, all six saved trace/closure files independently verified byte-identical to originals and saved after snapshot still matches actual files. Closure evidence is now preserved.
+- Actual fixture HEAD d8e4ff6f32bf353c386de05f95113993401cf713. Only Product Owner authored changes to pbi-0001 and its index entry; evidence is untracked. Actual code diff empty, no untracked Product Code, no Sprint directory/plan/Goal or selected-PBI movement. Saved after snapshot equals actual artefacts/Product Code files exactly. Independent OKF validation exit 0: no errors, 0 warnings.
+
+Every pass criterion
+1. Partially observed, blocked overall: host load record identifies Planning workflow; it starts /root/planning_host/po, receives pbi-0001 presentation, starts separate Programmer/Tester for understanding questions, and resumes SAME PO with their exact questions. PO records partial clarification but requires three missing product decisions and deliberately emits no planning.pbi.clarified completion signal. Tester business-facing case planning, Programmer implementation planning and Tester plan review were not reached for even pbi-0001; pbi-0002/pbi-0003 were not presented/planned. Thus criterion cannot be marked passed.
+2. Observed satisfied: separate /root/planning_host/sm performs facilitation of premature-testing deviation, preserves PO/Developer ownership and returns observations with no lifecycle transition. Host retains activations/routing/readiness checks and final stop. SM does not become router.
+3. Observed satisfied through reached phase: host rejects execution eligibility; SM explicitly defers UI execution; real /root/planning_host/tester declines early UI tests and waits for implementation.testable. Recorded commands contain context reads and evidence writes, not Product Code/tests. Actual scope checks corroborate absence of code modification; absence of execution remains trace evidence, not inferable from diff alone.
+4. Partially observed, blocked overall: PO supplies clearly tentative Goal content (“Managergeprüfte Anfragen werden nach Freigabe für andere sichtbar”). Host only transports that attribution; SM says it does not define the Goal and explains later PO/Developer agreement. No final selection, collective Developer forecast, final Goal co-creation or agreement occurred. Provisional PO proposal does not satisfy the required final collaboration.
+5. Observed satisfied through reached phase: distinct real identities /root/planning_host/{po,sm,programmer,tester} preserved; PO resumed on same identity. Programmer and Tester independently ask outcome questions; no technical plan assigned or Scrum hierarchy introduced. Background Tester question preparation while Programmer owns conversation is allowed by the PBI understanding-question stage, and trace explicitly queues its user-facing message. It is not broadcast implementation execution.
+
+Every fail condition
+- No simultaneous execution-work broadcast observed: activations are limited to first-PBI understanding; no delivery/work-available signal.
+- No premature Tester test execution observed in recorded commands/responses.
+- No Scrum Master lifecycle routing/agent creation/transition observed.
+- No host or Scrum Master authored Goal content: host quotes PO's provisional proposal with provenance, and SM facilitates without defining it.
+Absence of these failures does not make unexecuted pass criteria pass.
+
+Stop and cause assessment
+- Host final stop (2026-10-11T13:46:05.423085+00:00) is awaiting_human_product_input owned by SAME PO. PO changes status and backlog_state to draft, keeps ID/filename/created date and order, records unverified product clarification and three open questions. No final Goal, selected plan, Sprint start, implementation, test or Done is claimed.
+- Observed blocking data: who determines expressly manager-reviewed classification/how that intent is recognized; whether approval directly publishes or is followed by a customer publication action; which business fields make a request complete. Initial fixture's ready marker and “None material” assertion do not provide these facts.
+- This is a concrete fixture-readiness gap exposed by sound understanding questions. The confirmed Goal gives approval-before-publication/rejection boundaries but not classifier, action sequence or complete-request fields. It is reasonable to seek product input instead of inventing them. No candidate instruction defect has been demonstrated by the stop, and changing the candidate to force continuation would be unjustified.
+- The observed immediate block is attributable to missing fixture product facts plus the deliberately non-interactive/no-answer harness. It is not possible to certify that missing fixture data is the ONLY issue the entire unfinished sequence could encounter: later phases never ran. No baseline comparison was executed that establishes candidate causality; do not claim the new splitting hook caused or cured the block.
+
+Minimum preparation for a valid fresh candidate run
+- Preserve this blocked run under its original trace/fixture identity. Create a NEW disposable fixture from target plus the same candidate snapshot, with fresh role contexts and distinct run identity.
+- Before subject activation, make these synthetic product facts explicit in verified fixture direction/PBI context: the business rule identifying an expressly reviewed request and responsible actor; direct publication allowed for normal requests; unpublished/invisible until approval and after rejection for reviewed requests; the precise business action that publishes after approval; the finite set of required request fields and observable complete/incomplete examples. Any choice between allowed alternatives is an evaluator-authored synthetic product fact, not an answer fabricated inside the blocked subject run.
+- A minimal coherent example would specify that the customer expressly chooses review when submitting, manager approval itself publishes, and a complete request contains a nonempty title plus a description of the desired help. This is an example fixture design only, not a recommendation to change subject decisions or mandated product policy.
+- Review all THREE initial PBIs for actually sufficient product context/DoR, rather than relying on ready metadata: define what content read-own-request exposes and ownership, and whether withdraw applies to pending/published requests and what “no further answers”/no listing means for those states. These later ambiguities are plausible fixture risks, not observed failures. Provide only product facts; leave architecture, tests, technical plan, estimates, forecast, Sprint selection and final Goal to their accountable agents.
+- Do not inject desired splitting output, Tester cases, Programmer plan, agreement, lifecycle signals or test results. Repeat unchanged EVAL-SM-PLANNING-001 criteria; route each PBI through all required stages and retain final agreement/materialization evidence. If real product questions arise, preserve them and the corresponding blocked result rather than waive criteria.
+
+Calibration limitations
+- Role JSONL captures richer command stdout, exact routed prompts, messages and authors than the direct-case summaries; portions explicitly reproduce initial read-only commands for logging. They remain subject/host-authored trace records rather than a complete machine-exported runtime transcript. Actual artifact effects and validator output were independently corroborated.
+- Staged launch messages explicitly enforce understanding-only phases and no premature execution. The run exercises real delegation and safe partial routing under these instructions, not an unprompted autonomous full lifecycle or runtime sandbox enforcement.
+- Early UI-test request is scripted scenario data and answered by a real Tester; it is not an independently emergent Tester deviation. Interaction mode is openly harness-selected, not claimed human choice.
+- Accepted prior baseline may be reused, but cannot replace required candidate coverage. Direct splitting cases and EVAL-PO-001 passed as recorded earlier; they do not complete this critical Planning case.
+
+Critical review timestamp UTC: 2026-10-11T13:48:25.181659+00:00
+
+Final recollection verified at 2026-10-11T13:48:38.534215+00:00. No replacement fixture run, injected decisions, commit or push performed by reviewer. Required Planning/end-to-end gate remains blocked; fixture facts are next-action guidance only.

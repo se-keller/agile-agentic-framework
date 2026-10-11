@@ -1,0 +1,2 @@
+Collected at 2026-10-11T13:47:42.496001+00:00
+Candidate control files match the reviewed fixture snapshot.
