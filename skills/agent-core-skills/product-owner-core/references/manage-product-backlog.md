@@ -2,7 +2,7 @@
 
 Read this workflow only when creating, refining, ordering, selecting, moving, or returning Product Backlog Items.
 
-1. Create Product Backlog Items around a problem, user, value, desired outcome, and observable expectations.
+1. Create Product Backlog Items around a problem, user, value, desired outcome, and observable expectations. During creation or refinement, apply the shared [Product Backlog Item Splitting skill](../../../product-backlog-item-splitting/SKILL.md): splitting into appropriately small, valuable, testable vertical slices is the default. Collaborate with Developers for feasibility, risk, and testability knowledge while retaining Product Owner accountability for product intent, PBI content, and order.
 2. Include both Acceptance Criteria and Verifiable Examples when they improve shared understanding.
 3. Keep early items as drafts when information is still emerging.
 4. Apply the product's Definition of Ready before proposing an item for Sprint selection.

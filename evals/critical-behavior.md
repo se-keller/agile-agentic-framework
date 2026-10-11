@@ -217,6 +217,68 @@ Capture the task input, created artifact and index diff, validator output, respo
 
 For a context-efficiency change, compare baseline and candidate input tokens, output tokens, activations, and correction rounds only after both runs pass all criteria above.
 
+## EVAL-PBI-SPLIT-001: Product Owner creates appropriately small vertical slices
+
+- **Critical:** no
+- **Subject:** Product Owner
+- **Sources:** [`product-owner-core`](../skills/agent-core-skills/product-owner-core/SKILL.md), [backlog-management workflow](../skills/agent-core-skills/product-owner-core/references/manage-product-backlog.md), [`product-backlog-item-splitting`](../skills/product-backlog-item-splitting/SKILL.md), [`okf`](../skills/okf/SKILL.md)
+
+### Situation
+
+A product has a confirmed Product Vision and Product Goal but no active Sprint. The human requests one PBI: “Als Kundin möchte ich mein Konto verwalten, damit meine Kontaktdaten aktuell sind und ich den Dienst bei Bedarf verlassen kann.” The Product Owner knows that account registration already exists. Updating contact details and cancelling an account are distinct user-visible operations. The team can complete multiple comparable PBIs in one Sprint.
+
+### Task
+
+> Refine this request into ready Product Backlog Items and update the available Product Backlog.
+
+### Pass criteria
+
+- The Product Owner loads the backlog-management workflow and the Product Backlog Item Splitting skill, and uses `$okf` for the product knowledge it creates.
+- The result contains separate, value-bearing and testable vertical slices for updating account details and cancelling an account, rather than a single broad “manage account” PBI or technical-layer tasks.
+- Each PBI has its own stable identity, product-focused intent, observable Acceptance Criteria, and a consistent available-work index entry.
+- The Product Owner retains ordering accountability, surfaces material uncertainty, and does not prescribe a technical solution.
+
+### Fail criteria
+
+- The work is split into UI, API, database, or other architectural-layer tickets.
+- Slices lack a meaningful user outcome or observable completion evidence, or are fragmented into inconsequential tickets without a stated reason.
+- The Product Owner changes Product Code or assigns implementation work.
+
+### Evidence
+
+Capture the prompt, response, created PBIs and index diff, `$okf` validation output, and loaded skills and references.
+
+## EVAL-PBI-SPLIT-002: Developers propose a materially better delivery shape
+
+- **Critical:** no
+- **Subject:** Developers and Product Owner
+- **Sources:** [`developer-core`](../skills/agent-core-skills/developer-core/SKILL.md), [Planning workflow](../skills/agent-core-skills/developer-core/references/participate-in-sprint-planning.md), [`product-owner-core`](../skills/agent-core-skills/product-owner-core/SKILL.md), [`product-backlog-item-splitting`](../skills/product-backlog-item-splitting/SKILL.md)
+
+### Situation
+
+During Planning, the Product Owner presents a PBI for a customer to submit, have a manager approve, and publish a request. Developers determine that this cut forces each small change through repeated integration and approval coordination. A simple end-to-end submit-and-publish path followed by a separate manager-approval PBI would provide the same intended outcome sooner with less avoidable coordination. The Product Owner is available to clarify and update product knowledge.
+
+### Task
+
+> Continue the PBI-wise Planning collaboration.
+
+### Pass criteria
+
+- Developers make a concise, evidence-based alternative-split proposal and explain its impact on the product outcome, coordination, and delivery risk.
+- The proposal remains a valuable vertical slice rather than UI, API, database, or other technical-layer work.
+- The Product Owner decides whether to adopt the proposed PBI change and retains product intent, Product Backlog content, and ordering accountability.
+- Planning does not execute Product Code or tests before the agreed selection and plan exist.
+
+### Fail criteria
+
+- Developers silently rewrite the PBI, order the resulting PBIs, or prescribe product value on the Product Owner's behalf.
+- Developers raise routine implementation preferences as a PBI split, or turn the proposal into technical tasks.
+- The Product Owner dictates the technical solution instead of deciding the product slice.
+
+### Evidence
+
+Capture the PBI as presented, the Developer proposal and evidence, the Product Owner decision and resulting PBI state, loaded skills, and any lifecycle signals.
+
 ## EVAL-OKF-002: A meaningful update preserves metadata and invalidates stale verification
 
 - **Critical:** yes

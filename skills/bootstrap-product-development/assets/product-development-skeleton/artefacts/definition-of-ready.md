@@ -15,6 +15,7 @@ A Product Backlog Item is ready to be considered for Sprint selection when:
 - it contains a summary in the form “As a <user>, I want <capability>, so that <goal>” in the product's working language;
 - it contains at least one observable Acceptance Criterion;
 - material open questions are visible; and
-- it is sufficiently understood and small enough to be selected for one Sprint.
+- it is sufficiently understood and small enough to be selected for one Sprint as a valuable, testable vertical slice; and
+- a larger item has been split using the shared Product Backlog Item Splitting practice unless a further split would lose a meaningful outcome or create disproportionate coordination overhead.
 
 The Definition of Ready is a complementary working agreement, not an official Scrum artifact and not a commitment that the item will be selected.

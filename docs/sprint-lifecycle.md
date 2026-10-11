@@ -4,8 +4,8 @@ title: Sprint Lifecycle
 description: The event-driven Scrum lifecycle, ownership boundaries, artifacts, and stopping conditions in AAF.
 status: draft
 created: "2026-08-26"
-updated: "2026-08-28"
-generated: { by: "codex/gpt-5.6", at: "2026-08-28T08:57:39+02:00" }
+updated: "2026-10-11"
+generated: { by: "process:pbi-splitting-evaluierung-und-push", at: "2026-10-11T13:35:47.595424+00:00" }
 framework: agile-agentic-framework
 ---
 
@@ -37,7 +37,7 @@ stateDiagram-v2
 
 The Product Owner collaborates with the human to establish the Product Vision through [Roman Pichler's Product Vision Board](https://www.romanpichler.com/blog/the-product-vision-board/) in its simple or extended form. The human chooses the variant after a short explanation, then works through one field at a time with the Product Owner. The resulting OKF artifact keeps validated knowledge, assumptions, and validation needs visible in portable Markdown tables and may add explanatory detail below them.
 
-After the board is confirmed, the Product Owner uses it to establish one concrete current Product Goal. The goal advances the Product Vision and should generate evidence for important board hypotheses. The Product Backlog is ordered, and at least one PBI must satisfy the Definition of Ready before Planning begins.
+After the board is confirmed, the Product Owner uses it to establish one concrete current Product Goal. The goal advances the Product Vision and should generate evidence for important board hypotheses. During refinement, the Scrum Team normally splits oversized PBIs into appropriately small, valuable, testable vertical slices; it avoids technical-layer splits and does not fragment a meaningful outcome merely to make more tickets. The Product Backlog is ordered, and at least one PBI must satisfy the Definition of Ready before Planning begins.
 
 Human confirmation is required before the first affected Sprint Planning. The host routes missing readiness to the accountable role; neither host nor Scrum Master may invent product direction or technical capacity.
 
@@ -50,6 +50,8 @@ The runtime host loads the Planning workflow and activates separate agents at th
 3. The Tester adds business-facing test cases and examples to the pending plan.
 4. The Programmer adds its implementation approach, automated acceptance-test coverage, engineering tests, risks, dependencies, and sequence.
 5. The Tester reviews the implementation plan for testability and adds material risks or gaps.
+
+Developers also make a short delivery-shape check. If another vertical split would materially reduce avoidable coordination, loops, or technical risk, they explain that trade-off to the Product Owner. The Product Owner decides whether to change the PBI; Developers neither set its priority nor replace it with technical-layer work.
 
 No implementation or test execution occurs during these Planning steps. Once every candidate has been clarified, the Product Owner proposes the value-focused selection and Sprint Goal. Developers collectively forecast feasibility and agree or request changes. The Scrum Team establishes the final Goal together; the Scrum Master facilitates but never proposes its product content, and the host only verifies transition evidence.
 

@@ -5,7 +5,7 @@ description: Definitions of the central Scrum, agentic, runtime, and repository 
 status: draft
 created: "2026-08-26"
 updated: "2026-10-11"
-generated: { by: "codex/gpt-5", at: "2026-10-11T13:30:00+02:00" }
+generated: { by: "process:pbi-splitting-evaluierung-und-push", at: "2026-10-11T13:35:47.595424+00:00" }
 framework: agile-agentic-framework
 ---
 
@@ -30,7 +30,7 @@ framework: agile-agentic-framework
 | OKF | Open Knowledge Format; indexed Markdown concepts with metadata, provenance, and human-readable links. |
 | Product Code | Executable implementation and related technical files under `product-code/`. |
 | Product artifact | Product knowledge or result evidence under `artefacts/`, not executable Product Code. |
-| PBI | Product Backlog Item with stable identity, intended outcome, and observable Acceptance Criteria. |
+| PBI | Product Backlog Item with stable identity, intended outcome, and observable Acceptance Criteria; near Sprint selection it is normally an appropriately small, valuable, testable vertical slice. |
 | Developer | Scrum accountability shared by Programmer and Tester specializations. |
 | Independent test | Test result produced by a Tester agent distinct from the Programmer whose implementation is evaluated. |
 | Done | Collective Developer conclusion that the complete Definition of Done is satisfied by evidence. |
