@@ -1,0 +1,7 @@
+Independent reviewer: /root/lint_review, fresh context, read-only.
+
+No preactivation blockers found. Candidate instructions are safe to activate in disposable fixtures with scoped permissions.
+
+The changes preserve Programmer tooling ownership, Tester independence, Product Owner boundaries, and collective Developer Done authority. Missing tooling remains a blocker; zero exit status cannot hide warnings; relevant changes invalidate evidence.
+
+Recommended minimum coverage: calibrate EVAL-LINT-001..005; run EVAL-DONE-001 and EVAL-PROG-LOAD-002/004; use EVAL-LINT-005 for focused integration. A scripted adapter cannot establish setup success. In integration an injected warning must represent a genuine fixable source finding. The final report must review the documentation map.

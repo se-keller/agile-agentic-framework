@@ -4,8 +4,8 @@ title: Architecture
 description: The layers, components, dependencies, and runtime interaction model of AAF.
 status: draft
 created: "2026-08-26"
-updated: "2026-10-11"
-generated: { by: "codex/gpt-5", at: "2026-10-11T10:42:34+02:00" }
+updated: "2026-10-18"
+generated: { by: "codex/gpt-6", at: "2026-10-18T00:23:19+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -118,6 +118,10 @@ AAF uses a control plane and a knowledge/work plane:
 The control plane determines who may act and when. The knowledge/work plane records what is known and what changed. The documentation bundle sits outside both planes and describes them for people.
 
 Lifecycle events are handoffs, not broadcasts. The host routes them through the Sprint-cycle process without absorbing role judgments. In Sprint Planning, an on-demand Scrum Master facilitates while the Product Owner presents and clarifies one PBI, the Tester contributes business-facing cases, the Programmer plans implementation, and the Tester reviews testability. During delivery, the Programmer hands a testable slice to the Tester, then passing evidence to the Product Owner for inspection. This sequencing preserves independent perspectives without allowing premature execution.
+
+## Technology-neutral quality baseline
+
+Linting is a mandatory engineering obligation in the existing Programmer and shared Developer contracts, rather than a new role or optional skill. The framework defines selection timing, scope, current clean evidence, and collective Done assessment. Each product owns its concrete linting tools and configuration. This keeps quality requirements reusable across stacks without adding platform infrastructure.
 
 ## Runtime neutrality
 

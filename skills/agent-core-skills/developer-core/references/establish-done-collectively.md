@@ -3,7 +3,7 @@
 Read this workflow when producing Increment Documentation, assessing the Definition of Done together, responding to `product-assessment.recorded`, or returning unfinished work at Sprint end.
 
 1. Integrate Product Code and collect each involved Developer's results.
-2. Run the relevant automated, manual, regression, and feature checks.
+2. Run the relevant automated, manual, regression, and feature checks, including every required stack-appropriate linting check on the final integrated state. Require zero errors and warnings. Record the invocation, tool versions, configuration, checked scope, source revision or exact worktree state, and actual result in or linked from Increment Documentation. Relevant source, tool-version, or configuration changes invalidate prior linting evidence and require a new run. Where no lintable files exist, jointly review and record non-applicability; unavailable or unconfigured tooling does not qualify.
 3. Create the Increment Documentation required by the Definition of Done under `artefacts/increment-documentation/`.
 4. Review the Definition of Done together and record each criterion with supporting evidence.
 5. Signal `increment.documentation-ready` so the Product Owner can perform and record the required product assessment.

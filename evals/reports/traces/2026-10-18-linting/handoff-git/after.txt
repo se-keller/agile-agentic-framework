@@ -1,0 +1,403 @@
+FILE .aafe/aafe.yaml
+api_version: aaf.dev/v1alpha1
+kind: FrameworkExtensions
+framework:
+  name: agile-agentic-framework
+  repository: "https://github.com/se-keller/agile-agentic-framework"
+  version: "fb196ddc7c04281e1d3842d0a7f9840a967bd079"
+  path: "../agile-agentic-framework"
+agents:
+  add: []
+  override: []
+skills:
+  add: []
+  override: []
+
+
+FILE .gitignore
+.DS_Store
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+
+
+FILE AGENTS.md
+# Product workspace instructions
+
+This is the self-contained entry point for AI agents working in this product workspace. Do not read `README.md` for operating instructions; it is the human entry point.
+
+Keep `README.md` only at this workspace root and for people. Put agent-operating information in `AGENTS.md`, `SKILL.md`, manifests, or directly referenced workflow artifacts; do not create nested README files.
+
+Use the configured Agile Agentic Framework as the base and apply only additions and explicit overrides declared in `.aafe/aafe.yaml`.
+
+The configured framework checkout is a sibling of this product workspace. Start every product-role agent with this product workspace as its working directory and restrict its write scope to this workspace. It may read the framework checkout named by `.aafe/aafe.yaml` to load declared contracts, but it must never modify that checkout.
+
+## Multi-agent execution
+
+The primary agent is the runtime host, not a Scrum role.
+
+- At the first product interaction of each runtime session, apply `$manage-role-interaction`. Inspect actual runtime capabilities, offer only supported `host`, `transparent-proxy`, and `direct-handoff` modes, and let the human choose unless they already selected one.
+- Start each configured role when it is needed with the runtime's real subagent or delegation mechanism.
+- Give the new agent this `AGENTS.md`, its manifest, and its declared core skills; do not load those role skills into the host to perform the work.
+- Keep the returned agent identifier and route later human replies and lifecycle events back to that same agent.
+- Keep at most one user-facing role active at a time. Apply the selected interaction mode without changing role permissions, lifecycle boundaries, or artifact ownership.
+- Use a different agent for independent testing than for implementation.
+- If a required agent cannot be started or resumed, stop the affected transition and report it. Never simulate the missing role in the host.
+
+The host owns mechanical conversation routing and Sprint lifecycle transitions. Apply `$run-sprint-cycle` when Planning or an active Sprint needs coordination, but never load a role core or make a product, facilitation, implementation, test, or Done decision.
+
+## Entry point
+
+Start a separate Product Owner agent unless the human explicitly selects another available agent. Let it own product dialogue through the selected interaction mode and return later human answers to the same agent. The Product Owner must inspect existing `artefacts/` and relevant `product-code/` context before asking questions. Resume established product direction instead of restarting discovery.
+
+When product direction and at least one ready PBI exist, let the host run the event-driven lifecycle through `$run-sprint-cycle`. Activate configured participants just in time: first the Product Owner, then the Programmer and Tester for each PBI planning handoff, then the Programmer for implementation, the Tester only after a testable handoff, and the Product Owner for Increment inspection. Activate the same Scrum Master agent only when facilitation, an impediment, a Scrum deviation, Sprint Review support, or Retrospective improvement needs its independent judgment. The Scrum Master never owns the lifecycle mechanism or assigns Developer work.
+
+## Boundaries
+
+- Use the framework's `okf` skill for product knowledge and result artifacts under `artefacts/`.
+- Preserve each artifact's `created` date and update its `updated` date in `YYYY-MM-DD` format whenever its content or metadata changes.
+- Keep Product Code under `product-code/`; never place it under `artefacts/` or `artefacts/increment-documentation/`.
+- Allow only agents with Product Code write permission to modify `product-code/`.
+- Put product-specific framework changes under `.aafe/`; do not modify the base framework.
+- Treat same-name agent or skill collisions as errors unless `.aafe/aafe.yaml` explicitly declares an override.
+- Keep `.aafe` skill folders minimal. Do not create `agents/` or `agents/openai.yaml` unless a concrete runtime integration explicitly requires that metadata.
+- Make additional roles and skills available only through the base framework or explicit `.aafe` declarations. Product-specific stakeholder agents reuse `stakeholder-core` and provide product input through the Product Owner.
+- Keep Product Vision and the current Product Goal under `artefacts/product-backlog/` with its index and available PBI items.
+- During Planning, move selected PBI files from `artefacts/product-backlog/items/` into the Sprint's `sprint-backlog/`. Keep Done PBIs and resolved Bugs there; return unfinished work to the Product Backlog and preserve a return link in the Sprint Backlog index.
+- Store the agreed Sprint Goal inside the Sprint Backlog as `sprint-backlog/sprint-goal.md`.
+
+
+FILE README.md
+# Welcome to Greeting
+
+This README is the entry point for people using or developing this product. AI agents use `AGENTS.md` as their self-contained workspace entry point and load relevant skills as needed; they do not need this README as operating input.
+
+This workspace contains Product Code, product knowledge, Scrum artifacts, and product-specific extensions for the Agile Agentic Framework. Its sibling `agile-agentic-framework/` checkout is identified by repository, revision, and path in `.aafe/aafe.yaml`; product agents may read it but work only in this product directory.
+
+## Start here
+
+At the start of each runtime session, choose how you want to interact:
+
+- **Host:** the host presents attributable role results and manages the conversation.
+- **Transparent proxy:** the active role speaks visibly through the host, and your next reply returns unchanged to the same role agent.
+- **Direct handoff:** a supported runtime transfers the visible conversation to the active role agent. This option appears only when the runtime can perform a real same-conversation handoff.
+
+You can change the mode later. The runtime must not silently replace an unavailable mode.
+
+Then start with the **Product Owner**. The base framework also provides a **Scrum Master**, **Programmer**, and **Tester**. Tell your agent runtime:
+
+> Start the Product Owner for this product. Inspect the existing artifacts and Product Code first, then continue product discovery with me.
+
+The Product Owner will resume from existing knowledge when possible. If the Product Vision is missing, it briefly explains the simple and extended Product Vision Board and lets you choose. It then works through one field at a time, keeps assumptions and validation needs visible, and uses the confirmed board to develop the next concrete Product Goal with you. You provide the creative direction; the Product Owner helps clarify users, problems, value, desired outcomes, boundaries, assumptions, and evidence of success.
+
+When the Product Goal and at least one ready PBI exist, continue with:
+
+> Start the next event-driven Sprint.
+
+The runtime host performs the mechanical lifecycle transitions and activates the Product Owner and configured Developers at the required handoffs. The Scrum Master is activated when Planning or Review needs facilitation, an impediment or Scrum deviation needs attention, and for the Retrospective and process improvement. It does not run the lifecycle router or assign technical work.
+
+## Workspace
+
+- `product-code/`: the product's source code and code-level documentation.
+- `artefacts/`: OKF product knowledge, Scrum artifacts, and Increment Documentation.
+- `.aafe/`: explicit product-specific additions and overrides to the base framework.
+- `AGENTS.md`: the separate, self-contained operating entry point for AI agents.
+
+The framework checkout is shared infrastructure, not Product Code. Update it deliberately with Git and update the recorded revision only after checking the framework change. Keep all product changes, including extensions, in this workspace.
+
+Product Vision and the current Product Goal live in `artefacts/product-backlog/`. PBI files begin in `artefacts/product-backlog/items/`. Planning stores the Sprint Goal at `sprint-backlog/sprint-goal.md` and moves selected PBI files beside it. Done PBIs and resolved Bugs remain there; unfinished work returns to the Product Backlog for reordering.
+
+Additional agent roles and skills become available when they are added to the base framework or explicitly declared under `.aafe/`. Product-specific stakeholder agents should reuse `stakeholder-core` and give all product input through the Product Owner.
+
+A product-specific skill normally contains only `.aafe/skills/<skill-name>/SKILL.md`. Add resource folders only when used; omit `agents/` and `agents/openai.yaml` unless a concrete runtime integration requires them.
+
+
+FILE artefacts/definition-of-done.md
+---
+type: Definition of Done
+status: stable
+created: "2026-10-18"
+updated: "2026-10-18"
+generated: { by: "process:bootstrap-product-development", at: "2026-10-18T10:00:00Z" }
+product: "greeting"
+---
+
+# Definition of Done
+
+Work is part of an Increment only when all of the following are true:
+
+- all relevant automated and manual tests pass;
+- all regression tests pass and no regression is known;
+- affected existing features still work;
+- all Acceptance Criteria are fulfilled;
+- Product Code is integrated, executable, and usable;
+- stack-appropriate linting is configured and all required checks have passed on the final integrated state with zero errors and warnings;
+- there are no known unresolved bugs (Zero Bug Policy);
+- known limitations are transparent;
+- Increment Documentation has been created; and
+- the Product Owner has inspected the Increment Documentation, run the Increment when reasonably possible, assessed it against the PBI, Sprint Goal, Product Goal, and Product Vision, and the assessment is recorded.
+
+Product Owner inspection supplies product feedback; it is not approval or rejection. The inspection criterion is fulfilled by completing and recording the assessment, irrespective of whether it produces follow-up work. Developers remain accountable for determining that the Definition of Done is met.
+
+## Linting
+
+Developers select actively maintained linting compatible with every relevant language and component when choosing or expanding the technology stack. The Programmer versions configuration and pins tool versions in the product repository, provides a reproducible automated invocation, and integrates it into existing automated quality checks when available. Setup and a clean run are required before the first testable handoff.
+
+Missing setup, failed, blocked, aborted, or unexecuted checks and open findings prevent Done. Changes to relevant source, tool versions, or configuration require fresh evidence. A successful exit status alone does not establish a clean run.
+
+Do not weaken rules, exclude affected files, or suppress findings to obtain a pass. Legitimate exceptions require a narrow scope, technical rationale, and recorded joint Developer review. Only a jointly reviewed and recorded absence of lintable source or technical files permits non-applicability; reassess when the stack or files change.
+
+## Minimum Increment Documentation
+
+- understandable description of the Increment;
+- instructions for trying it;
+- test results;
+- linting invocation, tool versions, configuration, checked scope, source revision or exact worktree state, and actual results, or the jointly reviewed non-applicability rationale;
+- relevant commits, diffs, and Pull Requests;
+- known limitations; and
+- links to the Product Backlog Item and Sprint Goal.
+
+## After Done
+
+Developers document possible Retrospective topics after declaring the work Done. This follow-up does not change the Increment's Done status.
+
+
+FILE artefacts/definition-of-ready.md
+---
+type: Definition of Ready
+status: stable
+created: "2026-10-18"
+updated: "2026-10-18"
+generated: { by: "process:bootstrap-product-development", at: "2026-10-18T10:00:00Z" }
+product: "greeting"
+---
+
+# Definition of Ready
+
+A Product Backlog Item is ready to be considered for Sprint selection when:
+
+- it has a clear title;
+- it contains a summary in the form “As a <user>, I want <capability>, so that <goal>” in the product's working language;
+- it contains at least one observable Acceptance Criterion;
+- material open questions are visible; and
+- it is sufficiently understood and small enough to be selected for one Sprint as a valuable, testable vertical slice; and
+- a larger item has been split using the shared Product Backlog Item Splitting practice unless a further split would lose a meaningful outcome or create disproportionate coordination overhead.
+
+The Definition of Ready is a complementary working agreement, not an official Scrum artifact and not a commitment that the item will be selected.
+
+
+FILE artefacts/increment-documentation/index.md
+# Increment Documentation
+
+Add completed Increment Documentation here and link it to its Product Backlog Item and Sprint Goal. Product Code belongs in the workspace's top-level `product-code/` directory, never here.
+
+
+FILE artefacts/index.md
+---
+okf_version: "0.2"
+created: "2026-10-18"
+updated: "2026-10-18"
+---
+
+# Greeting
+
+## Product direction
+
+- [Product Vision](product-backlog/product-vision.md)
+- [Current Product Goal](product-backlog/current-product-goal.md)
+- [Product Backlog](product-backlog/index.md)
+
+## Shared quality agreements
+
+- [Definition of Ready](definition-of-ready.md)
+- [Definition of Done](definition-of-done.md)
+
+## Delivery
+
+- [Sprints](sprints/index.md)
+- [Increment Documentation](increment-documentation/index.md)
+- [Retrospectives](retrospectives/index.md)
+
+
+FILE artefacts/product-backlog/current-product-goal.md
+---
+type: Product Goal
+created: "2026-10-18"
+updated: "2026-10-18"
+---
+
+# Goal
+
+Users receive a greeting with their name.
+
+
+FILE artefacts/product-backlog/index.md
+# Product Backlog
+
+## Product direction
+
+- [Product Vision](product-vision.md)
+- [Current Product Goal](current-product-goal.md)
+
+## Available work
+
+The order of links in this file is the authoritative order for work currently available to the Product Owner. Planning moves selected PBI files into the Sprint Backlog; unfinished Sprint work returns here for reordering.
+
+No Product Backlog Items exist yet. Create them under `items/` as `pbi-0001-short-readable-slug.md` and never reuse an ID.
+
+
+FILE artefacts/product-backlog/product-vision.md
+---
+type: Product Vision
+created: "2026-10-18"
+updated: "2026-10-18"
+---
+
+# Vision
+
+Make personal greetings easy.
+
+
+FILE artefacts/retrospectives/index.md
+# Retrospectives
+
+Record Sprint Retrospective results here. Propose improvements to agents, skills, rules, templates, formats, or process as Pull Requests against `.aafe/`; never silently modify the base framework or expand permissions.
+
+
+FILE artefacts/sprints/index.md
+# Sprints
+
+Create a directory after Sprint Planning establishes a Sprint Goal. Use `sprint-0001-three-word-goal/` and do not rename it after the Sprint begins.
+
+Each Sprint directory contains `developer-plan.md` and `sprint-backlog/`. The Sprint Backlog contains `index.md`, `sprint-goal.md`, selected PBIs, Bugs, and other work artifacts.
+
+
+FILE artefacts/sprints/sprint-001/sprint-backlog/developer-plan.md
+---
+type: Developer Plan
+created: "2026-10-18"
+updated: "2026-10-18"
+generated: { by: "programmer/gpt-6", at: "2026-10-17T22:26:02.290589+00:00" }
+---
+
+# Developer Plan
+
+Implement the greeting with Python. Automated named-user test, independent Tester check, PO assessment, collective Done. Sprint active; setup work is allowed. No UI.
+
+## Quality setup and local handoff
+
+The baseline contains the implemented greeting and named-user unit test.
+Add pinned Flake8 7.3.0 and dependencies in
+`product-code/requirements-dev.txt`, with
+`product-code/setup.cfg` and the automated
+`product-code/checks.py`. Run
+`python product-code/checks.py` after installing the pinned requirements;
+it checks every Python source and test in `product-code/`, then runs
+all discovered unit tests. No existing CI configuration was present.
+
+Prepare one cohesive quality-setup commit and PR proposal after exact-diff
+review and fresh checks. Independent Tester verification and any later
+Product Owner inspection and collective Done assessment remain separate.
+No commit, external PR, merge, or Increment Documentation is requested
+for this local harness handoff.
+
+
+FILE artefacts/sprints/sprint-001/sprint-backlog/index.md
+# Active Sprint
+
+- [Goal](sprint-goal.md)
+- [Selected PBI](pbi-0001-greet.md)
+- [Plan](developer-plan.md)
+
+
+FILE artefacts/sprints/sprint-001/sprint-backlog/pbi-0001-greet.md
+---
+type: Product Backlog Item
+created: "2026-10-18"
+updated: "2026-10-18"
+id: pbi-0001
+backlog_state: selected
+---
+
+# Greeting
+
+As a user I want a greeting using my name.
+
+AC: Input Ada yields exactly Hello, Ada!.
+
+
+FILE artefacts/sprints/sprint-001/sprint-backlog/sprint-goal.md
+---
+type: Sprint Goal
+created: "2026-10-18"
+updated: "2026-10-18"
+---
+
+# Sprint Goal
+
+A user receives a personal greeting.
+
+
+FILE product-code/checks.py
+"""Run all Python quality checks: python product-code/checks.py.
+
+Install pinned tools first with:
+python -m pip install -r product-code/requirements-dev.txt
+"""
+
+from pathlib import Path
+import subprocess
+import sys
+
+
+ROOT = Path(__file__).resolve().parent
+
+
+def main():
+    subprocess.run(
+        [sys.executable, "-m", "flake8", "--config", str(ROOT / "setup.cfg"),
+         str(ROOT)],
+        check=True,
+    )
+    subprocess.run(
+        [sys.executable, "-m", "unittest", "discover", "-s", str(ROOT), "-v"],
+        check=True,
+    )
+
+
+if __name__ == "__main__":
+    main()
+
+
+FILE product-code/greeting.py
+def greet(name):
+    return f"Hello, {name}!"
+
+
+FILE product-code/requirements-dev.txt
+flake8==7.3.0
+mccabe==0.7.0
+pycodestyle==2.14.0
+pyflakes==3.4.0
+
+
+FILE product-code/setup.cfg
+[flake8]
+max-line-length = 79
+
+
+FILE product-code/test_greeting.py
+import unittest
+
+from greeting import greet
+
+
+class GreetingTest(unittest.TestCase):
+    def test_named_user(self):
+        self.assertEqual(greet("Ada"), "Hello, Ada!")
+
+
+if __name__ == "__main__":
+    unittest.main()

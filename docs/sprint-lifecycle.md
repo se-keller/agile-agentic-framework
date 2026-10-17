@@ -4,8 +4,8 @@ title: Sprint Lifecycle
 description: The event-driven Scrum lifecycle, ownership boundaries, artifacts, and stopping conditions in AAF.
 status: draft
 created: "2026-08-26"
-updated: "2026-10-11"
-generated: { by: "process:pbi-splitting-evaluierung-und-push", at: "2026-10-11T13:35:47.595424+00:00" }
+updated: "2026-10-18"
+generated: { by: "codex/gpt-6", at: "2026-10-18T00:23:19+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -79,6 +79,7 @@ After passing independent Tester evidence, Developers prepare Increment Document
 Developers collectively determine Done after:
 
 - required tests pass;
+- required stack-appropriate linting has current evidence with zero errors and warnings, or Developers jointly documented that no lintable files exist;
 - known Bugs are resolved and independently retested;
 - Increment Documentation exists;
 - Product Owner assessment is recorded; and

@@ -23,9 +23,17 @@ Load no reference for routine implementation and testing. Load the next one only
 2. Implement the smallest coherent change that advances the Sprint Goal and preserves maintainability.
 3. Add or update relevant unit tests and integration tests with the implementation.
 4. Implement and execute automated acceptance tests traced to the agreed business-facing cases. Collaborate with the Tester on scenarios and test assets, but do not transfer responsibility for testability or acceptance-test automation to the Tester.
-5. Run focused tests during development, then the relevant broader suite before handing work to another Developer.
+5. Run focused tests and stack-appropriate linting during development, then the relevant broader suite and all required linting checks before handing work to another Developer. Fix errors and warnings before handoff; a successful exit status with findings is insufficient.
 6. Review changed behavior, security implications, failure modes, compatibility, migrations, logs, and operational impact in proportion to risk.
 7. Keep Product Code integrated and executable. Do not leave hidden local steps required for another Developer to reproduce the result.
+
+## Establish and maintain linting
+
+- Whenever a technology is selected or the stack expands, select actively maintained linting compatible with the language, framework, and versions in use. Inspect and reuse suitable existing checks before adding tools. During Planning, record the choice and setup work; configure and execute it during implementation before the first testable handoff.
+- Cover all relevant source languages and components, including test code and other lintable technical files. Version the configuration and pin the tool versions in the product repository. Provide a reproducible, automated invocation there and include it in existing automated quality checks when available; no particular platform is required.
+- Keep concrete tool names, commands, versions, and rules in the product repository. The base framework prescribes the quality obligation without choosing a technology or tool.
+- Never weaken rules, exclude affected files, or suppress findings merely to obtain a passing result. A legitimate exception requires a narrow scope, technical rationale, and joint Developer review recorded with the configuration or a linked decision. Preserve failed-run evidence.
+- If the product has no lintable source or technical files, record the Developers' jointly reviewed non-applicability rationale. Missing tooling, setup effort, or an unsupported environment is a blocker, not non-applicability. Reassess when technologies or files change.
 
 ## Manage technical changes safely
 

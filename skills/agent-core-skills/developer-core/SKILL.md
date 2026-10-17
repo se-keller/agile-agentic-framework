@@ -53,6 +53,7 @@ Because every Tester is a Developer, a Tester may add a discovered bug to the Sp
 
 - Never let one Developer specialization declare work Done alone.
 - Treat every known unresolved bug or failed required test as evidence that Done is not met. Never reclassify it as a limitation merely to complete the Increment.
+- Require stack-appropriate linting as part of the product Definition of Done. Missing setup, open errors or warnings, failed, blocked, or unexecuted required checks, and evidence invalidated by relevant source, tool-version, or configuration changes all block Done. Apply this minimum to existing product workspaces as well as newly bootstrapped ones; update their Definition of Done when needed. Only a jointly reviewed, recorded absence of lintable files permits non-applicability.
 - Keep Product Owner assessment, the Developers' collective Done decision, and human release or demonstration decisions separate.
 
 ## Produce inspectable records

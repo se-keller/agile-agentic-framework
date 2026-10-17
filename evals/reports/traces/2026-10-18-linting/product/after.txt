@@ -1,0 +1,622 @@
+FILE .aafe/aafe.yaml
+api_version: aaf.dev/v1alpha1
+kind: FrameworkExtensions
+framework:
+  name: agile-agentic-framework
+  repository: "https://github.com/se-keller/agile-agentic-framework"
+  version: "fb196ddc7c04281e1d3842d0a7f9840a967bd079"
+  path: "../agile-agentic-framework"
+agents:
+  add: []
+  override: []
+skills:
+  add: []
+  override: []
+
+
+FILE .gitignore
+.DS_Store
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+
+
+FILE AGENTS.md
+# Product workspace instructions
+
+This is the self-contained entry point for AI agents working in this product workspace. Do not read `README.md` for operating instructions; it is the human entry point.
+
+Keep `README.md` only at this workspace root and for people. Put agent-operating information in `AGENTS.md`, `SKILL.md`, manifests, or directly referenced workflow artifacts; do not create nested README files.
+
+Use the configured Agile Agentic Framework as the base and apply only additions and explicit overrides declared in `.aafe/aafe.yaml`.
+
+The configured framework checkout is a sibling of this product workspace. Start every product-role agent with this product workspace as its working directory and restrict its write scope to this workspace. It may read the framework checkout named by `.aafe/aafe.yaml` to load declared contracts, but it must never modify that checkout.
+
+## Multi-agent execution
+
+The primary agent is the runtime host, not a Scrum role.
+
+- At the first product interaction of each runtime session, apply `$manage-role-interaction`. Inspect actual runtime capabilities, offer only supported `host`, `transparent-proxy`, and `direct-handoff` modes, and let the human choose unless they already selected one.
+- Start each configured role when it is needed with the runtime's real subagent or delegation mechanism.
+- Give the new agent this `AGENTS.md`, its manifest, and its declared core skills; do not load those role skills into the host to perform the work.
+- Keep the returned agent identifier and route later human replies and lifecycle events back to that same agent.
+- Keep at most one user-facing role active at a time. Apply the selected interaction mode without changing role permissions, lifecycle boundaries, or artifact ownership.
+- Use a different agent for independent testing than for implementation.
+- If a required agent cannot be started or resumed, stop the affected transition and report it. Never simulate the missing role in the host.
+
+The host owns mechanical conversation routing and Sprint lifecycle transitions. Apply `$run-sprint-cycle` when Planning or an active Sprint needs coordination, but never load a role core or make a product, facilitation, implementation, test, or Done decision.
+
+## Entry point
+
+Start a separate Product Owner agent unless the human explicitly selects another available agent. Let it own product dialogue through the selected interaction mode and return later human answers to the same agent. The Product Owner must inspect existing `artefacts/` and relevant `product-code/` context before asking questions. Resume established product direction instead of restarting discovery.
+
+When product direction and at least one ready PBI exist, let the host run the event-driven lifecycle through `$run-sprint-cycle`. Activate configured participants just in time: first the Product Owner, then the Programmer and Tester for each PBI planning handoff, then the Programmer for implementation, the Tester only after a testable handoff, and the Product Owner for Increment inspection. Activate the same Scrum Master agent only when facilitation, an impediment, a Scrum deviation, Sprint Review support, or Retrospective improvement needs its independent judgment. The Scrum Master never owns the lifecycle mechanism or assigns Developer work.
+
+## Boundaries
+
+- Use the framework's `okf` skill for product knowledge and result artifacts under `artefacts/`.
+- Preserve each artifact's `created` date and update its `updated` date in `YYYY-MM-DD` format whenever its content or metadata changes.
+- Keep Product Code under `product-code/`; never place it under `artefacts/` or `artefacts/increment-documentation/`.
+- Allow only agents with Product Code write permission to modify `product-code/`.
+- Put product-specific framework changes under `.aafe/`; do not modify the base framework.
+- Treat same-name agent or skill collisions as errors unless `.aafe/aafe.yaml` explicitly declares an override.
+- Keep `.aafe` skill folders minimal. Do not create `agents/` or `agents/openai.yaml` unless a concrete runtime integration explicitly requires that metadata.
+- Make additional roles and skills available only through the base framework or explicit `.aafe` declarations. Product-specific stakeholder agents reuse `stakeholder-core` and provide product input through the Product Owner.
+- Keep Product Vision and the current Product Goal under `artefacts/product-backlog/` with its index and available PBI items.
+- During Planning, move selected PBI files from `artefacts/product-backlog/items/` into the Sprint's `sprint-backlog/`. Keep Done PBIs and resolved Bugs there; return unfinished work to the Product Backlog and preserve a return link in the Sprint Backlog index.
+- Store the agreed Sprint Goal inside the Sprint Backlog as `sprint-backlog/sprint-goal.md`.
+
+
+FILE README.md
+# Welcome to Greeting
+
+This README is the entry point for people using or developing this product. AI agents use `AGENTS.md` as their self-contained workspace entry point and load relevant skills as needed; they do not need this README as operating input.
+
+This workspace contains Product Code, product knowledge, Scrum artifacts, and product-specific extensions for the Agile Agentic Framework. Its sibling `agile-agentic-framework/` checkout is identified by repository, revision, and path in `.aafe/aafe.yaml`; product agents may read it but work only in this product directory.
+
+## Start here
+
+At the start of each runtime session, choose how you want to interact:
+
+- **Host:** the host presents attributable role results and manages the conversation.
+- **Transparent proxy:** the active role speaks visibly through the host, and your next reply returns unchanged to the same role agent.
+- **Direct handoff:** a supported runtime transfers the visible conversation to the active role agent. This option appears only when the runtime can perform a real same-conversation handoff.
+
+You can change the mode later. The runtime must not silently replace an unavailable mode.
+
+Then start with the **Product Owner**. The base framework also provides a **Scrum Master**, **Programmer**, and **Tester**. Tell your agent runtime:
+
+> Start the Product Owner for this product. Inspect the existing artifacts and Product Code first, then continue product discovery with me.
+
+The Product Owner will resume from existing knowledge when possible. If the Product Vision is missing, it briefly explains the simple and extended Product Vision Board and lets you choose. It then works through one field at a time, keeps assumptions and validation needs visible, and uses the confirmed board to develop the next concrete Product Goal with you. You provide the creative direction; the Product Owner helps clarify users, problems, value, desired outcomes, boundaries, assumptions, and evidence of success.
+
+When the Product Goal and at least one ready PBI exist, continue with:
+
+> Start the next event-driven Sprint.
+
+The runtime host performs the mechanical lifecycle transitions and activates the Product Owner and configured Developers at the required handoffs. The Scrum Master is activated when Planning or Review needs facilitation, an impediment or Scrum deviation needs attention, and for the Retrospective and process improvement. It does not run the lifecycle router or assign technical work.
+
+## Workspace
+
+- `product-code/`: the product's source code and code-level documentation.
+- `artefacts/`: OKF product knowledge, Scrum artifacts, and Increment Documentation.
+- `.aafe/`: explicit product-specific additions and overrides to the base framework.
+- `AGENTS.md`: the separate, self-contained operating entry point for AI agents.
+
+The framework checkout is shared infrastructure, not Product Code. Update it deliberately with Git and update the recorded revision only after checking the framework change. Keep all product changes, including extensions, in this workspace.
+
+Product Vision and the current Product Goal live in `artefacts/product-backlog/`. PBI files begin in `artefacts/product-backlog/items/`. Planning stores the Sprint Goal at `sprint-backlog/sprint-goal.md` and moves selected PBI files beside it. Done PBIs and resolved Bugs remain there; unfinished work returns to the Product Backlog for reordering.
+
+Additional agent roles and skills become available when they are added to the base framework or explicitly declared under `.aafe/`. Product-specific stakeholder agents should reuse `stakeholder-core` and give all product input through the Product Owner.
+
+A product-specific skill normally contains only `.aafe/skills/<skill-name>/SKILL.md`. Add resource folders only when used; omit `agents/` and `agents/openai.yaml` unless a concrete runtime integration requires them.
+
+
+FILE artefacts/definition-of-done.md
+---
+type: Definition of Done
+status: stable
+created: "2026-10-18"
+updated: "2026-10-18"
+generated: { by: "process:bootstrap-product-development", at: "2026-10-18T10:00:00Z" }
+product: "greeting"
+---
+
+# Definition of Done
+
+Work is part of an Increment only when all of the following are true:
+
+- all relevant automated and manual tests pass;
+- all regression tests pass and no regression is known;
+- affected existing features still work;
+- all Acceptance Criteria are fulfilled;
+- Product Code is integrated, executable, and usable;
+- stack-appropriate linting is configured and all required checks have passed on the final integrated state with zero errors and warnings;
+- there are no known unresolved bugs (Zero Bug Policy);
+- known limitations are transparent;
+- Increment Documentation has been created; and
+- the Product Owner has inspected the Increment Documentation, run the Increment when reasonably possible, assessed it against the PBI, Sprint Goal, Product Goal, and Product Vision, and the assessment is recorded.
+
+Product Owner inspection supplies product feedback; it is not approval or rejection. The inspection criterion is fulfilled by completing and recording the assessment, irrespective of whether it produces follow-up work. Developers remain accountable for determining that the Definition of Done is met.
+
+## Linting
+
+Developers select actively maintained linting compatible with every relevant language and component when choosing or expanding the technology stack. The Programmer versions configuration and pins tool versions in the product repository, provides a reproducible automated invocation, and integrates it into existing automated quality checks when available. Setup and a clean run are required before the first testable handoff.
+
+Missing setup, failed, blocked, aborted, or unexecuted checks and open findings prevent Done. Changes to relevant source, tool versions, or configuration require fresh evidence. A successful exit status alone does not establish a clean run.
+
+Do not weaken rules, exclude affected files, or suppress findings to obtain a pass. Legitimate exceptions require a narrow scope, technical rationale, and recorded joint Developer review. Only a jointly reviewed and recorded absence of lintable source or technical files permits non-applicability; reassess when the stack or files change.
+
+## Minimum Increment Documentation
+
+- understandable description of the Increment;
+- instructions for trying it;
+- test results;
+- linting invocation, tool versions, configuration, checked scope, source revision or exact worktree state, and actual results, or the jointly reviewed non-applicability rationale;
+- relevant commits, diffs, and Pull Requests;
+- known limitations; and
+- links to the Product Backlog Item and Sprint Goal.
+
+## After Done
+
+Developers document possible Retrospective topics after declaring the work Done. This follow-up does not change the Increment's Done status.
+
+
+FILE artefacts/definition-of-ready.md
+---
+type: Definition of Ready
+status: stable
+created: "2026-10-18"
+updated: "2026-10-18"
+generated: { by: "process:bootstrap-product-development", at: "2026-10-18T10:00:00Z" }
+product: "greeting"
+---
+
+# Definition of Ready
+
+A Product Backlog Item is ready to be considered for Sprint selection when:
+
+- it has a clear title;
+- it contains a summary in the form “As a <user>, I want <capability>, so that <goal>” in the product's working language;
+- it contains at least one observable Acceptance Criterion;
+- material open questions are visible; and
+- it is sufficiently understood and small enough to be selected for one Sprint as a valuable, testable vertical slice; and
+- a larger item has been split using the shared Product Backlog Item Splitting practice unless a further split would lose a meaningful outcome or create disproportionate coordination overhead.
+
+The Definition of Ready is a complementary working agreement, not an official Scrum artifact and not a commitment that the item will be selected.
+
+
+FILE artefacts/increment-documentation/greeting-collective-done.md
+---
+type: Decision
+title: Personal greeting collective Definition of Done
+created: "2026-10-18"
+updated: "2026-10-18"
+status: stable
+generated: { by: "tester/gpt-6", at: "2026-10-17T22:29:03.714492+00:00" }
+---
+
+# Collective Developer assessment
+
+Tester `/root/lint_tester` independently reviewed the complete [Definition of Done](../definition-of-done.md), [Increment Documentation and Programmer vote](greeting.md), [recorded Product Owner assessment](greeting-product-assessment.md), and the linked [independent test evidence](../sprints/sprint-001/sprint-backlog/test-evidence.md) and implementation evidence. Historical results remain unchanged.
+
+Current source/configuration SHA-256 hashes for all five non-bytecode Product Code files exactly match the independently tested manifest. Installed pinned versions also match: Flake8 7.3.0, pycodestyle 2.14.0, pyflakes 3.4.0, mccabe 0.7.0. No relevant source, tool or configuration change or new failure was found, so passing tests were not rerun.
+
+| Actual Definition of Done criterion | Tester conclusion and supporting evidence |
+| --- | --- |
+| All relevant automated/manual tests pass | Met: independently executed exact Ada check, Grace substitution and one-test suite passed. |
+| All regression tests pass; no regression known | Met: full suite and independent substitution passed; no regression reported subsequently. |
+| Affected existing features still work | Met: greeting function directly invoked for both names with expected results. |
+| All Acceptance Criteria fulfilled | Met: `greet("Ada")` equals exactly `Hello, Ada!`. |
+| Product Code integrated, executable, usable | Met: current unchanged hashed state imported and invoked successfully, also directly exercised by PO. |
+| Lint configured; all required checks pass with zero errors/warnings on final state | Met: pinned tools, default rules with 79-column configuration, runner checking all Python implementation/test/runner files; independent Flake8 run emitted no findings. Current hashes and versions match that evidence. Repaired W291 is covered by fresh checks, not merely an exit-zero assertion. |
+| No known unresolved Bugs | Met: no new Bug from Programmer, Tester or PO; historical whitespace failure repaired and independently verified. |
+| Known limitations transparent | Met: documented callable-function scope, no browser, Python/pinned-tool environment, undefined empty-name/type expectations; no failed requirement disguised as limitation. |
+| Increment Documentation created | Met: greeting.md describes behavior, try-it commands, tests, lint invocation/versions/configuration/scope/hashes/results, links and limitations; fixture absence of Git/PR recorded. |
+| PO inspection/run/alignment assessment recorded | Met: PO directly ran Ada and Grace; greeting-product-assessment.md records PBI, Sprint Goal, Product Goal and Vision alignment with no Bug or new product change. |
+
+## Collective result
+
+**Tester vote: all ten Definition of Done criteria are met.** This agrees with the separately attributable positive Programmer vote by `/root/lint_setup` recorded in greeting.md after PO assessment. No criterion is waived. Together these two Developer conclusions establish the personal greeting Increment as Done.
+
+Signal: `increment.done`, collectively attributable to Programmer `/root/lint_setup` and Tester `/root/lint_tester`, for `pbi-0001` and this documented Increment. PO assessment supplies product feedback, not the Done decision. This signal does not finish the Sprint or authorize release/demonstration. Host routing remains separate.
+
+## After-Done Retrospective topic
+
+Consider whether the whitespace integration scenario suggests a useful improvement in quality feedback timing. This potential improvement does not alter Done.
+
+
+FILE artefacts/increment-documentation/greeting-product-assessment.md
+---
+type: Product Assessment
+title: Personal greeting product assessment
+created: "2026-10-18"
+updated: "2026-10-18"
+status: stable
+generated: { by: "product-owner/gpt-6", at: "2026-10-17T22:27:34.668547+00:00" }
+---
+
+# Product assessment
+
+Inspected the [Increment Documentation](greeting.md), its referenced product direction, selected work, Developer Plan, implementation evidence, independent Tester evidence, and Definition of Done. This records product feedback for the Developers' collective decision.
+
+## Observed outcome and value
+
+Ran the documented greeting locally using Python with bytecode writes disabled. `greet("Ada")` returned exactly `Hello, Ada!`; `greet("Grace")` returned exactly `Hello, Grace!`. The command exited 0 with no stderr. Commands and raw output are preserved in workspace `evidence/po.jsonl`.
+
+| Product reference | Assessment |
+| --- | --- |
+| [Selected PBI](../sprints/sprint-001/sprint-backlog/pbi-0001-greet.md) | The observed Ada output matches the exact acceptance criterion, and name substitution supports the requested personal greeting. |
+| [Sprint Goal](../sprints/sprint-001/sprint-backlog/sprint-goal.md) | The observed result delivers the intended personal greeting. |
+| [Product Goal](../product-backlog/current-product-goal.md) | The observed result demonstrates receiving a greeting with the user's name. |
+| [Product Vision](../product-backlog/product-vision.md) | The documented invocation makes a personal greeting available and supports making personal greetings easy within this small callable-function scope. |
+
+## Usability, limitations and feedback
+
+The try-it instructions are sufficient to reproduce the greeting in the supplied Python environment. There is no browser interface; usability observed here is the documented local function invocation. Empty names and invalid types remain outside the agreed acceptance expectations. The documentation transparently states environment requirements and limitations. No newly requested product change or new Bug emerged, so no follow-up PBI is created.
+
+The Programmer and separate Tester's current lint and regression results are documented in the Increment Documentation and their own evidence. This inspection adds direct product observation without replacing those results or their historical failure record.
+
+## Routing
+
+Product inspection and this assessment are recorded. Signal: `product-assessment.recorded`. The host should resume both Developers for their collective Definition of Done decision. This assessment makes no Done, release, demonstration, or Sprint completion decision.
+
+
+FILE artefacts/increment-documentation/greeting.md
+---
+type: Increment Documentation
+title: Personal greeting increment
+created: "2026-10-18"
+updated: "2026-10-18"
+status: draft
+generated: { by: "programmer/gpt-6", at: "2026-10-17T22:28:05.099243+00:00" }
+---
+
+# Personal greeting
+
+The [selected PBI](../sprints/sprint-001/sprint-backlog/pbi-0001-greet.md) implements the [Sprint Goal](../sprints/sprint-001/sprint-backlog/sprint-goal.md): a user receives a greeting using their name. This supports the [Product Goal](../product-backlog/current-product-goal.md) and [Vision](../product-backlog/product-vision.md).
+
+## Try it
+
+From the workspace root, run:
+
+```sh
+/Users/sebastiankeller/miniconda3/bin/python -c 'import sys; sys.path.insert(0, "product-code"); from greeting import greet; print(greet("Ada"))'
+/Users/sebastiankeller/miniconda3/bin/python product-code/check.py
+```
+
+Expected greeting: `Hello, Ada!`. On another environment use Python with the pinned `product-code/requirements-dev.txt`; `python product-code/check.py` resolves the source directory itself.
+
+## Implementation and independent evidence
+
+The [Developer Plan](../sprints/sprint-001/sprint-backlog/developer-plan.md), [implementation evidence](../sprints/sprint-001/sprint-backlog/implementation-evidence.md), and [independent Tester evidence](../sprints/sprint-001/sprint-backlog/test-evidence.md) distinguish responsibilities. Programmer and Tester each ran the full project check, exit 0, no lint findings, one passing unittest. The independent Tester additionally verified exact Ada output and Grace name substitution.
+
+The intermediate W291 trailing-whitespace failure was preserved, repaired without suppressing rules, and followed by fresh passing checks. The current five-file manifest below matches the independently tested manifest exactly. Source, tool, or configuration changes require renewed relevant checks. Raw commands, stdout/stderr, and historical results remain in workspace `evidence/programmer.jsonl` and `evidence/tester.jsonl`. No Git repository exists in the fixture; there is no commit, Git diff, or PR. This iteration added `.flake8`, pinned requirements, and `check.py`; greeting behavior and acceptance test are preserved.
+
+## Required linting
+
+Executed Python: 3.12.7. Flake8 7.3.0 with pycodestyle 2.14.0, pyflakes 3.4.0, mccabe 0.7.0. Versions are pinned in Product Code. `product-code/.flake8` sets max line length 79 and otherwise retains default checks with no suppressions or extra exclusions. The runner executes `python -m flake8 .` within Product Code, covering implementation, test code, and runner; then `python -m unittest discover -s . -v`. Result: zero errors and warnings; one test passed. There was no preexisting CI pipeline. Local tool availability and compatibility were checked; online maintenance verification was not performed.
+
+| Checked file | SHA-256 |
+| --- | --- |
+| `product-code/.flake8` | `46a3d359caa0db87e7f982c419f003764ae087bf7f92b209b9293341d4b1bbb7` |
+| `product-code/check.py` | `88dbf61f7deb829c87ada029d23c8c52c7b896d2de797cff7c62bfb20c394ede` |
+| `product-code/greeting.py` | `a55c14346b5c0e11da873793db175efd28d4840a330a5edba18d03d7d7310626` |
+| `product-code/requirements-dev.txt` | `3cc4396e4f1f6e6020835663fb43ddabfa727ab8cdc1d5d7f9954a8cfbdf50f8` |
+| `product-code/test_greeting.py` | `997d9e931ab16543c8893349bb409e50d731f77f39a14d5ad4467d1811f86710` |
+
+## Definition of Done evidence
+
+Against the [Definition of Done](../definition-of-done.md):
+
+| Criterion | Evidence and current state |
+| --- | --- |
+| Relevant automated and manual checks pass | Programmer unittest and independent Tester exact greeting and substitution checks pass. |
+| Regression tests pass, none known | Full one-test suite and independent substitution check pass. |
+| Existing features still work | Greeting preserved; independently observed Ada and Grace results. |
+| Acceptance Criteria fulfilled | Tester observed exact `Hello, Ada!`. |
+| Integrated, executable, usable | Import and invocation succeeded on current hashed state. |
+| Lint configured, current clean run | Pinned configuration and runner above; independent run has zero errors/warnings on identical manifest. |
+| Zero unresolved bugs | No known unresolved bugs reported; W291 was repaired and rechecked. |
+| Limitations transparent | See scope below. |
+| Increment Documentation created | This document includes every required evidence item; collective completion pending. |
+| PO inspection and assessment recorded | [Product assessment](greeting-product-assessment.md) records direct Ada and Grace execution and alignment with PBI, Sprint Goal, Product Goal, and Vision. |
+
+## Scope and remaining assessment
+
+No browser UI or external I/O exists. Empty-name and invalid-type behavior has no agreed criterion and is not asserted as product scope. No known failure is reclassified as a limitation. All observed required checks pass, but this is not a Done declaration. The [Product Owner assessment](greeting-product-assessment.md) is recorded. The host will resume the same Tester for collective Developer review. Human release or demonstration and Sprint transitions remain separate.
+
+## Programmer criterion-level vote
+
+Programmer `/root/lint_setup`, after the recorded Product Owner assessment, reviews each of the ten criteria in the table above as satisfied on the documented current state: relevant tests, regression, existing behavior, exact acceptance criterion, integrated execution, configured current clean lint, zero known unresolved bugs, transparent limitations, complete Increment Documentation, and recorded PO inspection. Each conclusion is supported by its corresponding table evidence and the linked independent records. No criterion is waived.
+
+The current five source/configuration hashes and installed tool versions still match the independently tested evidence. No new changes or failures require test or lint reruns. The historical W291 failure remains recorded and its repaired state is covered by fresh successful Programmer and Tester checks. PO assessment supplies product observation, not a Done or release decision.
+
+**Programmer vote: all Definition of Done criteria met.** This is one attributable Developer contribution, not a unilateral Done declaration. The same independent Tester must now contribute its own conclusion; collective Done remains pending. No Sprint, release, or demonstration transition is requested.
+
+
+FILE artefacts/increment-documentation/index.md
+# Increment Documentation
+
+Add completed Increment Documentation here and link it to its Product Backlog Item and Sprint Goal. Product Code belongs in the workspace's top-level `product-code/` directory, never here.
+
+- [Personal greeting increment](greeting.md) — product assessment recorded; collective Done pending.
+
+- [Personal greeting product assessment](greeting-product-assessment.md) — observed product outcomes and feedback for collective Developer review.
+
+- [Collective Developer Done assessment](greeting-collective-done.md)
+
+
+FILE artefacts/index.md
+---
+okf_version: "0.2"
+created: "2026-10-18"
+updated: "2026-10-18"
+---
+
+# Greeting
+
+## Product direction
+
+- [Product Vision](product-backlog/product-vision.md)
+- [Current Product Goal](product-backlog/current-product-goal.md)
+- [Product Backlog](product-backlog/index.md)
+
+## Shared quality agreements
+
+- [Definition of Ready](definition-of-ready.md)
+- [Definition of Done](definition-of-done.md)
+
+## Delivery
+
+- [Sprints](sprints/index.md)
+- [Increment Documentation](increment-documentation/index.md)
+- [Retrospectives](retrospectives/index.md)
+
+
+FILE artefacts/product-backlog/current-product-goal.md
+---
+type: Product Goal
+created: "2026-10-18"
+updated: "2026-10-18"
+---
+
+# Goal
+
+Users receive a greeting with their name.
+
+
+FILE artefacts/product-backlog/index.md
+# Product Backlog
+
+## Product direction
+
+- [Product Vision](product-vision.md)
+- [Current Product Goal](current-product-goal.md)
+
+## Available work
+
+The order of links in this file is the authoritative order for work currently available to the Product Owner. Planning moves selected PBI files into the Sprint Backlog; unfinished Sprint work returns here for reordering.
+
+No Product Backlog Items exist yet. Create them under `items/` as `pbi-0001-short-readable-slug.md` and never reuse an ID.
+
+
+FILE artefacts/product-backlog/product-vision.md
+---
+type: Product Vision
+created: "2026-10-18"
+updated: "2026-10-18"
+---
+
+# Vision
+
+Make personal greetings easy.
+
+
+FILE artefacts/retrospectives/index.md
+# Retrospectives
+
+Record Sprint Retrospective results here. Propose improvements to agents, skills, rules, templates, formats, or process as Pull Requests against `.aafe/`; never silently modify the base framework or expand permissions.
+
+
+FILE artefacts/sprints/index.md
+# Sprints
+
+Create a directory after Sprint Planning establishes a Sprint Goal. Use `sprint-0001-three-word-goal/` and do not rename it after the Sprint begins.
+
+Each Sprint directory contains `developer-plan.md` and `sprint-backlog/`. The Sprint Backlog contains `index.md`, `sprint-goal.md`, selected PBIs, Bugs, and other work artifacts.
+
+
+FILE artefacts/sprints/sprint-001/sprint-backlog/developer-plan.md
+---
+type: Developer Plan
+created: "2026-10-18"
+updated: "2026-10-18"
+generated: { by: "programmer/gpt-6", at: "2026-10-17T22:24:36.754314+00:00" }
+---
+
+# Developer Plan
+
+Implement the greeting with Python. Automated named-user test, independent Tester check, PO assessment, collective Done. Sprint active; no UI.
+
+Implementation is testable: greeting and Ada acceptance test pass. Flake8 7.3.0 with pinned dependencies checks every Python file under Product Code, including tests and the check runner. Run `python product-code/check.py` from the workspace root; the runner resolves its own directory. Configuration retains default rules and explicitly sets a 79-column line limit. No suppressions or added exclusions.
+
+See [implementation evidence](implementation-evidence.md). Next: independent Tester verification, Increment documentation and Product Owner assessment, then collective Developer Done review. No Done decision has been made.
+
+Integration follow-up: reproduced and fixed W291 trailing whitespace, then reran all project checks successfully on the repaired source. Earlier evidence was superseded for current-state acceptance; raw historical evidence is preserved. Ready again for independent Tester verification.
+
+Independent Tester verification passed on the repaired integrated state: exact Ada acceptance check, Grace substitution exploration, required Flake8 and unittest checks. See [test evidence](test-evidence.md). Programmer results are preserved. Next: Increment Documentation, Product Owner assessment and collective Developer Done; no Done decision yet.
+
+
+FILE artefacts/sprints/sprint-001/sprint-backlog/implementation-evidence.md
+---
+type: Implementation Evidence
+title: Greeting implementation testable handoff
+created: "2026-10-18"
+updated: "2026-10-18"
+status: draft
+generated: { by: "programmer/gpt-6", at: "2026-10-17T22:24:36.754314+00:00" }
+---
+
+# Testable handoff
+
+The [selected PBI](pbi-0001-greet.md) implements the [Sprint Goal](sprint-goal.md): `greet("Ada")` returns exactly `Hello, Ada!`.
+
+## Reproduce
+
+Product Code is under `product-code/` at the workspace root. Python 3.12.7 was used. The check runner works from any directory:
+
+```sh
+/Users/sebastiankeller/miniconda3/bin/python product-code/check.py
+```
+
+On another Python environment, install the pinned `product-code/requirements-dev.txt` before running `python product-code/check.py`. No packages were installed during this handoff.
+
+Flake8 7.3.0, pycodestyle 2.14.0, pyflakes 3.4.0, and mccabe 0.7.0 are pinned. Flake8 was supplied locally as a compatible maintained linter; online maintenance status was not checked. `product-code/.flake8` sets a 79-column limit and otherwise uses default rules, without suppressions or extra exclusions. The runner checks all Python files in Product Code (implementation, tests, runner), then discovers all unittest tests. There was no existing automated quality pipeline to extend.
+
+## Executed results
+
+The final runner exited 0. Flake8 emitted no findings: zero errors and warnings. The one unittest case `test_named_user` passed. Programmer verification is implementation evidence; independent Tester verification remains pending.
+
+Raw command results and the exact SHA-256 worktree manifest in workspace file `evidence/programmer.jsonl` identify the checked files. This fixture has no Git repository, so no commit, diff, or PR exists. Product behavior and existing acceptance test were unchanged; only lint configuration, pinned development dependencies, and the combined check runner were added.
+
+## Remaining review
+
+Independent Tester verification, Product Owner assessment, Increment Documentation, and collective Developer Done are pending. No known implementation failures were observed. This handoff does not declare Done. The local runtime path above is the actual executed interpreter; portable reproduction uses an equivalent environment with the pinned requirements.
+
+## Renewed integrated-state verification
+
+After the initial handoff, a harness-controlled integration edit introduced trailing whitespace. The earlier pass no longer represented the integrated source. The normal project runner reproduced `./greeting.py:2:29: W291 trailing whitespace` and exited 1. A separately reported exit-zero adapter run also contained this finding and was not accepted as clean evidence.
+
+The Programmer removed only the trailing whitespace, retained the lint rules, and reran the same project command. Flake8 produced zero findings and the one behavioral test passed; the runner exited 0. Fresh source hashes and both actual runner outputs are appended to `evidence/programmer.jsonl`. This renews the testable handoff; independent testing and collective Done remain pending.
+
+
+FILE artefacts/sprints/sprint-001/sprint-backlog/index.md
+# Active Sprint
+
+- [Goal](sprint-goal.md)
+- [Selected PBI](pbi-0001-greet.md)
+- [Plan](developer-plan.md)
+- [Implementation evidence](implementation-evidence.md)
+
+- [Independent test evidence](test-evidence.md)
+
+
+FILE artefacts/sprints/sprint-001/sprint-backlog/pbi-0001-greet.md
+---
+type: Product Backlog Item
+created: "2026-10-18"
+updated: "2026-10-18"
+id: pbi-0001
+backlog_state: selected
+---
+
+# Greeting
+
+As a user I want a greeting using my name.
+
+AC: Input Ada yields exactly Hello, Ada!.
+
+
+FILE artefacts/sprints/sprint-001/sprint-backlog/sprint-goal.md
+---
+type: Sprint Goal
+created: "2026-10-18"
+updated: "2026-10-18"
+---
+
+# Sprint Goal
+
+A user receives a personal greeting.
+
+
+FILE artefacts/sprints/sprint-001/sprint-backlog/test-evidence.md
+---
+type: Test Evidence
+title: Independent greeting verification
+created: "2026-10-18"
+updated: "2026-10-18"
+status: stable
+generated: { by: "tester/gpt-6", at: "2026-10-17T22:25:41.199227+00:00" }
+---
+
+# Independent verification
+
+The [PBI](pbi-0001-greet.md) and [Sprint Goal](sprint-goal.md) were independently checked after implementation.testable on the repaired integrated source. No production source was modified. Programmer evidence and earlier failure history remain intact in [implementation evidence](implementation-evidence.md).
+
+## Environment and executed checks
+
+Python 3.12.7; working directory `/private/tmp/aaf-lint-20261018/product`. Interpreter: `/Users/sebastiankeller/miniconda3/bin/python`.
+
+- Business-facing check: import `greet`, execute `greet("Ada")`, compare exact value to `Hello, Ada!`. Observed `'Hello, Ada!'`; passed.
+- Exploratory regression: execute `greet("Grace")`, expect `Hello, Grace!`; passed. This checks substitution without imposing undefined empty-name or invalid-type behavior.
+- Required project check: execute `python product-code/check.py`. Exit 0; Flake8 emitted no findings and unittest `test_named_user` passed (1 test). No errors or warnings appeared in lint output. All Python files under Product Code were checked, including source, test and runner.
+- Installed tools match pins: Flake8 7.3.0, pycodestyle 2.14.0, pyflakes 3.4.0, mccabe 0.7.0. Configuration: `product-code/.flake8`, 79-column limit, default rules with no suppressions or extra exclusions.
+
+Exact commands, stdout/stderr, and SHA-256 source/configuration manifest are in workspace `evidence/tester.jsonl`. The separate `pip show` inventory command emitted an environment cache-directory warning; it is not a lint finding and did not affect execution. No installation was attempted. This fixture has no Git revision.
+
+## Risk and next transition
+
+No browser UI exists, so browser, accessibility and cross-browser checks are inapplicable here. The tiny pure greeting function has no external I/O or performance-sensitive path; extra security or load suites are not proportionate. No new Bug was observed. These are executed Tester results, not a collective Done decision. Increment Documentation and recorded Product Owner assessment must precede collective Developer review. Host routing is required next.
+
+
+FILE product-code/.flake8
+[flake8]
+max-line-length = 79
+
+
+FILE product-code/check.py
+"""Run all Python lint and behavioral checks from any working directory."""
+
+from pathlib import Path
+import subprocess
+import sys
+
+
+ROOT = Path(__file__).resolve().parent
+
+
+def main():
+    commands = (
+        [sys.executable, "-m", "flake8", "."],
+        [sys.executable, "-m", "unittest", "discover", "-s", ".", "-v"],
+    )
+    for command in commands:
+        print("+ " + " ".join(command), flush=True)
+        result = subprocess.run(command, cwd=ROOT, check=False)
+        if result.returncode:
+            return result.returncode
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+
+
+FILE product-code/greeting.py
+def greet(name):
+    return f"Hello, {name}!"
+
+
+FILE product-code/requirements-dev.txt
+flake8==7.3.0
+pycodestyle==2.14.0
+pyflakes==3.4.0
+mccabe==0.7.0
+
+
+FILE product-code/test_greeting.py
+import unittest
+
+from greeting import greet
+
+
+class GreetingTest(unittest.TestCase):
+    def test_named_user(self):
+        self.assertEqual(greet("Ada"), "Hello, Ada!")
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -4,8 +4,8 @@ title: Framework Guide
 description: A human-oriented guide to starting and operating a product with AAF.
 status: draft
 created: "2026-08-26"
-updated: "2026-10-11"
-generated: { by: "codex/gpt-5", at: "2026-10-11T13:30:00+02:00" }
+updated: "2026-10-18"
+generated: { by: "codex/gpt-6", at: "2026-10-18T00:23:19+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -105,6 +105,14 @@ The arrows show responsibility and one possible host-mediated message flow. Tran
 - Agent identifiers and lifecycle events in the runtime trace.
 
 The filesystem is deliberately inspectable. It allows a human or resumed agent to understand current state without depending on hidden conversation memory.
+
+## Linting as a quality baseline
+
+When Developers choose or extend a technology stack, they also select compatible, actively maintained linting. The Programmer configures it before the first testable handoff. Concrete tools, pinned versions, configuration, and reproducible commands belong to the product repository.
+
+Linting covers relevant source and test files. Every required check must complete without errors or warnings on the final integrated state before Done. Increment Documentation links the actual execution evidence; relevant source, version, or configuration changes require a fresh run. Missing tooling blocks completion. Developers may jointly document non-applicability only when no lintable files exist, and must reassess it when the product changes. Narrow, justified, jointly reviewed exceptions may address false positives; suppressing real findings cannot satisfy Done.
+
+Existing product workspaces adopt this baseline in their Definition of Done when updating to the framework version that introduces it.
 
 ## Extend one product without forking AAF
 

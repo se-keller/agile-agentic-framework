@@ -35,3 +35,5 @@ Place concise reports under `evals/reports/` or in the relevant review record. I
 - [Developer-specialization progressive loading](developer-specialization-progressive-loading.md) protects Programmer and Tester workflows.
 - [Product Owner progressive loading](product-owner-progressive-loading.md), [OKF progressive loading](okf-progressive-loading.md), and [Sprint-cycle progressive loading](sprint-cycle-progressive-loading.md) protect their respective loading boundaries.
 - [Engineering skills](engineering-skills.md) checks language-agnostic SOLID design and test-pyramid behavior.
+
+- [Technology-neutral linting](linting.md) checks stack setup, current clean evidence, exceptions, applicability, and collective Done.

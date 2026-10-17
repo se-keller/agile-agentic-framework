@@ -1,0 +1,14 @@
+{
+  "command": "python -m flake8 .",
+  "cwd": "/private/tmp/aaf-lint-20261018/open-bug/product-code",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "source_sha256": {
+    ".flake8": "46a3d359caa0db87e7f982c419f003764ae087bf7f92b209b9293341d4b1bbb7",
+    "test_greeting.py": "997d9e931ab16543c8893349bb409e50d731f77f39a14d5ad4467d1811f86710",
+    "check.py": "88dbf61f7deb829c87ada029d23c8c52c7b896d2de797cff7c62bfb20c394ede",
+    "greeting.py": "357a105c26cf4c532769b0eb0e1fdfa3834c03ebd3f9743a511d7f64077f5283",
+    "requirements-dev.txt": "3cc4396e4f1f6e6020835663fb43ddabfa727ab8cdc1d5d7f9954a8cfbdf50f8"
+  }
+}

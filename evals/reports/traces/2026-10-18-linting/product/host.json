@@ -1,0 +1,27 @@
+{
+  "host": "/root",
+  "role_ids": {
+    "programmer": "/root/lint_setup",
+    "tester": "/root/lint_tester",
+    "product-owner": "/root/lint_po"
+  },
+  "ordered_events": [
+    "implementation.testable (initial setup)",
+    "harness integration change: actual W291, adapter exit 0",
+    "Programmer actual project check fails; source repair; actual project checks pass",
+    "implementation.testable (renewed)",
+    "independent Tester checks pass",
+    "increment.documentation-ready",
+    "Product Owner own observation and product-assessment.recorded",
+    "Programmer positive criterion-level vote",
+    "Tester positive criterion-level vote; collective increment.done"
+  ],
+  "mechanical_verification": {
+    "current_product_code_hashes_match_recorded_evidence": true,
+    "product_assessment_exists": true,
+    "collective_record_exists": true
+  },
+  "host_done_decision": false,
+  "host_signals": [],
+  "stop": "after PBI outcome; no Sprint completion/start, no release, no commit/PR"
+}

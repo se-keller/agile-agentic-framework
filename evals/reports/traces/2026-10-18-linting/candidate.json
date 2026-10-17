@@ -1,0 +1,18 @@
+{
+  "target": "fb196ddc7c04281e1d3842d0a7f9840a967bd079",
+  "candidate_files": {
+    "docs/architecture.md": "eb8638353a6d060508e61774c5dbd326c578b2df9208e669759d151bc57e15b4",
+    "docs/design-decisions.md": "beade792011e822f19e13f5b3ebc6f7f024843617fd75afc46059ce8b58e4b7c",
+    "docs/framework-guide.md": "7286a5ab82df490a41c8dc2c851792019f139c994111a2b7d71e921ac6831ff5",
+    "docs/glossary.md": "c888267fe6d5335a5f77e997399af24ebb5ac636f3b1fc283afc5e8bc9e8dc3c",
+    "docs/sprint-lifecycle.md": "8acfc7660b27186a860d32fb639ad3d7b291a1e7f3b3019da4541c1b611502ca",
+    "evals/AGENTS.md": "75d1843ecb067e7f54719d3809195d1a893ca736aa8781ce4f0080636157085a",
+    "skills/agent-core-skills/developer-core/SKILL.md": "408d940544583bb8558a07a174839eda22339c27e7cd2368e3af4978ef1e5c5b",
+    "skills/agent-core-skills/developer-core/references/establish-done-collectively.md": "77e32a0069593e8749d7188ad652c31621908e8a3d2cbb9fe7573de1e9309b0e",
+    "skills/agent-core-skills/programmer-core/SKILL.md": "2bbbb876e1b3f121e0f86c3d2e4271d9571ec668a9049e6cb9ef40e1d719423f",
+    "skills/agent-core-skills/programmer-core/references/plan-implementation.md": "c1daddd94419a1b81596a4a59f7566d00223e878696c955c09c3dde3da1e5bb3",
+    "skills/agent-core-skills/programmer-core/references/prepare-change-handoff.md": "1b15734c226e09ea5cb7a46ffd2545444fadd7c5affc57d2d3cb8ffd2507502e",
+    "skills/bootstrap-product-development/assets/product-development-skeleton/artefacts/definition-of-done.md": "a2956672ec724a086bb76502b58735ab26236e284e0cf04d9c2ac8eee80b9547"
+  },
+  "fixture": "/private/tmp/aaf-lint-20261018"
+}

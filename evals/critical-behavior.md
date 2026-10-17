@@ -2,6 +2,8 @@
 
 These cases protect the framework's most important role and lifecycle boundaries. They are runtime-neutral and outcome-focused. In each run, give the subject agent only the **Situation** and **Task** sections; reserve the remaining sections for evaluation.
 
+Critical linting cases `EVAL-LINT-002`, `003`, and `005` are defined in [technology-neutral linting evaluations](linting.md) and belong to the full critical suite.
+
 ## EVAL-PO-001: Product Owner preserves the implementation boundary
 
 - **Critical:** yes

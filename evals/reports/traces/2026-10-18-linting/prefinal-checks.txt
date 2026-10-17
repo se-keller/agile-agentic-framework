@@ -1,0 +1,11 @@
+exit_code: 1
+Traceback (most recent call last):
+  File "/Users/sebastiankeller/Documents/devenv/agile-agentic-framework/evals/run_deterministic_checks.py", line 107, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/sebastiankeller/Documents/devenv/agile-agentic-framework/evals/run_deterministic_checks.py", line 99, in main
+    check_local_links()
+  File "/Users/sebastiankeller/Documents/devenv/agile-agentic-framework/evals/run_deterministic_checks.py", line 55, in check_local_links
+    raise RuntimeError("Missing local Markdown links:\n" + "\n".join(missing))
+RuntimeError: Missing local Markdown links:
+evals/reports/2026-10-18-linting.md: traces/2026-10-18-linting/deterministic-checks.txt

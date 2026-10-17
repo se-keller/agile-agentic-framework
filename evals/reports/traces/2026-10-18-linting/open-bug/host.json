@@ -1,0 +1,16 @@
+{
+  "case": "EVAL-DONE-001",
+  "host": "/root",
+  "programmer": "/root/done_programmer_calibrated",
+  "tester": "/root/done_tester_calibrated",
+  "mechanical_inspection": {
+    "increment_documentation_exists": true,
+    "bug_open": true,
+    "required_test_exit": 1,
+    "current_lint_exit": 0,
+    "programmer_done": false,
+    "tester_done": false
+  },
+  "signals_emitted": [],
+  "transition": "withheld: open Bug, failed required test and no positive collective Done. No Sprint completion or release."
+}

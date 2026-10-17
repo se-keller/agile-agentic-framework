@@ -1,0 +1,14 @@
+{
+  "case": "EVAL-DONE-001",
+  "host": "/root",
+  "programmer": "/root/done_programmer",
+  "tester": "/root/done_tester",
+  "mechanical_inspection": {
+    "bug_open": true,
+    "required_test_exit": 1,
+    "programmer_done": false,
+    "tester_done": false
+  },
+  "signals_emitted": [],
+  "transition": "withheld: no collective positive Done evidence; open Bug and failed required test remain. No Sprint completion; no Product Code changes by host."
+}

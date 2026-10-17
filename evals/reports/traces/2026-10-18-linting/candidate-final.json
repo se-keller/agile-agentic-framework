@@ -1,0 +1,24 @@
+{
+  "target_commit": "fb196ddc7c04281e1d3842d0a7f9840a967bd079",
+  "candidate": "uncommitted working tree",
+  "files": {
+    "evals/linting.md": "48b6cd597409d77a0d9460da40a67d4ca5b817b707ef1f44c1e75cd9fe960e12",
+    "evals/reports/2026-10-18-linting.md": "6b1cea0989a4356a3060f65ca180a97ce6459f34dada74fe125e82b6ee46e2bc",
+    "docs/architecture.md": "0865a8bc42e08d745909432e63cba31d4e04d194e9c25fcf3aec3b5068e3f4ca",
+    "docs/design-decisions.md": "2196d0435679aa939964935cc929b8d5d68575161f1ee9d76a5407e2829d34fb",
+    "docs/framework-guide.md": "8d015702c6e8345f9e08b4d3e2a3969664d1584b0c2aaf01b8052b8c89d560e4",
+    "docs/glossary.md": "d1b9c03899a563eaa3ea70892d05fac00f0b17f1fc7cf22c329d6b2a7de5bf8d",
+    "docs/sprint-lifecycle.md": "23cc245ed42f887016084d128c1948412d7296f36024aee8de9b2dd08d77594f",
+    "evals/AGENTS.md": "75d1843ecb067e7f54719d3809195d1a893ca736aa8781ce4f0080636157085a",
+    "evals/critical-behavior.md": "8aa53a782201b65f35b48ebaf269c6e14dbe5d0dcf36014328df18f466122ba0",
+    "skills/agent-core-skills/developer-core/SKILL.md": "408d940544583bb8558a07a174839eda22339c27e7cd2368e3af4978ef1e5c5b",
+    "skills/agent-core-skills/developer-core/references/establish-done-collectively.md": "77e32a0069593e8749d7188ad652c31621908e8a3d2cbb9fe7573de1e9309b0e",
+    "skills/agent-core-skills/programmer-core/SKILL.md": "2bbbb876e1b3f121e0f86c3d2e4271d9571ec668a9049e6cb9ef40e1d719423f",
+    "skills/agent-core-skills/programmer-core/references/plan-implementation.md": "c1daddd94419a1b81596a4a59f7566d00223e878696c955c09c3dde3da1e5bb3",
+    "skills/agent-core-skills/programmer-core/references/prepare-change-handoff.md": "1b15734c226e09ea5cb7a46ffd2545444fadd7c5affc57d2d3cb8ffd2507502e",
+    "skills/bootstrap-product-development/assets/product-development-skeleton/artefacts/definition-of-done.md": "a2956672ec724a086bb76502b58735ab26236e284e0cf04d9c2ac8eee80b9547"
+  },
+  "runtime": "Codex native collaboration agents",
+  "model": "GPT-6 family, inherited runtime settings; exact resolved model and reasoning not exposed",
+  "fixture": "/private/tmp/aaf-lint-20261018"
+}

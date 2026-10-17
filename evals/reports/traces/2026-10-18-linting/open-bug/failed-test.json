@@ -1,0 +1,6 @@
+{
+  "command": "python -m unittest discover -s product-code -v",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "test_named_user (test_greeting.GreetingTest.test_named_user) ... FAIL\n\n======================================================================\nFAIL: test_named_user (test_greeting.GreetingTest.test_named_user)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/tmp/aaf-lint-20261018/open-bug/product-code/test_greeting.py\", line 8, in test_named_user\n    self.assertEqual(greet(\"Ada\"), \"Hello, Ada!\")\nAssertionError: 'Hello!' != 'Hello, Ada!'\n- Hello!\n+ Hello, Ada!\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+}

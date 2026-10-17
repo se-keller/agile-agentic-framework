@@ -4,8 +4,8 @@ title: Design Decisions
 description: A catalog of the main architectural choices in AAF, their rationale, tradeoffs, and evidence strength.
 status: draft
 created: "2026-08-26"
-updated: "2026-10-11"
-generated: { by: "codex/gpt-5", at: "2026-10-11T12:55:01+02:00" }
+updated: "2026-10-18"
+generated: { by: "codex/gpt-6", at: "2026-10-18T00:23:19+02:00" }
 framework: agile-agentic-framework
 decision_state: reconstructed-awaiting-human-verification
 ---
@@ -81,7 +81,7 @@ This catalog reconstructs rationale from current contracts, Git history, and eva
 ## D-009 — Enforce Zero Bug and collective Done
 
 - **Status:** explicit decision
-- **Decision:** A known open Bug or failed required test blocks Done; Developers determine Done collectively after Product Owner assessment and complete evidence.
+- **Decision:** A known open Bug, failed required test, or missing, stale, or non-clean required linting evidence blocks Done; Developers determine Done collectively after Product Owner assessment and complete evidence. Linting is selected with the stack and configured before the first testable handoff, while concrete tools stay product-local. Only a jointly reviewed absence of lintable files permits non-applicability.
 - **Why:** Relabeling defects as limitations would make lifecycle completion untrustworthy. Separating assessment, Done, and release prevents authority collapse.
 - **Tradeoff:** A Sprint may remain active or return unfinished work rather than report nominal completion.
 - **Evidence:** [Developer Done workflow](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/agent-core-skills/developer-core/references/establish-done-collectively.md), [delivery completion](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/references/determine-delivery-completion.md), `EVAL-DONE-001`.

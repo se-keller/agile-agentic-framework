@@ -1,0 +1,19 @@
+{
+  "kind": "harness-controlled-integration-change",
+  "source": "product-code/greeting.py",
+  "before": "def greet(name):\n    return f\"Hello, {name}!\"\n",
+  "after": "def greet(name):\n    return f\"Hello, {name}!\"  \n",
+  "sha256": "3ed3637e071451801d8e80291f068827b9e880338e8801622174dd44d756d939",
+  "command": [
+    "/Users/sebastiankeller/miniconda3/bin/python",
+    "-m",
+    "flake8",
+    ".",
+    "--exit-zero"
+  ],
+  "cwd": "/private/tmp/aaf-lint-20261018/product/product-code",
+  "exit_code": 0,
+  "stdout": "./greeting.py:2:29: W291 trailing whitespace\n",
+  "stderr": "",
+  "note": "Failure-state injection: real source W291 warning with zero exit status via command-line adapter; not project lint policy. Programmer must use versioned check invocation for remediation."
+}
