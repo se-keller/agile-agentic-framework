@@ -6,6 +6,18 @@ This repository defines runtime-neutral agent roles and a shared skill catalog f
 
 For an illustrated guide to framework use, architecture, agentic principles, lifecycle, extensions, evaluations, and design rationale, start with the [OKF documentation bundle](docs/index.md). The documentation is for people and is not operating input for agents.
 
+## Features at a glance
+
+- **Scrum-based collaboration:** Product Owner, Scrum Master, and self-managing Developers with Programmer and Tester specializations, clear accountabilities, and a shared Definition of Done.
+- **Goal-driven delivery:** Connect Product Vision, Product Goal, and Sprint Goal to small, usable Increments, with inspection and adaptation throughout the Sprint.
+- **Product discovery and refinement:** Roman Pichler’s Product Vision Board, explicit assumptions, INVEST, and vertical PBI splitting.
+- **Built-in quality practices:** Continuous integration and testing, a test pyramid, risk-based exploratory and UI testing, mandatory linting, and independent verification.
+- **Maintainable software design:** SOLID principles, focused refactoring, and independent structure reviews.
+- **Real multi-agent execution:** Separate role agents, preserved conversational ownership, and explicit handoffs coordinated by the runtime host.
+- **Inspectable shared knowledge:** Linked Markdown artifacts in Open Knowledge Format (OKF), with provenance, verification, and traceable delivery evidence.
+- **Portable and extensible:** Runtime-neutral roles and skills, product workspace bootstrapping, explicit `.aafe/` extensions, and retrospective-driven improvements.
+- **Evidence-based framework development:** Deterministic checks and behavioral evaluations against accepted baselines.
+
 ## Structure
 
 - `agents/`: one runtime-neutral manifest per agent.

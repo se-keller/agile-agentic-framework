@@ -42,6 +42,8 @@ The English OKF bundle under [`docs/`](docs/index.md) explains framework use, ar
 
 For a semantic framework change, review the documentation map and update every affected concept, or record why it is unaffected in the evaluation report. Keep this lightweight: the commit check validates the documentation bundle and links, while human review determines semantic accuracy.
 
+For every substantial framework change, review the root `README.md` section “Features at a glance” against the resulting capabilities, principles, practices, and techniques. This includes adding, removing, or materially changing roles, skills, lifecycle behavior, quality practices, or extension mechanisms. Update the overview when needed; otherwise record in the evaluation report or review record why it remains accurate. Read the README as human-facing content to maintain, never as agent-operating instructions.
+
 ## Product Owner boundary
 
 The Product Owner may read and run Product Code for Increment inspection but must never modify Product Code or prescribe technical solutions.
