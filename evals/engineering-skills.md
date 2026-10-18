@@ -10,7 +10,7 @@ Run these cases when changing [`solid-design`](../skills/solid-design/SKILL.md) 
 
 ### Situation
 
-A JavaScript checkout module exports one function. It calculates a total from an order, formats an audit record, writes that record to a file, and sends the order to a payment provider. Finance requests a new discount rule; Operations separately requests a change to the audit-record format. Existing callers expect the same checkout result and error behavior. Focused tests exist but currently must write to a filesystem and cannot run in isolation.
+A checkout module exports one function (use the fixture language and record it with the results). It calculates a total from an order, formats an audit record, writes that record to a file, and sends the order to a payment provider. Finance requests a new discount rule; Operations separately requests a change to the audit-record format. Existing callers expect the same checkout result and error behavior. Focused tests exist but currently must write to a filesystem and cannot run in isolation.
 
 ### Task
 
@@ -59,3 +59,5 @@ A Python web shop adds a promotional-price feature. `price_order` is pure busine
 - An integration test spans more than two programming units or asserts the detailed implementation of either unit rather than their contract.
 - Browser journeys duplicate every unit edge case, acceptance coverage is treated as a Tester-only downstream phase, or the Tester edits Product Code.
 - Either agent collapses role boundaries, claims an unexecuted result, or declares the Increment Done alone.
+
+Conditional activation, restraint, finding disposition and integrated independent review are covered by [modular-development evaluations](modular-development.md).

@@ -5,7 +5,7 @@ description: The event-driven Scrum lifecycle, ownership boundaries, artifacts, 
 status: draft
 created: "2026-08-26"
 updated: "2026-10-18"
-generated: { by: "codex/gpt-6", at: "2026-10-18T00:23:19+02:00" }
+generated: { by: "codex/gpt-6", at: "2026-10-18T00:51:58+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -48,7 +48,7 @@ The runtime host loads the Planning workflow and activates separate agents at th
 1. The Product Owner first checks whether the current Product Goal has been achieved, establishes the next one with the human if necessary, orders the Product Backlog, and presents one PBI.
 2. Programmer and Tester ask understanding questions; the Product Owner clarifies and updates the PBI's product knowledge.
 3. The Tester adds business-facing test cases and examples to the pending plan.
-4. The Programmer adds its implementation approach, automated acceptance-test coverage, engineering tests, risks, dependencies, and sequence.
+4. The Programmer briefly checks responsibility placement, dependencies and needed separation, then adds its implementation approach, necessary scoped refactoring, automated acceptance-test coverage, engineering tests, independent structure review, risks and sequence.
 5. The Tester reviews the implementation plan for testability and adds material risks or gaps.
 
 Developers also make a short delivery-shape check. If another vertical split would materially reduce avoidable coordination, loops, or technical risk, they explain that trade-off to the Product Owner. The Product Owner decides whether to change the PBI; Developers neither set its priority nor replace it with technical-layer work.
@@ -68,7 +68,7 @@ flowchart LR
 
 ## 3. Delivery loop
 
-Developers pull one unblocked PBI at a time. The Programmer implements it, including unit, integration, and automated acceptance tests, and signals `implementation.testable` only after a meaningful slice is available. The Tester then independently executes the planned business-facing checks plus suitable UI and exploratory testing; it never starts execution merely because the Sprint began.
+Developers pull one unblocked PBI at a time. The Programmer implements it, including necessary behavior-preserving refactoring, unit, integration, and automated acceptance tests, and obtains proportionate independent structure review before signalling `implementation.testable`. The review concerns source structure and does not start independent acceptance execution early or add a lifecycle phase. Findings must be fixed or justifiably deferred, and relevant structural edits require focused re-review. The Tester then independently executes the planned business-facing checks plus suitable UI and exploratory testing; it never starts execution merely because the Sprint began.
 
 A confirmed defect creates an open Bug at the top of the Sprint Backlog and emits `test.finding`. A Programmer fixes production code and emits `bug.fix-ready`; the Tester independently retests the same Bug. Under the Zero Bug Policy, every Bug discovered in an active Sprint blocks Done and is resolved before normal work continues. If a cancelled or explicitly unfinished Sprint returns it to the Product Backlog, the Product Owner orders it very highly for the next Sprint; the unfinished work is never reported Done.
 

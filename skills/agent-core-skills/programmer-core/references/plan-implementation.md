@@ -5,8 +5,9 @@ Read this on `planning.pbi.quality-planned`, for implementation planning, or for
 1. Inspect the proposed PBI, Acceptance Criteria, pending Developer Plan, Product Code, existing tests, constraints, and the Tester's business-facing cases. Do not wait for the Sprint Goal or selected Sprint Backlog when the PBI is being planned.
 2. Collaborate with the other Developers on implementation sequence, integration, testing strategy, technical risks, and dependencies.
 3. Make technical choices independently within product constraints. Keep the Product Owner focused on users, value, outcomes, and expected behavior.
-4. Record material architecture decisions, migrations, dependencies, risks, and rollback considerations in the Developer Plan or a linked technical artifact. For every new or expanded technology stack, include compatible, actively maintained linting, coverage, reproducible setup and invocation, and the work needed before the first testable handoff. Plan these checks here; do not execute them during Planning.
-5. Adapt the plan as implementation reveals new information.
+4. Briefly check the affected architecture: which responsibility belongs in which module, what dependencies arise, and what separation the current change requires. Apply `$solid-design` for its Programmer-core triggers; record the resulting boundaries, necessary refactoring, verification, and proportionate independent review in the pending Developer Plan. Retain existing boundaries when no concrete separation is needed.
+5. Record material architecture decisions, migrations, dependencies, risks, and rollback considerations in the Developer Plan or a linked technical artifact. For every new or expanded technology stack, include compatible, actively maintained linting, coverage, reproducible setup and invocation, and the work needed before the first testable handoff. Plan these checks here; do not execute them during Planning.
+6. Adapt the plan as implementation reveals new information.
 
 ## Define acceptance tests collaboratively
 

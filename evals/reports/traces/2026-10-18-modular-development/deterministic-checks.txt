@@ -1,0 +1,2 @@
+exit_code: 0
+OK: diff, YAML, links, bootstrap, placeholders, and OKF validation

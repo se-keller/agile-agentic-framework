@@ -1,0 +1,20 @@
+{
+  "target": "cf7f9698612c33933f508620872349a7975e398c",
+  "files": {
+    "docs/architecture.md": "bc069ed2de2ef5429dc7724da2f45132a2cdf2675a4cd7f3313d9d91a27a7f30",
+    "docs/design-decisions.md": "bf7ed110610274d5983666db2293bc076eb90d7a26ec24dcb6f22f6da17ae1a2",
+    "docs/framework-guide.md": "a8a9bec087060f2a67394e578fc86dffec3c21c1a89c20ad064a684d6b378b62",
+    "docs/glossary.md": "1a50428fd36ec4cca13b741118cbf5b5e6a44d4eb3d13cd2e69fb2478a28a8bb",
+    "docs/sprint-lifecycle.md": "1419b7727850163ee270c6fade4e47327ad15d9efa425994354da36d4bc6b590",
+    "evals/AGENTS.md": "d00354cbe9edd2f9773f12f33ae790fa396b2bc89966ddb5a7b89bb08b6d36af",
+    "evals/critical-behavior.md": "1f4585837bacb10d654f62234c5553bf6e487c134388bc2d0e6e96e15ecef0a4",
+    "evals/developer-specialization-progressive-loading.md": "8f9fcb13db6745ae7c775312a9e43d81391133910ffbf74ce74d25413161a3f1",
+    "evals/engineering-skills.md": "312a7fd9641ce115557a90248295cf687eeded615e59536ad023e0b5075daef9",
+    "skills/agent-core-skills/programmer-core/SKILL.md": "160160e6bde7006835e34e9c81e1bfc9e31be3739abe137c13957730a21855c4",
+    "skills/agent-core-skills/programmer-core/references/plan-implementation.md": "bf0771a0b2a8f1ec60320e0bcf21c5450042f618ef756d6ed0d881bb97e31faf",
+    "skills/agent-core-skills/programmer-core/references/prepare-change-handoff.md": "9102cdfbd6ecfc96ff3b1a8aa9b4f7d341f4d8b45a6586829ccc90a610cbd7a4",
+    "skills/agent-core-skills/programmer-core/references/resolve-tester-finding.md": "14ffdf4dd73ccb4f335ec02f44e7d11845b40423aa6672c3f91c290926d8a26d",
+    "skills/run-sprint-cycle/references/coordinate-delivery.md": "80bb8796d599e4fda0da236c0a2e3816743e2e920c6f7c57a80bfaf1d662e62e",
+    "skills/solid-design/SKILL.md": "ece63b5217baa31474a545c1089b3cf7fbc0d3bec0a9d0f3a4f1bf14c9c1acfc"
+  }
+}

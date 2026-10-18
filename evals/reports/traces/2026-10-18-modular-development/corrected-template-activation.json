@@ -1,0 +1,6 @@
+{
+  "fixture": "/private/tmp/aaf-solid-20261018/checkout-rerun",
+  "workspace_contract_sha256": "18384817dc2d4fbd18253849f78c2adbe42b9202e30a7c0243b3427e41369682",
+  "template_sha256": "18384817dc2d4fbd18253849f78c2adbe42b9202e30a7c0243b3427e41369682",
+  "changes_since_first_activation": "Only bootstrap AGENTS entrypoint corrected; role/skill/workflow bodies unchanged. Fresh baseline checkout code, fresh role contexts; no prompt-level prehandoff authority exception."
+}

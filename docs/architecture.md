@@ -5,7 +5,7 @@ description: The layers, components, dependencies, and runtime interaction model
 status: draft
 created: "2026-08-26"
 updated: "2026-10-18"
-generated: { by: "codex/gpt-6", at: "2026-10-18T00:23:19+02:00" }
+generated: { by: "codex/gpt-6", at: "2026-10-18T00:51:58+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -83,7 +83,7 @@ An [agent manifest](https://github.com/se-keller/agile-agentic-framework/tree/ma
 - subscribed lifecycle events; and
 - task priority.
 
-A [core skill](https://github.com/se-keller/agile-agentic-framework/tree/main/skills/agent-core-skills/) defines behavioral accountability and operating boundaries. Process skills such as [run-sprint-cycle](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md) coordinate work across roles without absorbing their decisions. Optional catalog skills add narrowly matched techniques or capabilities—for example, browser-visible WebApp testing, [SOLID design](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/solid-design/SKILL.md), or the [test pyramid](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/test-pyramid/SKILL.md)—that any catalog-enabled role may apply within its own contract. They never change a role's authority or permissions.
+A [core skill](https://github.com/se-keller/agile-agentic-framework/tree/main/skills/agent-core-skills/) defines behavioral accountability and operating boundaries. Process skills such as [run-sprint-cycle](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md) coordinate work across roles without absorbing their decisions. Catalog skills add narrowly matched techniques or capabilities—for example, browser-visible WebApp testing, [SOLID design](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/solid-design/SKILL.md), or the [test pyramid](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/test-pyramid/SKILL.md). A core contract can require one conditionally: Programmer core requires SOLID for new responsibilities, changed module boundaries, strongly coupled extensions and independent structure review. Other uses remain selected according to concrete need within each role contract. They never change a role's authority or permissions.
 
 ```mermaid
 flowchart LR

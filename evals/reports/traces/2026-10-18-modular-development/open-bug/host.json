@@ -1,0 +1,17 @@
+{
+  "case": "EVAL-DONE-001",
+  "host": "/root",
+  "roles": {
+    "programmer": "/root/solid_done_programmer",
+    "tester": "/root/solid_done_tester"
+  },
+  "inspection": {
+    "increment_documentation_present": true,
+    "bug_open": true,
+    "required_test_exit": 1,
+    "current_lint_exit": 0,
+    "both_Developer_conclusions": "Done blocked"
+  },
+  "host_signals": [],
+  "transition": "withheld: failed required test/open Bug, no positive collective Done; no release/Sprint completion"
+}

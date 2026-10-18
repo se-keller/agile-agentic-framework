@@ -5,7 +5,7 @@ description: A human-oriented guide to starting and operating a product with AAF
 status: draft
 created: "2026-08-26"
 updated: "2026-10-18"
-generated: { by: "codex/gpt-6", at: "2026-10-18T00:23:19+02:00" }
+generated: { by: "codex/gpt-6", at: "2026-10-18T00:51:58+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -113,6 +113,14 @@ When Developers choose or extend a technology stack, they also select compatible
 Linting covers relevant source and test files. Every required check must complete without errors or warnings on the final integrated state before Done. Increment Documentation links the actual execution evidence; relevant source, version, or configuration changes require a fresh run. Missing tooling blocks completion. Developers may jointly document non-applicability only when no lintable files exist, and must reassess it when the product changes. Narrow, justified, jointly reviewed exceptions may address false positives; suppressing real findings cannot satisfy Done.
 
 Existing product workspaces adopt this baseline in their Definition of Done when updating to the framework version that introduces it.
+
+## Modular development within the current change
+
+Programmers apply SOLID when adding responsibilities, changing module boundaries or extending strongly coupled modules. Planning briefly maps responsibility placement, dependencies and necessary separation. The smallest coherent change includes behavior-preserving refactoring needed for that work; unrelated cleanup, speculative abstractions and extra layers do not belong to it. Functions and components can provide boundaries without classes.
+
+Before implementation, fix-ready or change handoff, an independent Developer or available review capability checks cohesion, coupling, interfaces and isolated testability on the actual diff. The author requests host routing when needed. A tiny correction can receive a brief review; author self-review cannot replace independence. A Tester may inspect source before handoff but cannot edit production code or execute independent acceptance checks early. This happens within existing work, without a new event or stage.
+
+Necessary structural findings are fixed in the change. Non-blocking concerns can be deferred with their location, concrete rationale and risk, and an observable reassessment trigger in the existing plan or linked follow-up. Relevant edits require focused re-review. Product-specific size and complexity signals prompt inspection; they do not impose universal line limits or require splitting cohesive code. Tools and values stay with the product.
 
 ## Extend one product without forking AAF
 

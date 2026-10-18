@@ -37,3 +37,5 @@ Place concise reports under `evals/reports/` or in the relevant review record. I
 - [Engineering skills](engineering-skills.md) checks language-agnostic SOLID design and test-pyramid behavior.
 
 - [Technology-neutral linting](linting.md) checks stack setup, current clean evidence, exceptions, applicability, and collective Done.
+
+- [Modular development](modular-development.md) checks mandatory contextual SOLID use, proportional review and restraint.

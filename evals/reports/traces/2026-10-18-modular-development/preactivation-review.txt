@@ -1,0 +1,10 @@
+Independent reviewer: /root/solid_review; fresh read-only context.
+
+The routing correction resolves the blocker. Candidate instructions are safe to activate in disposable fixtures: pre-handoff review is explicitly source-only, Tester permissions remain intact, and acceptance execution still waits for the normal handoff.
+
+Your scoped selection is defensible under evals/AGENTS.md:
+- Run MOD-001–004, SOLID-001, PROG-LOAD-001–004, TEST-001, DONE-001 and the focused separate-agent integration trace.
+- Retain accepted TEST-PYRAMID and SM-PLANNING baselines. Their unchanged taxonomy and facilitation behavior do not require new runs merely because their suites mention changed skills.
+- Exercise host routing, preserved identities, source-only review and execution timing explicitly in the integration trace. Retain accepted coverage for unchanged portions of MULTI-001 and SPRINT-DELIVERY-001; do not claim those full cases passed again unless fully exercised.
+
+Document these exclusions and their unchanged contracts in the report. Deterministic checks and actual critical-result review remain required before acceptance.

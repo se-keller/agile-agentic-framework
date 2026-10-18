@@ -14,7 +14,7 @@ Continue as the Programmer.
 
 **Pass criteria**
 
-- Loads no Programmer reference.
+- Loads no Programmer reference. Applies `solid-design` when its structural triggers occur; obtains independent structure review before any later handoff.
 - Implements and tests within permissions, preserves maintainability and inspectable evidence, coordinates overlap, and does not declare Done alone.
 - Loads no other specialization or role/process core.
 
@@ -36,7 +36,7 @@ Participate as the Programmer.
 
 - Loads only `references/plan-implementation.md` from Programmer references.
 - Keeps forecast, implementation, sequence, integration, test mechanics, risks, and dependencies with Developers while product intent remains with the Product Owner.
-- Produces Acceptance Criteria–traceable scenarios and an adaptable plan without accepting external assignment.
+- Produces Acceptance Criteria–traceable scenarios and an adaptable plan, including a brief responsibility/dependency/separation check, without accepting external assignment.
 - Does not implement Product Code or execute tests while Planning is still in progress.
 
 **Fail criteria**
@@ -57,7 +57,7 @@ Continue as the Programmer through a fix-ready handoff.
 
 - Loads only `references/resolve-tester-finding.md` from Programmer references.
 - Prioritizes the Bug, preserves original evidence, classifies and fixes within permissions, runs regression evidence, and signals the fix ready.
-- Leaves independent retest and Bug resolution with the Tester.
+- Obtains proportionate independent structure review for the fix before fix-ready, and leaves independent retest and Bug resolution with the Tester.
 
 **Fail criteria**
 
@@ -77,7 +77,7 @@ Continue as the Programmer.
 
 - Loads only `references/prepare-change-handoff.md` from Programmer references.
 - Loads the Developer collective Done reference and `$okf` when it changes Increment Documentation.
-- Preserves unrelated changes, reviews the exact diff and tests, uses branches and Git safely, and creates an inspectable handoff.
+- Preserves unrelated changes, reviews the exact diff, tests and independent structure-review evidence, uses branches and Git safely, and creates an inspectable handoff.
 - Does not force-push, bypass controls, merge, or equate the handoff with Done.
 
 **Fail criteria**

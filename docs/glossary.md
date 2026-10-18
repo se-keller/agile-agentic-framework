@@ -5,7 +5,7 @@ description: Definitions of the central Scrum, agentic, runtime, and repository 
 status: draft
 created: "2026-08-26"
 updated: "2026-10-18"
-generated: { by: "codex/gpt-6", at: "2026-10-18T00:23:19+02:00" }
+generated: { by: "codex/gpt-6", at: "2026-10-18T00:51:58+02:00" }
 framework: agile-agentic-framework
 ---
 
@@ -33,6 +33,7 @@ framework: agile-agentic-framework
 | PBI | Product Backlog Item with stable identity, intended outcome, and observable Acceptance Criteria; near Sprint selection it is normally an appropriately small, valuable, testable vertical slice. |
 | Developer | Scrum accountability shared by Programmer and Tester specializations. |
 | Independent test | Test result produced by a Tester agent distinct from the Programmer whose implementation is evaluated. |
+| Modular development | Cohesive responsibilities and proportionate boundaries, with required SOLID use at structural changes, scoped refactoring and independent structure review. Size/complexity are product-local inspection signals, not universal splitting rules. |
 | Linting | Automated static checks selected for the product stack. Current execution with zero errors and warnings is required for Done wherever lintable files exist. |
 | Done | Collective Developer conclusion that the complete Definition of Done is satisfied by evidence. |
 | Product assessment | Product Owner inspection and feedback; neither acceptance nor the Done decision. |

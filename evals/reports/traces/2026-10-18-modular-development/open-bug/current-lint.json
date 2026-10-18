@@ -1,0 +1,13 @@
+{
+  "command": "python -m flake8 .",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "source_sha256": {
+    ".flake8": "46a3d359caa0db87e7f982c419f003764ae087bf7f92b209b9293341d4b1bbb7",
+    "test_greeting.py": "aa95dc086d691b6f6243393a29d902bd576bf5941ed43a7a88d0d48903be355e",
+    "check.py": "9954dd3d3bcbf4be1a878db543ad9525693a9f9b93c6456122a144a392dba419",
+    "greeting.py": "357a105c26cf4c532769b0eb0e1fdfa3834c03ebd3f9743a511d7f64077f5283",
+    "requirements-dev.txt": "3cc4396e4f1f6e6020835663fb43ddabfa727ab8cdc1d5d7f9954a8cfbdf50f8"
+  }
+}

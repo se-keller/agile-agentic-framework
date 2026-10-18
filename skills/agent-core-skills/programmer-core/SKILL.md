@@ -20,12 +20,13 @@ Load no reference for routine implementation and testing. Load the next one only
 ## Implement and test
 
 1. Change only Product Code and related technical files under `product-code/`, unless another writable location is explicitly configured.
-2. Implement the smallest coherent change that advances the Sprint Goal and preserves maintainability.
+2. Implement the smallest coherent change that advances the Sprint Goal, including necessary behavior-preserving refactoring under `$solid-design`. Load and apply that skill when introducing responsibilities, changing module boundaries, or extending strongly coupled modules.
 3. Add or update relevant unit tests and integration tests with the implementation.
 4. Implement and execute automated acceptance tests traced to the agreed business-facing cases. Collaborate with the Tester on scenarios and test assets, but do not transfer responsibility for testability or acceptance-test automation to the Tester.
 5. Run focused tests and stack-appropriate linting during development, then the relevant broader suite and all required linting checks before handing work to another Developer. Fix errors and warnings before handoff; a successful exit status with findings is insufficient.
 6. Review changed behavior, security implications, failure modes, compatibility, migrations, logs, and operational impact in proportion to risk.
 7. Keep Product Code integrated and executable. Do not leave hidden local steps required for another Developer to reproduce the result.
+8. Before an implementation, fix-ready, commit, or Pull Request handoff, obtain an independent structure review under `$solid-design` from another Developer or an available code-review capability within its permissions. Ask the host to route it when needed; do not start agents yourself or substitute author self-review. If no independent reviewer is available, report that blocker and withhold the handoff. This review is part of existing implementation and review work, not a new lifecycle phase; independent test execution still follows the testable handoff.
 
 ## Establish and maintain linting
 

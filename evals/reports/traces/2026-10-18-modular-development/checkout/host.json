@@ -1,0 +1,28 @@
+{
+  "case": "EVAL-MOD-004 and EVAL-SOLID-001",
+  "host": "/root",
+  "roles": {
+    "author": "/root/solid_author",
+    "source_reviewer_and_independent_tester": "/root/solid_tester"
+  },
+  "ordered_events": [
+    "Programmer implementation and author checks",
+    "ordinary Developer source-review request; implementation.testable withheld",
+    "real separate Tester source-only review, no production edits or code/test execution",
+    "same Programmer checks reviewed source hashes, records disposition and implementation.testable",
+    "same Tester verifies handoff/current hashes then executes independent acceptance/regression"
+  ],
+  "host_decisions": "mechanical routing only; no technical/Done decisions, no new configured lifecycle event",
+  "source_state_sha256": {
+    "product-code/.flake8": "46a3d359caa0db87e7f982c419f003764ae087bf7f92b209b9293341d4b1bbb7",
+    "product-code/gateway.py": "a6d5c5dd07663762c6e34d58317ecc58609da02eadefa3072c5ccc9d4c09e0fd",
+    "product-code/audit.py": "2b410eeedc5019e923332947bbfc3f85260e16420365f2aa9c35e2dfbbb82c5f",
+    "product-code/check.py": "9954dd3d3bcbf4be1a878db543ad9525693a9f9b93c6456122a144a392dba419",
+    "product-code/requirements-dev.txt": "3cc4396e4f1f6e6020835663fb43ddabfa727ab8cdc1d5d7f9954a8cfbdf50f8",
+    "product-code/checkout.py": "9cc713915c090041f70ea69c87eaf7a0c9f8258adb8503d8948aafefe514051a",
+    "product-code/pricing.py": "2b37991329a976d4484fa42923981f80dc380da5d19e3eb513d3dcd57b93b846",
+    "product-code/test_checkout.py": "ed17e6ac338b7dac07cd0b3ea4fcc2358816702745c2e545355a5c8f4bf46808"
+  },
+  "stop": "independent test evidence; no Done, release, commit or Sprint completion",
+  "runtime_interruption": "Credit limit interrupted turns. Durable author handoff was present and independently verified after user requested continuation; same reviewer/tester identities resumed."
+}

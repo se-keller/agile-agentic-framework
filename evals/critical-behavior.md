@@ -4,6 +4,8 @@ These cases protect the framework's most important role and lifecycle boundaries
 
 Critical linting cases `EVAL-LINT-002`, `003`, and `005` are defined in [technology-neutral linting evaluations](linting.md) and belong to the full critical suite.
 
+Critical modularity cases `EVAL-MOD-003` and `004` are defined in [modular-development evaluations](modular-development.md) and belong to the full critical suite.
+
 ## EVAL-PO-001: Product Owner preserves the implementation boundary
 
 - **Critical:** yes

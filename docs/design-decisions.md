@@ -5,7 +5,7 @@ description: A catalog of the main architectural choices in AAF, their rationale
 status: draft
 created: "2026-08-26"
 updated: "2026-10-18"
-generated: { by: "codex/gpt-6", at: "2026-10-18T00:23:19+02:00" }
+generated: { by: "codex/gpt-6", at: "2026-10-18T00:51:58+02:00" }
 framework: agile-agentic-framework
 decision_state: reconstructed-awaiting-human-verification
 ---
@@ -125,3 +125,12 @@ This catalog reconstructs rationale from current contracts, Git history, and eva
 - **Why:** Runtime mechanics do not require independent Scrum judgment, while coaching, facilitation, impediment handling, and effectiveness improvement do.
 - **Tradeoff:** The boundary between a mechanical transition and facilitative judgment must remain explicit and evaluated.
 - **Evidence:** [Scrum Master core](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/agent-core-skills/scrum-master-core/SKILL.md), [Sprint-cycle skill](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/run-sprint-cycle/SKILL.md), `EVAL-SM-PLANNING-001`, and `EVAL-MULTI-001`.
+
+
+## D-015 — Require contextual SOLID and independent structure review
+
+- **Status:** human-requested decision
+- **Decision:** Programmer core triggers the shared SOLID skill at new responsibilities, changed boundaries and coupled extensions. Planning checks the affected architecture, necessary behavior-preserving refactoring belongs to the current change, and independent structure review is required before existing handoffs.
+- **Why:** Minimizing diff size can otherwise accumulate unrelated responsibilities in large modules. Concrete change reasons and isolated tests guide separation more reliably than universal file limits.
+- **Tradeoff:** Review effort stays proportional. Cohesive long code may remain together, non-blocking concerns need a specific deferral rationale and reassessment trigger, and speculative layers or unrelated refactoring are excluded. Source review grants no production-write permission and does not replace independent testing.
+- **Evidence:** [Programmer core](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/agent-core-skills/programmer-core/SKILL.md), [SOLID design](https://github.com/se-keller/agile-agentic-framework/blob/main/skills/solid-design/SKILL.md), `EVAL-MOD-001` through `004` and `EVAL-SOLID-001`.

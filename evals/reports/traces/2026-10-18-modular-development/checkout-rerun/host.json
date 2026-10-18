@@ -1,0 +1,23 @@
+{
+  "host": "/root",
+  "case": "EVAL-MOD-004 and EVAL-SOLID-001 corrected-template integration",
+  "roles": {
+    "author": "/root/solid_author_final",
+    "reviewer_and_independent_tester": "/root/solid_tester_final"
+  },
+  "workspace_contract": "corrected generated AGENTS; no prompt-level routing exception",
+  "ordered_events": [
+    "author conditional SOLID load, implementation and passing checks",
+    "author requests review, no testable signal",
+    "separate Tester source-only review; no Product Code/lint/test execution",
+    "same author verifies unchanged reviewed source, records disposition and implementation.testable",
+    "same Tester verifies handoff/current state then runs own checks"
+  ],
+  "mechanical_verification": {
+    "source_config_and_tool_files_match_author_record": 8,
+    "independent_result": "10 automated tests, clean lint, eight exploratory scenarios passed",
+    "host_design_or_Done_decision": false
+  },
+  "signals_added_to_framework": [],
+  "stop": "independent test evidence; no Done/release/Sprint transition"
+}
